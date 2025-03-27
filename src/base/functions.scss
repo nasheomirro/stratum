@@ -1,0 +1,13 @@
+@use "sass:list";
+
+@function pair($name, $pair) {
+  $light: list.nth($pair, 1);
+  $dark: list.nth($pair, 2);
+  @return light-dark(var(--color-#{$name}-#{$light}), var(--color-#{$name}-#{$dark}));
+}
+
+@function pair-contrast($name, $pair) {
+  $light: list.nth($pair, 1);
+  $dark: list.nth($pair, 2);
+  @return light-dark(var(--color-#{$name}-contrast-#{$light}), var(--color-#{$name}-contrast-#{$dark}));
+}

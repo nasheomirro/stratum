@@ -1,0 +1,36 @@
+@layer base {
+  :root {
+    color-scheme: light;
+
+    @variant dark {
+      color-scheme: dark;
+    }
+
+    scrollbar-color: var(--color-surface-300-700) var(--color-surface-900-100);
+    scrollbar-width: thin;
+  }
+
+  body {
+    background-color: var(--color-surface-50-950);
+    color: var(--color-surface-950-50);
+    font-family: var(--font-base);
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  ::selection {
+    background-color: color-mix(in oklab, var(--color-primary-500) 50%, transparent)
+  }
+
+  *:disabled,
+  .disabled {
+    opacity: 0.5;
+
+    &>* {
+      pointer-events: none;
+    }
+  }
+}
