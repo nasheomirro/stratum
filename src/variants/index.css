@@ -1,0 +1,11 @@
+@custom-variant hocus (&:hover, &:focus);
+@custom-variant hocus-within (&:hover, &:focus-within);
+@custom-variant hocus-visible (&:hover, &:focus-visible);
+
+@custom-variant base {
+
+  /* the layer `base` isn't the actual `base` layer but is the `utilities.base` layer */
+  @layer base {
+    @slot;
+  }
+}

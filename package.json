@@ -11,6 +11,14 @@
     ".": {
       "style": "./dist/index.css",
       "default": "./dist/index.css"
+    },
+    "./themes/*": {
+      "style": "./dist/themes/*.css",
+      "default": "./dist/themes/*.css"
+    },
+    "./presets/*": {
+      "style": "./dist/presets/*/index.css",
+      "default": "./dist/presets/*/index.css"
     }
   },
   "files": [
@@ -24,7 +32,9 @@
     "tailwindcss": "^4.0.0"
   },
   "devDependencies": {
+    "@types/node": "^22.13.14",
     "sass-embedded": "^1.86.0",
+    "tinyglobby": "^0.2.12",
     "vite": "^6.2.3"
   }
 }

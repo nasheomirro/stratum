@@ -1,0 +1,6 @@
+@import "./vars.scss";
+
+@utility preset-filled-* {
+  background-color: --value(--filled-*);
+  color: --value(--filled-*--constrast);
+}

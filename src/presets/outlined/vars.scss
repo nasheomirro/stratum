@@ -1,0 +1,18 @@
+@use "sass:list";
+@use "../../constants.scss";
+
+@mixin outlined-inline {
+  @each $name in constants.$color-names {
+    --outlined-#{$name}-500: var(--color-#{$name}-500);
+
+    @each $pair in constants.$color-pairings {
+      $light: list.nth($pair, 1);
+      $dark: list.nth($pair, 2);
+      --outlined-#{$name}-#{$light}-#{$dark}: #{constants.pair($name, $pair)};
+    }
+  }
+}
+
+@theme inline {
+  @include outlined-inline;
+}

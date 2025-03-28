@@ -1,6 +1,0 @@
-/* the layer `base` isn't the actual `base` layer but is the `utilities.base` layer */
-@custom-variant base {
-  @layer base {
-    @slot;
-  }
-}
