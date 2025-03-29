@@ -1,0 +1,23 @@
+@import "./vars.scss";
+
+@utility focusable {
+  border-width: 1px;
+  border-color: var(--color-primary-500);
+  outline: 2px solid transparent;
+
+  &:focus,
+  &:focus-within {
+    outline-color: color-mix(in oklab, var(--color-primary-500) 50%, transparent);
+  }
+}
+
+@utility focusable-* {
+  outline: 2px solid transparent;
+  border-width: 1px;
+  border-color: --value(--focusable-*);
+
+  &:focus,
+  &:focus-within {
+    outline-color: color-mix(in oklab, --value(--focusable-*) 50%, transparent);
+  }
+}

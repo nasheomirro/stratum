@@ -1,0 +1,74 @@
+@theme inline {
+  --pip-size-sm: --spacing(1);
+  --pip-size-sm--inline: --spacing(3);
+  --pip-size-sm--font-size: var(--text-xs);
+  --pip-size-sm--line-height: var(--text-xs--line-height);
+
+  --pip-size-base: --spacing(1);
+  --pip-size-base--inline: --spacing(4);
+  --pip-size-base--font-size: var(--text-base);
+  --pip-size-base--line-height: var(--text-base--line-height);
+
+  --pip-size-lg: --spacing(2);
+  --pip-size-lg--inline: --spacing(5);
+  --pip-size-lg--font-size: var(--text-xl);
+  --pip-size-lg--line-height: var(--text-xl--line-height);
+
+  --pip-icon-sm: var(--text-xs);
+  --pip-icon-sm--padding: --spacing(1.5);
+  --pip-icon-base: var(--text-base);
+  --pip-icon-base--padding: --spacing(2);
+  --pip-icon-lg: var(--text-xl);
+  --pip-icon-lg--padding: --spacing(3);
+}
+
+@utility pip {
+  /* Layout */
+  border-radius: var(--radius-md);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: --spacing(2);
+
+  /* Typography */
+  text-decoration-line: none;
+  white-space: nowrap;
+
+  padding-block: --spacing(1);
+  padding-inline: --spacing(4);
+  font-size: var(--text-base);
+  line-height: var(--text-base--line-height);
+}
+
+@utility pip-* {
+  padding-block: --value(--pip-size-*);
+  padding-inline: --value(--pip-size-*--inline);
+  font-size: --value(--pip-size-*--font-size);
+  line-height: --value(--pip-size-*--line-height);
+}
+
+@utility pip-icon {
+  /* Layout */
+  border-radius: var(--radius-md);
+  box-sizing: content-box;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Typography */
+  text-decoration-line: none;
+  white-space: nowrap;
+
+
+  font-size: var(--text-base);
+  width: var(--text-base);
+  height: var(--text-base);
+  padding: --spacing(2);
+}
+
+@utility pip-icon-* {
+  font-size: --value(--pip-icon-*);
+  width: --value(--pip-icon-*);
+  height: --value(--pip-icon-*);
+  padding: --value(--pip-icon-*--padding);
+}

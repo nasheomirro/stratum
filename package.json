@@ -12,13 +12,17 @@
       "style": "./dist/index.css",
       "default": "./dist/index.css"
     },
+    "./presets": {
+      "style": "./dist/presets.css",
+      "default": "./dist/presets.css"
+    },
     "./themes/*": {
       "style": "./dist/themes/*.css",
       "default": "./dist/themes/*.css"
     },
-    "./presets/*": {
-      "style": "./dist/presets/*/index.css",
-      "default": "./dist/presets/*/index.css"
+    "./utilities/*": {
+      "style": "./dist/utilities/*/index.css",
+      "default": "./dist/utilities/*/index.css"
     }
   },
   "files": [

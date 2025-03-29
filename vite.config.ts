@@ -10,6 +10,7 @@ export default defineConfig({
       formats: ["es"],
       entry: {
         index: "src/index.css",
+        presets: "src/presets/index.css",
         ...Object.fromEntries(
           (await glob("./src/themes/*.{css,scss}")).map((path) => {
             const directory = basename(dirname(path));
@@ -18,10 +19,10 @@ export default defineConfig({
           })
         ),
         ...Object.fromEntries(
-          (await glob("./src/presets/**/index.{css,scss}")).map((path) => {
+          (await glob("./src/utilities/**/index.{css,scss}")).map((path) => {
             const directory = basename(dirname(path));
             const filename = basename(path);
-            return [join("presets", directory, filename), path];
+            return [join("utilities", directory), path];
           })
         ),
       },

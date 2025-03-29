@@ -1,9 +1,6 @@
 @use "sass:list";
 @use "../constants.scss";
 
-// including mixins instead of directly applying it to `@theme` is a
-// bit of a hacky way to avoid linting/build errors from sass since it
-// doesn't recognize `@theme` as an at-rule or selector.
 @mixin reset {
   /* Resets */
   --text-#{'\2A'}: initial;
@@ -15,17 +12,6 @@
   /* Scalar Properties */
   --spacing: 0.25rem;
   --text-scaling: 1;
-  --radius-scaling: 1;
-}
-
-@mixin radius {
-  --radius-xs: calc(0.125rem * var(--radius-scaling));
-  --radius-sm: calc(0.25rem * var(--radius-scaling));
-  --radius-md: calc(0.375rem * var(--radius-scaling));
-  --radius-lg: calc(0.5rem * var(--radius-scaling));
-  --radius-xl: calc(0.75rem * var(--radius-scaling));
-  --radius-2xl: calc(1rem * var(--radius-scaling));
-  --radius-3xl: calc(1.5rem * var(--radius-scaling));
 }
 
 @mixin text-sizes {
@@ -57,6 +43,13 @@
   --text-9xl--line-height: 1;
 }
 
+/* variables that can be overriden by a theme */
+@mixin default-variables {
+  /* Border Radius */
+  --radius-base: 0.25rem;
+  --radius-container: 0.5rem;
+}
+
 @mixin color-pairings {
   @each $name in constants.$color-names {
     @each $pair in constants.$color-pairings {
@@ -73,10 +66,10 @@
 
 @theme {
   @include reset;
-  @include radius;
+  @include text-sizes;
+  @include default-variables;
 }
 
 @theme inline {
-  @include text-sizes;
   @include color-pairings;
 }
