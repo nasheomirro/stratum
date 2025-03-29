@@ -1,21 +1,31 @@
 @use "sass:list";
 @use "../constants.scss";
 
-// including mixins instead of directly applying it to `@theme` is a 
+// including mixins instead of directly applying it to `@theme` is a
 // bit of a hacky way to avoid linting/build errors from sass since it
 // doesn't recognize `@theme` as an at-rule or selector.
-
-@mixin theme-reset {
-  /* Font Reset */
+@mixin reset {
+  /* Resets */
   --text-#{'\2A'}: initial;
-
-  /* Color Reset */
   --color-#{'\2A'}: initial;
+  --radius-#{'\2A'}: initial;
+
   --color-transparent: transparent;
 
   /* Scalar Properties */
   --spacing: 0.25rem;
   --text-scaling: 1;
+  --radius-scaling: 1;
+}
+
+@mixin radius {
+  --radius-xs: calc(0.125rem * var(--radius-scaling));
+  --radius-sm: calc(0.25rem * var(--radius-scaling));
+  --radius-md: calc(0.375rem * var(--radius-scaling));
+  --radius-lg: calc(0.5rem * var(--radius-scaling));
+  --radius-xl: calc(0.75rem * var(--radius-scaling));
+  --radius-2xl: calc(1rem * var(--radius-scaling));
+  --radius-3xl: calc(1.5rem * var(--radius-scaling));
 }
 
 @mixin text-sizes {
@@ -53,13 +63,17 @@
       $light: list.nth($pair, 1);
       $dark: list.nth($pair, 2);
       --color-#{$name}-#{$light}-#{$dark}: #{constants.pair($name, $pair)};
-      --color-contrast-#{$name}-#{$light}-#{$dark}: #{constants.pair-contrast($name, $pair)};
+      --color-contrast-#{$name}-#{$light}-#{$dark}: #{constants.pair-contrast(
+          $name,
+          $pair
+        )};
     }
   }
 }
 
 @theme {
-  @include theme-reset;
+  @include reset;
+  @include radius;
 }
 
 @theme inline {

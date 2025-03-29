@@ -1,0 +1,84 @@
+@theme inline {
+  --widget-size-sm: --spacing(1);
+  --widget-size-sm--inline: --spacing(3);
+  --widget-size-sm--font-size: var(--text-xs);
+  --widget-size-sm--line-height: var(--text-xs--line-height);
+
+  --widget-size-base: --spacing(1);
+  --widget-size-base--inline: --spacing(4);
+  --widget-size-base--font-size: var(--text-base);
+  --widget-size-base--line-height: var(--text-base--line-height);
+
+  --widget-size-lg: --spacing(2);
+  --widget-size-lg--inline: --spacing(5);
+  --widget-size-lg--font-size: var(--text-xl);
+  --widget-size-lg--line-height: var(--text-xl--line-height);
+
+  --widget-icon-sm: var(--text-xs);
+  --widget-icon-sm--padding: --spacing(1.5);
+  --widget-icon-base: var(--text-base);
+  --widget-icon-base--padding: --spacing(2);
+  --widget-icon-lg: var(--text-xl);
+  --widget-icon-lg--padding: --spacing(3);
+}
+
+@utility widget {
+  /* Layout */
+  border-radius: var(--radius-md);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: --spacing(2);
+
+  /* Typography */
+  text-decoration-line: none;
+  white-space: nowrap;
+
+  /* Transitions */
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter;
+  transition-timing-function: var(--default-transition-timing-function);
+  transition-duration: var(--default-transition-duration);
+
+  padding-block: --spacing(1);
+  padding-inline: --spacing(4);
+  font-size: var(--text-base);
+  line-height: var(--text-base--line-height);
+}
+
+@utility widget-* {
+  padding-block: --value(--widget-size-*);
+  padding-inline: --value(--widget-size-*--inline);
+  font-size: --value(--widget-size-*--font-size);
+  line-height: --value(--widget-size-*--line-height);
+}
+
+@utility widget-icon {
+  /* Layout */
+  border-radius: var(--radius-md);
+  box-sizing: content-box;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Typography */
+  text-decoration-line: none;
+  white-space: nowrap;
+
+  /* Transitions */
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter;
+  transition-timing-function: var(--default-transition-timing-function);
+  transition-duration: var(--default-transition-duration);
+
+
+  font-size: var(--text-base);
+  width: var(--text-base);
+  height: var(--text-base);
+  padding: --spacing(2);
+}
+
+@utility widget-icon-* {
+  font-size: --value(--widget-icon-*);
+  width: --value(--widget-icon-*);
+  height: --value(--widget-icon-*);
+  padding: --value(--widget-icon-*--padding);
+}

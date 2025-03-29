@@ -1,4 +1,4 @@
-@utility preset-bright {
+@utility bright {
   filter: brightness(125%);
 
   @variant dark {
@@ -6,7 +6,7 @@
   }
 }
 
-@utility preset-bright-container {
+@utility bright-container {
   filter: brightness(95%);
 
   @variant dark {

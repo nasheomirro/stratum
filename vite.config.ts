@@ -18,7 +18,7 @@ export default defineConfig({
           })
         ),
         ...Object.fromEntries(
-          (await glob("./src/presets/**/index.css")).map((path) => {
+          (await glob("./src/presets/**/index.{css,scss}")).map((path) => {
             const directory = basename(dirname(path));
             const filename = basename(path);
             return [join("presets", directory, filename), path];

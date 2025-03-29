@@ -1,6 +1,6 @@
 @import "./vars.scss";
 
-@utility preset-outlined-* {
+@utility outlined-* {
   border-width: 1px;
   border-color: --value(--outlined-*);
 }
