@@ -1,7 +1,0 @@
-@utility brighten {
-  filter: brightness(125%);
-
-  @variant dark {
-    filter: brightness(75%);
-  }
-}

@@ -1,8 +1,13 @@
 @theme inline {
+  --pip-size-xs: --spacing(1);
+  --pip-size-xs--inline: --spacing(3);
+  --pip-size-xs--font-size: var(--text-xs);
+  --pip-size-xs--line-height: var(--text-xs--line-height);
+
   --pip-size-sm: --spacing(1);
   --pip-size-sm--inline: --spacing(3);
-  --pip-size-sm--font-size: var(--text-xs);
-  --pip-size-sm--line-height: var(--text-xs--line-height);
+  --pip-size-sm--font-size: var(--text-sm);
+  --pip-size-sm--line-height: var(--text-sm--line-height);
 
   --pip-size-base: --spacing(1);
   --pip-size-base--inline: --spacing(4);
@@ -24,7 +29,7 @@
 
 @utility pip {
   /* Layout */
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-base);
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -34,10 +39,29 @@
   text-decoration-line: none;
   white-space: nowrap;
 
+  /* Transitions */
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter;
+  transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+  transition-duration: var(--tw-duration, var(--default-transition-duration));
+
   padding-block: --spacing(1);
   padding-inline: --spacing(4);
   font-size: var(--text-base);
   line-height: var(--text-base--line-height);
+}
+
+@utility pip-block {
+  /* Layout */
+  display: block;
+  border-radius: var(--radius-base);
+  
+  /* Typography */
+  text-decoration-line: none;
+
+  /* Transitions */
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter;
+  transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+  transition-duration: var(--tw-duration, var(--default-transition-duration));
 }
 
 @utility pip-* {
@@ -49,7 +73,7 @@
 
 @utility pip-icon {
   /* Layout */
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-base);
   box-sizing: content-box;
   display: inline-flex;
   justify-content: center;
@@ -59,6 +83,10 @@
   text-decoration-line: none;
   white-space: nowrap;
 
+  /* Transitions */
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter;
+  transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+  transition-duration: var(--tw-duration, var(--default-transition-duration));
 
   font-size: var(--text-base);
   width: var(--text-base);
@@ -71,4 +99,14 @@
   width: --value(--pip-icon-*);
   height: --value(--pip-icon-*);
   padding: --value(--pip-icon-*--padding);
+}
+
+@utility pip-hover {
+  @variant hover {
+    filter: brightness(125%);
+
+    @variant dark {
+      filter: brightness(75%);
+    }
+  }
 }

@@ -1,9 +1,15 @@
 @import "./vars.scss";
 
 @utility focusable {
+  /* Style */
   border-width: 1px;
   border-color: var(--color-primary-500);
   outline: 2px solid transparent;
+
+  /* Transitions */
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter;
+  transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+  transition-duration: var(--tw-duration, var(--default-transition-duration));
 
   &:focus,
   &:focus-within {
@@ -12,9 +18,15 @@
 }
 
 @utility focusable-* {
+  /* Style */
   outline: 2px solid transparent;
   border-width: 1px;
   border-color: --value(--focusable-*);
+
+  /* Transitions */
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter;
+  transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+  transition-duration: var(--tw-duration, var(--default-transition-duration));
 
   &:focus,
   &:focus-within {
