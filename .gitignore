@@ -50,4 +50,4 @@ pnpm-debug.log*
 
 # stratum playground (temporary)
 *.astro
-stratum-base/styles/globals.css
+playgrounds/stratum-base/src/styles/*
