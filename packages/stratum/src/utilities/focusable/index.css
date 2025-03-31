@@ -31,6 +31,6 @@
   &:focus,
   &:focus-within {
     outline-color: color-mix(in oklab, --value(--focusable-*) 50%, transparent);
-    outline-color: color-mix(in oklab, --value(--focusable-*) --modifier(number), transparent);
+    outline-color: color-mix(in oklab, --value(--focusable-*) --modifier(number)%, transparent);
   }
 }
