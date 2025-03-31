@@ -1,44 +1,13 @@
 {
-  "name": "@nasheomirro/stratum",
-  "version": "0.1.0",
+  "name": "stratum-lib",
+  "version": "1.0.0",
   "description": "",
-  "type": "module",
+  "main": "index.js",
   "scripts": {
-    "dev": "vite build --watch",
-    "build": "vite build"
+    "dev": "pnpm --parallel dev",
+    "build": "pnpm --recursive build"
   },
-  "exports": {
-    ".": {
-      "style": "./dist/index.css",
-      "default": "./dist/index.css"
-    },
-    "./presets": {
-      "style": "./dist/presets.css",
-      "default": "./dist/presets.css"
-    },
-    "./themes/*": {
-      "style": "./dist/themes/*.css",
-      "default": "./dist/themes/*.css"
-    },
-    "./utilities/*": {
-      "style": "./dist/utilities/*/index.css",
-      "default": "./dist/utilities/*/index.css"
-    }
-  },
-  "files": [
-    "dist"
-  ],
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "packageManager": "pnpm@10.6.5",
-  "peerDependencies": {
-    "tailwindcss": "^4.0.0"
-  },
-  "devDependencies": {
-    "@types/node": "^22.13.14",
-    "sass-embedded": "^1.86.0",
-    "tinyglobby": "^0.2.12",
-    "vite": "^6.2.3"
-  }
+  "license": "ISC"
 }

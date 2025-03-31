@@ -1,4 +1,13 @@
 @theme {
+  /* Default Variables */
+  --body-default-background-color-light: oklch(99.11% 0 none);
+  --body-default-background-color-dark: oklch(18.22% 0 none);
+  --body-default-text-color-light: oklch(18.22% 0 none);
+  --body-default-text-color-dark: oklch(99.11% 0 none);
+
+  --radius-base: 0.25rem;
+  --radius-container: 0.5rem;
+
   /* Color Sets */
   --color-primary-50: oklch(91.93% 0.04 256.59deg);
   --color-primary-100: oklch(84.19% 0.07 255.4deg);

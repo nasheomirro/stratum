@@ -8,7 +8,6 @@
   --radius-#{'\2A'}: initial;
 }
 
-/* variables that can be overriden by a theme */
 @mixin default-variables {
   /* Border Radius */
   --radius-base: 0.25rem;
@@ -16,6 +15,20 @@
 
   /* Colors */
   --color-transparent: transparent;
+  --body-default-background-color-light: var(--surface-50);
+  --body-default-background-color-dark: var(--surface-950);
+  --body-default-text-color-light: var(--surface-950);
+  --body-default-text-color-dark: var(--surface-50);
+
+  --body-default-background-color: light-dark(
+    var(--body-default-background-color-light),
+    var(--body-deault-background-color-dark)
+  );
+
+  --body-default-text-color: light-dark(
+    var(--body-default-text-color-light),
+    var(--body-deault-text-color-dark)
+  );
 
   /* Scalar Properties */
   --spacing: 0.25rem;
@@ -50,7 +63,8 @@
   --text-9xl--line-height: 1;
 }
 
-@mixin color-pairings {
+@mixin inline-variables {
+  /* Color Pairings */
   @each $name in constants.$color-names {
     @each $pair in constants.$color-pairings {
       $light: list.nth($pair, 1);
@@ -70,5 +84,5 @@
 }
 
 @theme inline {
-  @include color-pairings;
+  @include inline-variables;
 }

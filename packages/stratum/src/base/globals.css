@@ -11,8 +11,8 @@
   }
 
   body {
-    background-color: var(--color-surface-50-950);
-    color: var(--color-surface-950-50);
+    background-color: var(--body-default-background-color);
+    color: var(--body-default-text-color);
     font-family: var(--font-base);
   }
 
