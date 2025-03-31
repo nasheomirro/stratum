@@ -12,9 +12,9 @@
       "style": "./dist/index.css",
       "default": "./dist/index.css"
     },
-    "./presets": {
-      "style": "./dist/presets.css",
-      "default": "./dist/presets.css"
+    "./presets/*": {
+      "style": "./dist/presets/*.css",
+      "default": "./dist/presets/*.css"
     },
     "./themes/*": {
       "style": "./dist/themes/*.css",

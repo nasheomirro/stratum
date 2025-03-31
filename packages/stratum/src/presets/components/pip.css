@@ -1,6 +1,6 @@
 @theme inline {
   --pip-size-xs: --spacing(1);
-  --pip-size-xs--inline: --spacing(3);
+  --pip-size-xs--inline: --spacing(2);
   --pip-size-xs--font-size: var(--text-xs);
   --pip-size-xs--line-height: var(--text-xs--line-height);
 
@@ -54,7 +54,7 @@
   /* Layout */
   display: block;
   border-radius: var(--radius-base);
-  
+
   /* Typography */
   text-decoration-line: none;
 

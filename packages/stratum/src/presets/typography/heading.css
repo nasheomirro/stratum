@@ -1,0 +1,60 @@
+/* A set of resonsive text sizes */
+@utility h1 {
+  font-size: var(--text-4xl);
+  line-height: var(--text-4xl--line-height);
+
+  @variant md {
+    font-size: var(--text-5xl);
+    line-height: var(--text-5xl--line-height);
+  }
+}
+
+@utility h2 {
+  font-size: var(--text-3xl);
+  line-height: var(--text-3xl--line-height);
+
+  @variant md {
+    font-size: var(--text-4xl);
+    line-height: var(--text-4xl--line-height);
+  }
+}
+
+@utility h3 {
+  font-size: var(--text-2xl);
+  line-height: var(--text-2xl--line-height);
+
+  @variant md {
+    font-size: var(--text-3xl);
+    line-height: var(--text-3xl--line-height);
+  }
+}
+
+@utility h4 {
+  font-size: var(--text-xl);
+  line-height: var(--text-xl--line-height);
+
+  @variant md {
+    font-size: var(--text-2xl);
+    line-height: var(--text-2xl--line-height);
+  }
+}
+
+@utility h5 {
+  font-size: var(--text-lg);
+  line-height: var(--text-lg--line-height);
+
+  @variant md {
+    font-size: var(--text-xl);
+    line-height: var(--text-xl--line-height);
+  }
+}
+
+@utility h6 {
+  font-size: var(--text-base);
+  line-height: var(--text-base--line-height);
+
+  @variant md {
+    font-size: var(--text-lg);
+    line-height: var(--text-lg--line-height);
+  }
+}
