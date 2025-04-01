@@ -100,13 +100,3 @@
   height: --value(--pip-icon-*);
   padding: --value(--pip-icon-*--padding);
 }
-
-@utility pip-hover {
-  @variant hover {
-    filter: brightness(125%);
-
-    @variant dark {
-      filter: brightness(75%);
-    }
-  }
-}

@@ -1,0 +1,16 @@
+/* the brightness that `presets` use */
+@utility brightness-base {
+  filter: brightness(125%);
+
+  @variant dark {
+    filter: brightness(75%);
+  }
+}
+
+@utility brightness-container {
+  filter: brightness(95%);
+
+  @variant dark {
+    filter: brightness(110%);
+  }
+}

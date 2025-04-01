@@ -2,34 +2,8 @@
   /* Style */
   border-radius: var(--radius-container);
 
-  /* add card-hover by default */
-  &a {
-    /* Transitions */
-    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter;
-    transition-timing-function: var(--default-transition-timing-function);
-    transition-duration: var(--default-transition-duration);
-
-    @variant hover {
-      filter: brightness(95%);
-
-      @variant dark {
-        filter: brightness(110%);
-      }
-    }
-  }
-}
-
-@utility card-hover {
   /* Transitions */
   transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter;
   transition-timing-function: var(--default-transition-timing-function);
   transition-duration: var(--default-transition-duration);
-
-  @variant hover {
-    filter: brightness(95%);
-
-    @variant dark {
-      filter: brightness(110%);
-    }
-  }
 }
