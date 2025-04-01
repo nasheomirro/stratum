@@ -1,4 +1,3 @@
-/* the brightness that `presets` use */
 @utility brightness-base {
   filter: brightness(125%);
 

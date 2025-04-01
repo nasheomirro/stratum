@@ -9,9 +9,9 @@
 }
 
 @mixin default-variables {
-  /* Border Radius */
-  --radius-base: 0.25rem;
-  --radius-container: 0.5rem;
+  /* Scalar Properties */
+  --spacing: 0.25rem;
+  --text-scaling: 1;
 
   /* Colors */
   --color-transparent: transparent;
@@ -30,9 +30,9 @@
     var(--body-deault-text-color-dark)
   );
 
-  /* Scalar Properties */
-  --spacing: 0.25rem;
-  --text-scaling: 1;
+  /* Border Radius */
+  --radius-base: 0.25rem;
+  --radius-container: 0.5rem;
 
   /* Text Sizes */
   --text-xs: calc(var(--text-scaling) * 0.75rem);
