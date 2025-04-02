@@ -1,0 +1,87 @@
+/* holds the anchor's static styles without the configuration of :hover, :active, and :focus states */
+@utility anchor-base {
+  @apply text-base-anchor-light dark:text-base-anchor-dark;
+  @apply font-base-anchor font-base-anchor-weight anchor-font-style tracking-base-anchor;
+  @apply anchor-text-decoration anchor-text-underline-offset;
+}
+
+@utility anchor {
+  @apply anchor-base;
+
+  /* Active states that default to their unset counterparts if not provided */
+  --text-underline-offset-active: var(--anchor-text-underline-offset-active, var(--anchor-text-underline-offset));
+
+  --text-decoration-active-light: var(--anchor-text-decoration-active-light,
+      var(--anchor-text-decoration-light));
+
+  --text-decoration-active-dark: var(--anchor-text-decoration-active-dark,
+      var(--anchor-text-decoration-dark));
+
+  --color-active-light: var(--color-base-anchor-active-light,
+      var(--color-base-anchor-light));
+
+  --color-active-dark: var(--color-base-anchor-active-dark,
+      var(--color-base-anchor-dark));
+
+  @variant hover {
+    color: var(--color-active-light);
+    text-underline-offset: var(--text-underline-offset-active);
+    text-decoration: var(--text-decoration-active-light);
+
+    @variant dark {
+      color: var(--color-active-dark);
+      text-decoration: var(--text-decoration-active-dark);
+    }
+  }
+
+  @variant active {
+    color: var(--color-active-light);
+    text-underline-offset: var(--text-underline-offset-active);
+    text-decoration: var(--text-decoration-active-light);
+
+    @variant dark {
+      color: var(--color-active-dark);
+      text-decoration: var(--text-decoration-active-dark);
+    }
+  }
+
+  @variant focus {
+    color: var(--color-active-light);
+    text-underline-offset: var(--text-underline-offset-active);
+    text-decoration: var(--text-decoration-active-light);
+
+    @variant dark {
+      color: var(--color-active-dark);
+      text-decoration: var(--text-decoration-active-dark);
+    }
+  }
+}
+
+/* Some properties cannot be automated with tailwind so we have to supply them ourselves */
+@utility anchor-font-style {
+  font-style: var(--anchor-font-style, inherit);
+}
+
+@utility anchor-text-underline-offset {
+  text-underline-offset: var(--anchor-text-underline-offset);
+}
+
+@utility anchor-text-underline-offset-active {
+  text-underline-offset: var(--anchor-text-underline-offset-active);
+}
+
+@utility anchor-text-decoration {
+  text-decoration: var(--anchor-text-decoration-light, none);
+
+  @variant dark {
+    text-decoration: var(--anchor-text-decoration-dark, none);
+  }
+}
+
+@utility anchor-text-decoration-active {
+  text-decoration: var(--anchor-text-decoration-active-light, none);
+
+  @variant dark {
+    text-decoration: var(--anchor-text-decoration-active-dark, none);
+  }
+}

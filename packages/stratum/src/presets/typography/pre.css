@@ -1,0 +1,10 @@
+@utility pre {
+	background-color: rgba(0, 0, 0, 0.85);
+	backdrop-filter: blur(var(--blur-sm));
+	border-radius: var(--radius-container);
+	color: var(--color-white);
+	font-size: var(--text-xs);
+	white-space: pre-wrap;
+	padding: --spacing(4);
+	overflow-x: auto;
+}

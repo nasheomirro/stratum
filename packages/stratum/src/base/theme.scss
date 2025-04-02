@@ -15,20 +15,6 @@
 
   /* Colors */
   --color-transparent: transparent;
-  --body-default-background-color-light: var(--surface-50);
-  --body-default-background-color-dark: var(--surface-950);
-  --body-default-text-color-light: var(--surface-950);
-  --body-default-text-color-dark: var(--surface-50);
-
-  --body-default-background-color: light-dark(
-    var(--body-default-background-color-light),
-    var(--body-deault-background-color-dark)
-  );
-
-  --body-default-text-color: light-dark(
-    var(--body-default-text-color-light),
-    var(--body-deault-text-color-dark)
-  );
 
   /* Border Radius */
   --radius-base: 0.25rem;

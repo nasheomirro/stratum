@@ -11,9 +11,7 @@
   }
 
   body {
-    background-color: var(--body-default-background-color);
-    color: var(--body-default-text-color);
-    font-family: var(--font-base);
+    @apply text-base-text-light bg-base-background-light dark:text-base-text-dark dark:bg-base-background-dark;
   }
 
   button:not(:disabled),

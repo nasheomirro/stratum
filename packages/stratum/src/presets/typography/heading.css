@@ -1,5 +1,12 @@
+/* holds the heading's static styles without the configuration of responsive font-sizes */
+@utility heading-base {
+  @apply text-base-heading-light dark:text-base-heading-dark;
+  @apply font-base-heading font-base-heading-weight tracking-base-heading heading-font-style;
+}
+
 /* A set of resonsive text sizes */
 @utility h1 {
+  @apply heading-base;
   font-size: var(--text-4xl);
   line-height: var(--text-4xl--line-height);
 
@@ -10,6 +17,7 @@
 }
 
 @utility h2 {
+  @apply heading-base;
   font-size: var(--text-3xl);
   line-height: var(--text-3xl--line-height);
 
@@ -20,6 +28,7 @@
 }
 
 @utility h3 {
+  @apply heading-base;
   font-size: var(--text-2xl);
   line-height: var(--text-2xl--line-height);
 
@@ -30,6 +39,7 @@
 }
 
 @utility h4 {
+  @apply heading-base;
   font-size: var(--text-xl);
   line-height: var(--text-xl--line-height);
 
@@ -40,6 +50,7 @@
 }
 
 @utility h5 {
+  @apply heading-base;
   font-size: var(--text-lg);
   line-height: var(--text-lg--line-height);
 
@@ -50,6 +61,7 @@
 }
 
 @utility h6 {
+  @apply heading-base;
   font-size: var(--text-base);
   line-height: var(--text-base--line-height);
 

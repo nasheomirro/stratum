@@ -1,0 +1,25 @@
+@utility code {
+  background-color: var(--color-primary-100-900);
+  border-radius: var(--radius-base);
+  color: var(--color-primary-contrast-50-950);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  white-space: nowrap;
+  padding-inline: --spacing(1.5);
+  padding-block: --spacing(0.75);
+  overflow-x: auto;
+}
+
+@utility kbd {
+  background-color: var(--color-surface-300-700);
+  border-width: 1px;
+  border-color: var(--color-surface-600-400);
+  border-radius: var(--radius-base);
+  color: var(--color-surface-contrast-500);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  white-space: nowrap;
+  overflow-x: auto;
+  padding-inline: --spacing(1.5);
+  padding-block: --spacing(0.25);
+}
