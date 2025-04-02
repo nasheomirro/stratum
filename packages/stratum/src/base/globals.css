@@ -12,6 +12,7 @@
 
   body {
     @apply text-base-text-light bg-base-background-light dark:text-base-text-dark dark:bg-base-background-dark;
+    @apply font-base-text font-base-text-weight tracking-base-text;
   }
 
   button:not(:disabled),
