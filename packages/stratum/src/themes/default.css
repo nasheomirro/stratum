@@ -3,6 +3,25 @@
   --radius-base: 0.25rem;
   --radius-container: 0.5rem;
 
+  --font-base-text: inherit;
+  --font-base-heading: inherit;
+  --font-base-anchor: inherit;
+
+  --font-weight-base-text-weight: inherit;
+  --font-weight-base-heading-weight: inherit;
+  --font-weight-base-anchor-weight: inherit;
+
+  --tracking-base-text: inherit;
+  --tracking-base-heading: inherit;
+  --tracking-base-anchor: inherit;
+
+  --anchor-font-style: inherit;
+  --heading-font-style: inherit;
+
+  --anchor-text-decoration-light: none;
+  --anchor-text-decoration-dark: none;
+  --anchor-text-underline-offset: auto;
+
   /* Color Sets */
   --color-primary-50: oklch(91.93% 0.04 256.59deg);
   --color-primary-100: oklch(84.19% 0.07 255.4deg);
@@ -90,6 +109,18 @@
 }
 
 @theme inline {
+  --color-base-text-light: var(--color-surface-950);
+  --color-base-text-dark: var(--color-surface-50);
+
+  --color-base-background-light: var(--color-surface-50);
+  --color-base-background-dark: var(--color-surface-950);
+
+  --color-base-heading-light: var(--color-surface-950);
+  --color-base-heading-dark: var(--color-surface-50);
+
+  --color-base-anchor-light: var(--color-primary-500);
+  --color-base-anchor-dark: var(--color-primary-500);
+
   /* Color Contrasts */
   --color-primary-contrast-dark: var(--color-primary-950);
   --color-primary-contrast-light: var(--color-primary-50);
