@@ -1,0 +1,6 @@
+@utility blockquote {
+  border-left-width: 3px;
+  border-left-color: var(--color-primary-500);
+  padding-left: --spacing(4);
+  font-style: italic;
+}
