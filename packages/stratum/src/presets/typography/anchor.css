@@ -1,0 +1,43 @@
+@utility anchor-base {
+  font-size: inherit;
+  line-height: inherit;
+
+  /* Configurable Properties */
+  color: var(--color-preset-anchor-light, inherit);
+  font-family: var(--font-preset-anchor, inherit);
+  font-weight: var(--font-weight-preset-anchor);
+  font-style: var(--style-preset-anchor);
+  letter-spacing: var(--tracking-preset-anchor);
+
+  @variant dark {
+    color: var(--color-preset-anchor-dark, inherit);
+  }
+}
+
+@utility anchor {
+  font-size: inherit;
+  line-height: inherit;
+
+  /* Configurable Properties */
+  color: var(--color-preset-anchor-light, inherit);
+  font-family: var(--font-preset-anchor, inherit);
+  font-weight: var(--font-weight-preset-anchor);
+  font-style: var(--style-preset-anchor);
+  letter-spacing: var(--tracking-preset-anchor);
+
+  @variant dark {
+    color: var(--color-preset-anchor-dark, inherit);
+  }
+
+  @variant focus {
+    text-decoration: underline;
+  }
+
+  @variant hover {
+    text-decoration: underline;
+  }
+
+  @variant active {
+    text-decoration: underline;
+  }
+}
