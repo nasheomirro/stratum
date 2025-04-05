@@ -83,9 +83,7 @@
   --color-surface-800: oklch(32.5% 0 none);
   --color-surface-900: oklch(25.62% 0 none);
   --color-surface-950: oklch(18.22% 0 none);
-}
 
-@theme inline {
   /* Color Contrasts */
   --color-contrast-primary-50: var(--color-primary-950);
   --color-contrast-primary-100: var(--color-primary-950);
@@ -170,7 +168,9 @@
   --color-contrast-surface-800: var(--color-surface-50);
   --color-contrast-surface-900: var(--color-surface-50);
   --color-contrast-surface-950: var(--color-surface-50);
+}
 
+@theme inline {
   /* Color Pairings */
   --color-primary-50-950: light-dark(var(--color-primary-50), var(--color-primary-950));
   --color-primary-100-900: light-dark(var(--color-primary-100), var(--color-primary-900));
