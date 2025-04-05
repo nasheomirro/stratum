@@ -1,0 +1,24 @@
+@layer base {
+  :root {
+    scrollbar-color: var(--color-surface-300-700) var(--color-surface-900-100);
+    scrollbar-width: thin;
+  }
+
+  ::selection {
+    background-color: color-mix(in oklab, var(--color-primary-500) 50%, transparent)
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  *:disabled,
+  .disabled {
+    opacity: 0.5;
+
+    &>* {
+      pointer-events: none;
+    }
+  }
+}
