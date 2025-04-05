@@ -1,4 +1,4 @@
-@theme {
+@theme inline {
   --heading-1: var(--text-4xl);
   --heading-1--lh: var(--text-4xl--line-height);
   --heading-1--md: var(--text-5xl);
