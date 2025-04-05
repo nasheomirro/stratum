@@ -1,0 +1,87 @@
+@theme inline {
+  --btn-size-xs: --spacing(1);
+  --btn-size-xs--inline: --spacing(1);
+  --btn-size-xs--font-size: var(--text-xs);
+  --btn-size-xs--line-height: var(--text-xs--line-height);
+
+  --btn-size-sm: --spacing(1);
+  --btn-size-sm--inline: --spacing(3);
+  --btn-size-sm--font-size: var(--text-sm);
+  --btn-size-sm--line-height: var(--text-sm--line-height);
+
+  --btn-size-base: --spacing(1);
+  --btn-size-base--inline: --spacing(4);
+  --btn-size-base--font-size: var(--text-base);
+  --btn-size-base--line-height: var(--text-base--line-height);
+
+  --btn-size-lg: --spacing(2);
+  --btn-size-lg--inline: --spacing(5);
+  --btn-size-lg--font-size: var(--text-xl);
+  --btn-size-lg--line-height: var(--text-xl--line-height);
+
+  --btn-icon-sm: var(--text-xs);
+  --btn-icon-sm--padding: --spacing(1.5);
+  --btn-icon-base: var(--text-base);
+  --btn-icon-base--padding: --spacing(2);
+  --btn-icon-lg: var(--text-xl);
+  --btn-icon-lg--padding: --spacing(3);
+}
+
+@utility btn {
+  /* Layout */
+  display: inline-flex;
+  gap: --spacing(2);
+  justify-content: center;
+  align-items: center;
+
+  /* Typography */
+  text-decoration-line: none;
+  white-space: nowrap;
+
+  /* Styling */
+  border-radius: var(--radius-base);
+
+  /* Transitions */
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter;
+  transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+  transition-duration: var(--tw-duration, var(--default-transition-duration));
+}
+
+@utility btn-* {
+  padding-block: --value(--btn-size-*);
+  padding-inline: --value(--btn-size-*--inline);
+  font-size: --value(--btn-size-*--font-size);
+  line-height: --value(--btn-size-*--line-height);
+}
+
+@utility btn-icon {
+  /* Layout */
+  box-sizing: content-box;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Typography */
+  text-decoration-line: none;
+  white-space: nowrap;
+
+  /*Styling */
+  border-radius: var(--radius-base);
+
+  /* Transitions */
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter;
+  transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+  transition-duration: var(--tw-duration, var(--default-transition-duration));
+
+  font-size: var(--text-base);
+  width: var(--text-base);
+  height: var(--text-base);
+  padding: --spacing(2);
+}
+
+@utility btn-icon-* {
+  font-size: --value(--btn-icon-*);
+  width: --value(--btn-icon-*);
+  height: --value(--btn-icon-*);
+  padding: --value(--btn-icon-*--padding);
+}
