@@ -43,6 +43,16 @@
 }
 
 @utility head-* {
+  color: var(--color-preset-heading-light, inherit);
+  font-family: var(--font-preset-heading, inherit);
+  font-weight: var(--font-weight-preset-heading);
+  font-style: var(--style-preset-heading);
+  letter-spacing: var(--tracking-preset-heading);
+
+  @variant dark {
+    color: var(--color-preset-heading-dark, inherit);
+  }
+
   font-size: --value(--heading-*);
   line-height: --value(--heading-*--lh);
 
