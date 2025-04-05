@@ -1,0 +1,18 @@
+@utility kbd {
+  background-color: var(--color-surface-300);
+  border-width: 1px;
+  border-color: var(--color-surface-600);
+  border-radius: var(--radius-preset-base);
+  color: var(--color-contrast-surface-500);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  white-space: nowrap;
+  overflow-x: auto;
+  padding-inline: --spacing(1.5);
+  padding-block: --spacing(0.25);
+
+  @variant dark {
+    background-color: var(--color-surface-700);
+    border-color: var(--color-surface-400);
+  }
+}

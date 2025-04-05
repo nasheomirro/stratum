@@ -1,0 +1,9 @@
+@utility code-block {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.85);
+  border-radius: var(--radius-container);
+  font-size: var(--text-xs);
+  white-space: pre-wrap;
+  padding: --spacing(4);
+  overflow-x: auto;
+}
