@@ -1,6 +1,0 @@
-@import "./vars.scss";
-
-@utility filled-* {
-  background-color: --value(--filled-*);
-  color: --value(--filled-*--contrast);
-}

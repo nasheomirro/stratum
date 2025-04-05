@@ -47,7 +47,3 @@ pnpm-debug.log*
 .temp/
 *.tgz
 .vscode/launch.json
-
-# stratum playground (temporary)
-*.astro
-playgrounds/stratum-base/src/styles/*

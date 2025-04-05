@@ -1,0 +1,9 @@
+@layer base {
+  :root {
+    color-scheme: light;
+
+    @variant dark {
+      color-scheme: dark;
+    }
+  }
+}
