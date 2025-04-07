@@ -1,0 +1,38 @@
+@utility select {
+  display: block;
+  width: 100%;
+
+  /* override default values coming from "@tailwindcss/forms" */
+  background-color: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  border-width: 1px;
+  border-color: var(--color-surface-200-800);
+  border-radius: var(--radius-preset-base);
+
+  /* note that we want the default for horizontal padding */
+  padding-block: --spacing(1);
+
+  @variant active {
+    border-color: var(--color-primary-500);
+  }
+
+  @variant focus {
+    border-color: var(--color-primary-500);
+    /* shut off the ring colors from the default :focus applied to inputs */
+    --tw-ring-shadow: 0 0 0 #0000;
+  }
+
+  &[multiple] {
+    /* with multiple, we don't need the default padding anymore hence override it */
+    padding: --spacing(1);
+  }
+
+  & option {
+    font-size: var(--text-base);
+    line-height: --spacing(9);
+    height: --spacing(9);
+    padding: --spacing(2);
+  }
+}

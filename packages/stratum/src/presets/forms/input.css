@@ -1,0 +1,76 @@
+@utility input {
+  display: block;
+  width: 100%;
+
+  /* override default values coming from "@tailwindcss/forms" */
+  background-color: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  border-width: 1px;
+  border-color: var(--color-surface-200-800);
+  border-radius: var(--radius-preset-base);
+  padding-block: --spacing(1);
+  padding-inline: --spacing(2);
+
+  &::placeholder {
+    color: var(--color-surface-700-300);
+  }
+
+  &[type="file"]::file-selector-button {
+    cursor: pointer;
+    border-radius: var(--radius-preset-base);
+    background-color: var(--color-surface-950-50);
+    color: var(--color-surface-50-950);
+    transform: translateY(--spacing(-0.5));
+    margin-right: --spacing(2);
+    text-transform: capitalize;
+
+    /* Size */
+    font-size: var(--text-xs);
+    height: var(--text-xs--line-height);
+    padding-block: --spacing(0);
+    padding-inline: --spacing(3);
+  }
+
+  &[type="file"]::file-selector-button:hover {
+    filter: brightness(110%);
+
+    @variant dark {
+      filter: brightness(75%);
+    }
+  }
+
+  &[type="range"] {
+    accent-color: var(--color-primary-500);
+    border-width: 0px;
+  }
+
+  &[type="color"] {
+    border-radius: var(--radius-preset-base);
+    width: --spacing(8.5);
+    height: --spacing(8.5);
+    padding: 0;
+    border: none;
+    outline: none;
+  }
+
+  &[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+  }
+
+  &[type="color"]::-webkit-color-swatch {
+    border: none;
+    border-radius: var(--radius-preset-base);
+  }
+
+  @variant active {
+    border-color: var(--color-primary-500);
+  }
+
+  @variant focus {
+    border-color: var(--color-primary-500);
+    /* shut off the ring colors from the default :focus applied to inputs */
+    --tw-ring-shadow: 0 0 0 #0000;
+  }
+}

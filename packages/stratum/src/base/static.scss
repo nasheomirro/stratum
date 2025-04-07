@@ -1,0 +1,42 @@
+@use "sass:list";
+
+/* 
+  we have an issue with vite wrongly including this module to any module that uses 'constants.scss',
+  to avoid this we define the `constants` here directly. It's hacky but works.
+*/
+$color-names: (primary, secondary, tertiary, success, warning, error, surface);
+$color-shades: (50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950);
+$color-pairings: (
+  (50, 950),
+  (100, 900),
+  (200, 800),
+  (300, 700),
+  (400, 600),
+  (600, 400),
+  (700, 300),
+  (800, 200),
+  (900, 100),
+  (950, 50)
+);
+
+@mixin colors {
+  @each $name in $color-names {
+    @each $shade in $color-shades {
+      --color-#{$name}-#{$shade}: var(--#{$name}-#{$shade});
+      --color-constrast-#{$name}-#{$shade}: var(--contrast-#{$name}-#{$shade});
+    }
+
+    @each $pair in $color-pairings {
+      $light: list.nth($pair, 1);
+      $dark: list.nth($pair, 2);
+      --color-#{$name}-#{$light}-#{$dark}: var(--#{$name}-#{$light}-#{$dark});
+      --color-contrast-#{$name}-#{$light}-#{$dark}: var(
+        --contrast-#{$name}-#{$light}-#{$dark}
+      );
+    }
+  }
+}
+
+@theme inline {
+  @include colors;
+}

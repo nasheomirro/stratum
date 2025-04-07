@@ -1,0 +1,67 @@
+@theme inline {
+  --badge-size-base: --spacing(1);
+  --badge-size-base--inline: --spacing(3);
+  --badge-size-base--font-size: var(--text-xs);
+  --badge-size-base--line-height: var(--text-xs--line-height);
+
+  --badge-size-lg: --spacing(1.5);
+  --badge-size-lg--inline: --spacing(3);
+  --badge-size-lg--font-size: var(--text-sm);
+  --badge-size-lg--line-height: var(--text-sm--line-height);
+
+  --badge-icon-base: var(--text-xs);
+  --badge-icon-base--padding: --spacing(1.5);
+  --badge-icon-lg: var(--text-sm);
+  --badge-icon-lg--padding: --spacing(1.5);
+}
+
+@utility badge {
+  /* Layout */
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: --spacing(2);
+  border-radius: var(--radius-preset-base);
+
+  /* Typography */
+  text-decoration-line: none;
+  white-space: nowrap;
+
+  /* Sizing */
+  padding-block: --spacing(1);
+  padding-inline: --spacing(3);
+  font-size: var(--text-xs);
+  line-height: var(--text-xs--line-height);
+}
+
+@utility badge-* {
+  padding-block: --value(--badge-size-*);
+  padding-inline: --value(--badge-size-*--inline);
+  font-size: --value(--badge-size-*--font-size);
+  line-height: --value(--badge-size-*--line-height);
+}
+
+@utility badge-icon {
+  /* Layout */
+  box-sizing: content-box;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--radius-preset-base);
+
+  /* Typography */
+  text-decoration-line: none;
+  white-space: nowrap;
+
+  font-size: var(--text-xs);
+  width: var(--text-xs);
+  height: var(--text-xs);
+  padding: --spacing(1.5);
+}
+
+@utility badge-icon-* {
+  font-size: --value(--badge-icon-*);
+  width: --value(--badge-icon-*);
+  height: --value(--badge-icon-*);
+  padding: --value(--badge-icon-*--padding);
+}

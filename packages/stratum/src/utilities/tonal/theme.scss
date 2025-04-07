@@ -1,0 +1,13 @@
+@use "sass:list";
+@use "../../base/constants.scss";
+
+@mixin tonal-color-vars {
+  @each $name in constants.$color-names {
+    --tonal-#{$name}: var(--color-#{$name}-50-950);
+    --tonal-#{$name}--contrast: var(--color-#{$name}-950-50);
+  }
+}
+
+@theme inline {
+  @include tonal-color-vars;
+}

@@ -1,8 +1,6 @@
-@import "./vars.scss";
+@import "./theme.scss";
 
 @utility tonal-* {
-  @layer preset {
-    color: --value(--tonal-*);
-    background-color: --value(--tonal-*--contrast);
-  }
+  color: --value(--tonal-*);
+  background-color: --value(--tonal-*--contrast);
 }

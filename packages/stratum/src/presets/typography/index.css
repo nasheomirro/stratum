@@ -1,6 +1,6 @@
-@import "./__core.css";
-@import "./heading.css";
+@import "./headings.css";
 @import "./anchor.css";
-@import "./pre.css";
 @import "./blockquote.css";
-@import "./inline.css";
+@import "./code-block.css";
+@import "./code.css";
+@import "./kbd.css";

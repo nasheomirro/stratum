@@ -1,4 +1,4 @@
-@import "./vars.scss";
+@import "./theme.scss";
 
 @utility filled-* {
   background-color: --value(--filled-*);

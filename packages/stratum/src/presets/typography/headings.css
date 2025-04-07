@@ -1,0 +1,63 @@
+@theme inline {
+  --heading-1: var(--text-4xl);
+  --heading-1--lh: var(--text-4xl--line-height);
+  --heading-1--md: var(--text-5xl);
+  --heading-1--mdlh: var(--text-5xl--line-height);
+
+  --heading-2: var(--text-3xl);
+  --heading-2--lh: var(--text-3xl--line-height);
+  --heading-2--md: var(--text-4xl);
+  --heading-2--mdlh: var(--text-4xl--line-height);
+
+  --heading-3: var(--text-2xl);
+  --heading-3--lh: var(--text-2xl--line-height);
+  --heading-3--md: var(--text-3xl);
+  --heading-3--mdlh: var(--text-3xl--line-height);
+
+  --heading-4: var(--text-xl);
+  --heading-4--lh: var(--text-xl--line-height);
+  --heading-4--md: var(--text-2xl);
+  --heading-4--mdlh: var(--text-2xl--line-height);
+
+  --heading-5: var(--text-lg);
+  --heading-5--lh: var(--text-lg--line-height);
+  --heading-5--md: var(--text-xl);
+  --heading-5--mdlh: var(--text-xl--line-height);
+
+  --heading-6: var(--text-base);
+  --heading-6--lh: var(--text-base--line-height);
+  --heading-6--md: var(--text-lg);
+  --heading-6--mdlh: var(--text-lg--line-height);
+}
+
+@utility heading-base {
+  color: var(--color-preset-heading-light, inherit);
+  font-family: var(--font-preset-heading, inherit);
+  font-weight: var(--font-weight-preset-heading);
+  font-style: var(--style-preset-heading);
+  letter-spacing: var(--tracking-preset-heading);
+
+  @variant dark {
+    color: var(--color-preset-heading-dark, inherit);
+  }
+}
+
+@utility head-* {
+  color: var(--color-preset-heading-light, inherit);
+  font-family: var(--font-preset-heading, inherit);
+  font-weight: var(--font-weight-preset-heading);
+  font-style: var(--style-preset-heading);
+  letter-spacing: var(--tracking-preset-heading);
+
+  @variant dark {
+    color: var(--color-preset-heading-dark, inherit);
+  }
+
+  font-size: --value(--heading-*);
+  line-height: --value(--heading-*--lh);
+
+  @variant md {
+    font-size: --value(--heading-*--md);
+    line-height: --value(--heading-mdlh);
+  }
+}

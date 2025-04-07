@@ -1,0 +1,23 @@
+@layer base {
+  :root {
+    color-scheme: light;
+
+    @variant dark {
+      color-scheme: dark;
+    }
+  }
+
+  body {
+    color: var(--base-font-color);
+    font-family: var(--base-font-family);
+    font-size: var(--base-font-size);
+    line-height: var(--base-line-height);
+    font-style: var(--base-font-style);
+    font-weight: var(--base-font-weight);
+    letter-spacing: var(--base-letter-spacing);
+
+    @variant dark {
+      color: var(--base-font-color-dark);
+    }
+  }
+}

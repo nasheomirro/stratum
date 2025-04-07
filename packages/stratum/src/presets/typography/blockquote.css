@@ -4,10 +4,3 @@
   padding-left: --spacing(4);
   font-style: italic;
 }
-
-@utility blockquote-* {
-  border-left-width: 3px;
-  border-left-color: --value(--color-*);
-  padding-left: --spacing(4);
-  font-style: italic;
-}
