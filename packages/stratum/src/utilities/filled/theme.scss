@@ -1,0 +1,24 @@
+@use "sass:list";
+@use "../../base/constants.scss";
+
+@mixin filled-color-vars {
+  @each $name in constants.$color-names {
+    --filled-#{$name}-500: var(--color-#{$name}-500);
+    --filled-#{$name}-500--contrast: var(--color-contast-#{$name}-500);
+
+    @each $pair in constants.$color-pairings {
+      $light: list.nth($pair, 1);
+      $dark: list.nth($pair, 2);
+      --filled-#{$name}-#{$light}-#{$dark}: var(
+        --color-#{$name}-#{$light}-#{$dark}
+      );
+      --filled-#{$name}-#{$light}-#{$dark}--contrast: var(
+        --color-contrast-#{$name}-#{$light}-#{$dark}
+      );
+    }
+  }
+}
+
+@theme inline {
+  @include filled-color-vars;
+}

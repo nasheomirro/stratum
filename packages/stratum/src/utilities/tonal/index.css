@@ -1,0 +1,6 @@
+@import "./theme.scss";
+
+@utility tonal-* {
+  color: --value(--tonal-*);
+  background-color: --value(--tonal-*--contrast);
+}

@@ -19,10 +19,6 @@
     "./themes/*": {
       "style": "./dist/themes/*.css",
       "default": "./dist/themes/*.css"
-    },
-    "./utilities/*": {
-      "style": "./dist/utilities/*.css",
-      "default": "./dist/utilities/*.css"
     }
   },
   "files": [
