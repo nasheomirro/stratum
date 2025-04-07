@@ -30,9 +30,6 @@
   }
 
   & option {
-    background-color: var(--color-surface-50-950);
-    color: var(--color-surface-950-50);
-    border-radius: var(--radius-preset-base);
     font-size: var(--text-base);
     line-height: --spacing(9);
     height: --spacing(9);
