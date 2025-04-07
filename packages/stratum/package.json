@@ -12,6 +12,10 @@
       "style": "./dist/index.css",
       "default": "./dist/index.css"
     },
+    "./static": {
+      "style": "./dist/static.css",
+      "default": "./dist/static.css"
+    },
     "./presets/*": {
       "style": "./dist/presets/*.css",
       "default": "./dist/presets/*.css"
