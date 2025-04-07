@@ -1,5 +1,6 @@
 ---
 import "../app.css";
+const { back } = Astro.props;
 ---
 
 <!doctype html>
@@ -14,17 +15,36 @@ import "../app.css";
   <body>
     <main class="max-w-280 mx-auto px-4">
       <div class="py-24">
+        {
+          back && (
+            <nav class="mb-4">
+              <a href="../" class="anchor">
+                ⬅️ Back
+              </a>
+            </nav>
+          )
+        }
         <slot />
       </div>
     </main>
   </body>
 </html>
 
+<script is:inline>
+  if (localStorage.getItem("is-dark") === "true") {
+    document.documentElement.classList.add("dark");
+  }
+</script>
+
 <script>
   document.addEventListener("keydown", function (event) {
     if (event.ctrlKey && event.key.toLowerCase() === "q") {
       event.preventDefault();
       document.documentElement.classList.toggle("dark");
+      localStorage.setItem(
+        "is-dark",
+        document.documentElement.classList.contains("dark") ? "true" : "false"
+      );
     }
   });
 </script>

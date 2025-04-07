@@ -7,17 +7,21 @@ import {
   textColors,
   bgColorPairings,
   textColorPairings,
-} from "./classes";
+} from "./_classes";
+import Layout from "../../layouts/Layout.astro";
 ---
 
-<section class="py-32">
-  <h2 class="head-2 mb-4">Colors</h2>
+<Layout back>
+  <h1 class="head-1 mb-4">Colors</h1>
+
   <p class="mb-8">
     shows <code class="code">--color-*</code> and <code class="code"
       >--color-*-*</code
     > variables and their contrast counterparts being used.
   </p>
+
   <h3 class="head-3 mb-4">Color Sets</h3>
+
   <div class="grid grid-cols-7 mb-12">
     {
       colorSets.map((set, i) => (
@@ -55,4 +59,4 @@ import {
       ))
     }
   </div>
-</section>
+</Layout>
