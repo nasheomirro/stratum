@@ -1,0 +1,33 @@
+@utility checkbox {
+  cursor: pointer;
+  background-color: var(--color-surface-200-800);
+  border-width: 1px;
+  border-radius: var(--radius-preset-base);
+  border-color: var(--color-surface-100-900);
+  width: --spacing(4.5);
+  height: --spacing(4.5);
+
+  color: #fff;
+
+  @variant hover {
+    filter: brightness(105%);
+  }
+
+  @variant focus {
+    filter: brightness(105%);
+
+    /* override the default shadows from plugin */
+    --tw-ring-offset-shadow: 0 0 0 #0000;
+    --tw-ring-shadow: 0 0 0 2px var(--color-primary-400-600);
+  }
+
+  @variant checked {
+    background-image: data:image/svg+xml, %3Csvg viewBox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z' /%3E%3C/svg%3E;
+    background-color: var(--color-primary-500);
+  }
+
+  @variant indeterminate {
+    background-image: data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 16' %3E%3Cpath stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4 8h8' /%3E%3C/svg%3E;
+    background-color: var(--color-surface-900-100);
+  }
+}
