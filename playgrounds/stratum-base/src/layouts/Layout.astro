@@ -1,6 +1,5 @@
 ---
 import "../app.css";
-import LightDarkSwitch from "../components/LightDarkSwitch.astro";
 ---
 
 <!doctype html>
@@ -14,15 +13,21 @@ import LightDarkSwitch from "../components/LightDarkSwitch.astro";
   </head>
   <body>
     <main class="max-w-280 mx-auto px-4">
-      <nav class="flex justify-end py-4">
-				<LightDarkSwitch />
-			</nav>
-			<div class="py-24">
-				<slot />
-			</div>
+      <div class="py-24">
+        <slot />
+      </div>
     </main>
   </body>
 </html>
+
+<script>
+  document.addEventListener("keydown", function (event) {
+    if (event.ctrlKey && event.key.toLowerCase() === "q") {
+      event.preventDefault();
+      document.documentElement.classList.toggle("dark");
+    }
+  });
+</script>
 
 <style>
   html,
