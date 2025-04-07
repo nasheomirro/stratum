@@ -1,0 +1,96 @@
+---
+import Section from "@components/Section.astro";
+import Layout from "@layouts/Layout.astro";
+---
+
+<Layout back>
+  <h1 class="head-1 mb-4">Forms</h1>
+  <p>every utility class in the forms preset.</p>
+
+  <Section>
+    <h2 class="head-2">Input</h2>
+    <p>normal, placeholder, disabled, file type and color type.</p>
+    <div
+      class="grid sm:grid-cols-2 gap-4 border border-surface-400-600 rounded p-4"
+    >
+      <input class="input" />
+      <input class="input" placeholder="I am a placeholder..." />
+      <input class="input" placeholder="I am a placeholder..." disabled />
+      <input class="input" type="file" />
+      <input class="input" type="color" />
+    </div>
+  </Section>
+
+  <Section>
+    <h2 class="head-2">Checkbox and Radios</h2>
+    <div
+      class="grid sm:grid-cols-2 gap-4 border border-surface-400-600 rounded p-4"
+    >
+      <div>
+        <label class="flex gap-2 items-center">
+          <input type="checkbox" />
+          <span>Normal</span>
+        </label>
+
+        <label class="flex gap-2 items-center">
+          <input type="checkbox" disabled />
+          <span>Disabled</span>
+        </label>
+
+        <label class="flex gap-2 items-center">
+          <input type="checkbox" data-indeterminate />
+          <span>Indeterminate</span>
+        </label>
+      </div>
+
+      <div>
+        <label class="flex gap-2 items-center">
+          <input type="radio" name="radios" autocomplete="off" />
+          <span>Normal</span>
+        </label>
+        <label class="flex gap-2 items-center">
+          <input type="radio" name="radios" autocomplete="off" checked />
+          <span>Normal</span>
+        </label>
+        <label class="flex gap-2 items-center">
+          <input type="radio" disabled name="radios" />
+          <span>Disabled</span>
+        </label>
+      </div>
+    </div>
+  </Section>
+
+  <Section>
+    <h2 class="head-2">Select</h2>
+    <div
+      class="grid items-start sm:grid-cols-2 gap-4 border border-surface-400-600 rounded p-4"
+    >
+      <select>
+        <option>Option 1</option>
+        <option>Option 2</option>
+        <option>Option 3</option>
+        <option>Option 4</option>
+      </select>
+      <select multiple>
+        <option>Option 1</option>
+        <option>Option 2</option>
+        <option>Option 3</option>
+        <option>Option 4</option>
+      </select>
+      <select multiple size="2">
+        <option>Option 1</option>
+        <option>Option 2</option>
+        <option>Option 3</option>
+        <option>Option 4</option>
+      </select>
+    </div>
+  </Section>
+</Layout>
+
+<script>
+  const inputs = document.querySelectorAll("[data-indeterminate]");
+  for (let input of inputs) {
+    // @ts-ignore
+    input.indeterminate = true;
+  }
+</script>
