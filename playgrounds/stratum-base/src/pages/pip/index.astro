@@ -11,7 +11,7 @@ import Layout from "@layouts/Layout.astro";
     <h2 class="head-2">Buttons</h2>
     <div class="flex gap-4 flex-col border-surface-400-600 border p-4 rounded">
       <div class="flex items-center gap-4 flex-wrap">
-        <button class="btn-base">button base</button>
+        <button class="btn-static">button static</button>
         <button class="btn">button</button>
         <button class="btn filled-primary-200-800">button with filled</button>
         <button class="btn filled-primary-200-800" disabled>disabled</button>
@@ -23,7 +23,7 @@ import Layout from "@layouts/Layout.astro";
         <button class="btn btn-lg filled-primary-400-600">large</button>
       </div>
       <div class="flex flex-col gap-2">
-        <button class="btn-full-base">full button base</button>
+        <button class="btn-full-static">full button static</button>
         <button class="btn-full">full button</button>
         <button class="btn-full filled-primary-50-950"
           >full button with filled</button
@@ -34,9 +34,14 @@ import Layout from "@layouts/Layout.astro";
       </div>
     </div>
     <h3 class="head-3">Button Icons</h3>
+    <p>
+      <code class="code">btn-icon-static</code>, <code class="code"
+        >btn-icon</code
+      >, <code class="code">btn-icon</code> filled, <code class="code">disabled</code>, and their sizes.
+    </p>
     <div class="flex gap-4 flex-col border-surface-400-600 border p-4 rounded">
       <div class="flex items-center gap-4 flex-wrap">
-        <button class="btn-icon-base">💀</button>
+        <button class="btn-icon-static">💀</button>
         <button class="btn-icon">💀</button>
         <button class="btn-icon filled-primary-400-600">💀</button>
         <button class="btn-icon filled-primary-400-600" disabled>💀</button>
@@ -65,6 +70,9 @@ import Layout from "@layouts/Layout.astro";
       </div>
     </div>
     <h3 class="head-3">Badge Icons</h3>
+    <p>
+      <code class="code">badge-icon</code>, <code class="code">badge-icon</code> filled, and their sizes.
+    </p>
     <div class="flex gap-4 flex-col border-surface-400-600 border p-4 rounded">
       <div class="flex items-center gap-4 flex-wrap">
         <div class="badge-icon">💀</div>

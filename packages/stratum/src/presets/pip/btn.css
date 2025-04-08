@@ -27,7 +27,7 @@
   --btn-icon-lg--padding: --spacing(3);
 }
 
-@utility btn-base {
+@utility btn-static {
   /* Layout */
   display: inline-flex;
   justify-content: center;
@@ -88,7 +88,7 @@
   }
 }
 
-@utility btn-full-base {
+@utility btn-full-static {
   /* Layout */
   display: flex;
   justify-content: flex-start;
@@ -154,6 +154,24 @@
   padding-inline: --value(--btn-size-*--inline);
   font-size: --value(--btn-size-*--font-size);
   line-height: --value(--btn-size-*--line-height);
+}
+
+@utility btn-icon-static {
+  /* Layout */
+  box-sizing: content-box;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--radius-preset-base);
+
+  /* Typography */
+  text-decoration-line: none;
+  white-space: nowrap;
+
+  font-size: var(--text-base);
+  width: var(--text-base);
+  height: var(--text-base);
+  padding: --spacing(2);
 }
 
 @utility btn-icon {
