@@ -4,11 +4,11 @@ import Layout from "@layouts/Layout.astro";
 ---
 
 <Layout back>
-  <h1 class="head-1 mb-4">Forms</h1>
+  <h1 class="hd-1 mb-4">Forms</h1>
   <p>every utility class in the forms preset.</p>
 
   <Section>
-    <h2 class="head-2">Input</h2>
+    <h2 class="hd-2">Input</h2>
     <p>normal, placeholder, disabled, file type and color type.</p>
     <div
       class="grid sm:grid-cols-2 gap-4 border border-surface-400-600 rounded p-4"
@@ -18,42 +18,43 @@ import Layout from "@layouts/Layout.astro";
       <input class="input" placeholder="I am a placeholder..." disabled />
       <input class="input" type="file" />
       <input class="input" type="color" />
+      <input class="input" type="range" />
     </div>
   </Section>
 
   <Section>
-    <h2 class="head-2">Checkbox and Radios</h2>
+    <h2 class="hd-2">Checkbox and Radios</h2>
     <div
       class="grid sm:grid-cols-2 gap-4 border border-surface-400-600 rounded p-4"
     >
       <div>
         <label class="flex gap-2 items-center">
-          <input type="checkbox" />
+          <input class="checkbox" type="checkbox" />
           <span>Normal</span>
         </label>
 
         <label class="flex gap-2 items-center">
-          <input type="checkbox" disabled />
+          <input class="checkbox" type="checkbox" disabled />
           <span>Disabled</span>
         </label>
 
         <label class="flex gap-2 items-center">
-          <input type="checkbox" data-indeterminate />
+          <input class="checkbox" type="checkbox" autocomplete="off" data-indeterminate />
           <span>Indeterminate</span>
         </label>
       </div>
 
       <div>
         <label class="flex gap-2 items-center">
-          <input type="radio" name="radios" autocomplete="off" />
+          <input class="radio" type="radio" name="radios" autocomplete="off" />
           <span>Normal</span>
         </label>
         <label class="flex gap-2 items-center">
-          <input type="radio" name="radios" autocomplete="off" checked />
+          <input class="radio" type="radio" name="radios" autocomplete="off" checked />
           <span>Normal</span>
         </label>
         <label class="flex gap-2 items-center">
-          <input type="radio" disabled name="radios" />
+          <input class="radio" type="radio" disabled name="radios" />
           <span>Disabled</span>
         </label>
       </div>
@@ -61,23 +62,29 @@ import Layout from "@layouts/Layout.astro";
   </Section>
 
   <Section>
-    <h2 class="head-2">Select</h2>
+    <h2 class="hd-2">Select</h2>
     <div
       class="grid items-start sm:grid-cols-2 gap-4 border border-surface-400-600 rounded p-4"
     >
-      <select>
+      <select class="select">
         <option>Option 1</option>
         <option>Option 2</option>
         <option>Option 3</option>
         <option>Option 4</option>
       </select>
-      <select multiple>
+      <select class="select" disabled>
         <option>Option 1</option>
         <option>Option 2</option>
         <option>Option 3</option>
         <option>Option 4</option>
       </select>
-      <select multiple size="2">
+      <select class="select" multiple>
+        <option>Option 1</option>
+        <option>Option 2</option>
+        <option>Option 3</option>
+        <option>Option 4</option>
+      </select>
+      <select class="select" multiple size="2">
         <option>Option 1</option>
         <option>Option 2</option>
         <option>Option 3</option>

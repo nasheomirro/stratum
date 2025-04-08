@@ -14,8 +14,14 @@
   /* note that we want the default for horizontal padding */
   padding-block: --spacing(1);
 
+  @variant disabled {
+    opacity: 0.5;
+  }
+
   @variant active {
-    border-color: var(--color-primary-500);
+    @variant not-disabled {
+      border-color: var(--color-primary-500);
+    }
   }
 
   @variant focus {
@@ -34,5 +40,11 @@
     line-height: --spacing(9);
     height: --spacing(9);
     padding: --spacing(2);
+  }
+
+  &:not([multiple]) {
+    & option {
+      color: var(--color-surface-950);
+    }
   }
 }
