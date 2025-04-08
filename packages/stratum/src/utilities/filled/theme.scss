@@ -4,7 +4,7 @@
 @mixin filled-color-vars {
   @each $name in constants.$color-names {
     --filled-#{$name}-500: var(--color-#{$name}-500);
-    --filled-#{$name}-500--contrast: var(--color-contast-#{$name}-500);
+    --filled-#{$name}-500--contrast: var(--color-contrast-#{$name}-500);
 
     @each $pair in constants.$color-pairings {
       $light: list.nth($pair, 1);
