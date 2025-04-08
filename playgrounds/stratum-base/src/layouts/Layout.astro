@@ -1,10 +1,10 @@
 ---
 import "../app.css";
-import LightDarkSwitch from "../components/LightDarkSwitch.astro";
+const { back } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="default">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -14,21 +14,37 @@ import LightDarkSwitch from "../components/LightDarkSwitch.astro";
   </head>
   <body>
     <main class="max-w-280 mx-auto px-4">
-      <nav class="flex justify-end py-4">
-				<LightDarkSwitch />
-			</nav>
-			<div class="py-24">
-				<slot />
-			</div>
+      <div class="py-24">
+        {
+          back && (
+            <nav class="mb-4">
+              <a href="../" class="anchor">
+                ⬅️ Back
+              </a>
+            </nav>
+          )
+        }
+        <slot />
+      </div>
     </main>
   </body>
 </html>
 
-<style>
-  html,
-  body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
+<script is:inline>
+  if (localStorage.getItem("is-dark") === "true") {
+    document.documentElement.classList.add("dark");
   }
-</style>
+</script>
+
+<script>
+  document.addEventListener("keydown", function (event) {
+    if (event.ctrlKey && event.key.toLowerCase() === "q") {
+      event.preventDefault();
+      document.documentElement.classList.toggle("dark");
+      localStorage.setItem(
+        "is-dark",
+        document.documentElement.classList.contains("dark") ? "true" : "false"
+      );
+    }
+  });
+</script>
