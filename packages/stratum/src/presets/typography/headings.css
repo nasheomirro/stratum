@@ -30,7 +30,7 @@
   --heading-6--mdlh: var(--text-lg--line-height);
 }
 
-@utility heading-base {
+@utility hd-static {
   color: var(--color-preset-heading-light, inherit);
   font-family: var(--font-preset-heading, inherit);
   font-weight: var(--font-weight-preset-heading);
@@ -42,7 +42,7 @@
   }
 }
 
-@utility head-* {
+@utility hd-* {
   color: var(--color-preset-heading-light, inherit);
   font-family: var(--font-preset-heading, inherit);
   font-weight: var(--font-weight-preset-heading);
