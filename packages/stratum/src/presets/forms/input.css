@@ -12,6 +12,7 @@
   border-radius: var(--radius-preset-base);
   padding-block: --spacing(1);
   padding-inline: --spacing(2);
+  outline-color: transparent;
 
   &::placeholder {
     color: var(--color-surface-700-300);
@@ -35,10 +36,12 @@
 
   &[type="file"]::file-selector-button:hover {
     filter: brightness(110%);
+  }
 
-    @variant dark {
+  @variant dark {
+    &[type="file"]::file-selector-button:hover {
       filter: brightness(75%);
-    }
+    } 
   }
 
   &[type="range"] {
@@ -64,8 +67,14 @@
     border-radius: var(--radius-preset-base);
   }
 
+  @variant disabled {
+    opacity: 0.5;
+  }
+
   @variant active {
-    border-color: var(--color-primary-500);
+    @variant not-disabled {
+      border-color: var(--color-primary-500);
+    }
   }
 
   @variant focus {

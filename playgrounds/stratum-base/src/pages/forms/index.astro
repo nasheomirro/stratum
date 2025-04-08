@@ -18,6 +18,7 @@ import Layout from "@layouts/Layout.astro";
       <input class="input" placeholder="I am a placeholder..." disabled />
       <input class="input" type="file" />
       <input class="input" type="color" />
+      <input class="input" type="range" />
     </div>
   </Section>
 
@@ -28,32 +29,32 @@ import Layout from "@layouts/Layout.astro";
     >
       <div>
         <label class="flex gap-2 items-center">
-          <input type="checkbox" />
+          <input class="checkbox" type="checkbox" />
           <span>Normal</span>
         </label>
 
         <label class="flex gap-2 items-center">
-          <input type="checkbox" disabled />
+          <input class="checkbox" type="checkbox" disabled />
           <span>Disabled</span>
         </label>
 
         <label class="flex gap-2 items-center">
-          <input type="checkbox" data-indeterminate />
+          <input class="checkbox" type="checkbox" autocomplete="off" data-indeterminate />
           <span>Indeterminate</span>
         </label>
       </div>
 
       <div>
         <label class="flex gap-2 items-center">
-          <input type="radio" name="radios" autocomplete="off" />
+          <input class="radio" type="radio" name="radios" autocomplete="off" />
           <span>Normal</span>
         </label>
         <label class="flex gap-2 items-center">
-          <input type="radio" name="radios" autocomplete="off" checked />
+          <input class="radio" type="radio" name="radios" autocomplete="off" checked />
           <span>Normal</span>
         </label>
         <label class="flex gap-2 items-center">
-          <input type="radio" disabled name="radios" />
+          <input class="radio" type="radio" disabled name="radios" />
           <span>Disabled</span>
         </label>
       </div>
@@ -65,19 +66,25 @@ import Layout from "@layouts/Layout.astro";
     <div
       class="grid items-start sm:grid-cols-2 gap-4 border border-surface-400-600 rounded p-4"
     >
-      <select>
+      <select class="select">
         <option>Option 1</option>
         <option>Option 2</option>
         <option>Option 3</option>
         <option>Option 4</option>
       </select>
-      <select multiple>
+      <select class="select" disabled>
         <option>Option 1</option>
         <option>Option 2</option>
         <option>Option 3</option>
         <option>Option 4</option>
       </select>
-      <select multiple size="2">
+      <select class="select" multiple>
+        <option>Option 1</option>
+        <option>Option 2</option>
+        <option>Option 3</option>
+        <option>Option 4</option>
+      </select>
+      <select class="select" multiple size="2">
         <option>Option 1</option>
         <option>Option 2</option>
         <option>Option 3</option>

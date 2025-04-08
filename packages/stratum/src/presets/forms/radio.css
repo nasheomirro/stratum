@@ -1,26 +1,35 @@
 @utility radio {
   cursor: pointer;
-  background-color: var(--color-surface-200-800);
+  background-color: var(--color-surface-100-900);
   border-width: 1px;
   border-radius: 100%;
-  border-color: var(--color-surface-100-900);
+  border-color: var(--color-surface-200-800);
   width: --spacing(4.5);
   height: --spacing(4.5);
 
+  @variant disabled {
+    cursor: unset;
+    opacity: 0.5;
+  }
+
   @variant hover {
-    filter: brightness(105%);
+    @variant not-disabled {
+      filter: brightness(110%);
+    }
   }
 
   @variant focus {
-    filter: brightness(105%);
+    filter: brightness(110%);
+    border-color: var(--color-primary-500);
 
     /* override the default shadows from plugin */
     --tw-ring-offset-shadow: 0 0 0 #0000;
-    --tw-ring-shadow: 0 0 0 2px var(--color-primary-400-600);
+    --tw-ring-shadow: 0 0 0 #0000
   }
 
   @variant checked {
-    background-image: url(data:image/svg+xml, %3Csvg viewBox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg' %3E%3Ccircle cx='8' cy='8' r='3' /%3E%3C/svg%3E);
+    background-image: url("data:image/svg+xml, %3Csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg' %3E%3Ccircle cx='8' cy='8' r='3' /%3E%3C/svg%3E");
     background-color: var(--color-primary-500);
+    border-color: var(--color-primary-200-800);
   }
 }
