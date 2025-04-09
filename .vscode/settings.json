@@ -1,4 +1,5 @@
 {
   // helps because we are mixing tailwind and scss
   "scss.lint.unknownAtRules": "ignore",
+  "files.eol": "\n",
 }
