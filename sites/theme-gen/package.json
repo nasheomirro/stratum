@@ -19,9 +19,9 @@
     "@tailwindcss/vite": "^4.0.0",
     "svelte": "^5.0.0",
     "svelte-check": "^4.0.0",
-    "tailwindcss": "^4.0.0",
-    "typescript": "^5.0.0",
     "vite": "^6.2.5",
-    "@nasheomirro/stratum": "workspace:*"
+    "@nasheomirro/stratum": "workspace:*",
+    "typescript": "catalog:",
+    "tailwindcss": "catalog:"
   }
 }

@@ -33,7 +33,7 @@
   "license": "ISC",
   "packageManager": "pnpm@10.6.5",
   "peerDependencies": {
-    "tailwindcss": "^4.0.0"
+    "tailwindcss": "catalog:"
   },
   "devDependencies": {
     "@types/node": "^22.13.14",
