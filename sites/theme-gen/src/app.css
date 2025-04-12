@@ -9,3 +9,15 @@
 @import "@nasheomirro/stratum/presets/forms";
 
 @custom-variant dark (&:where(.dark, .dark *));
+
+@utility form-field {
+  @apply flex flex-col space-y-1;
+}
+
+@utility label-text {
+  @apply text-xs text-surface-400-600 font-bold;
+}
+
+@utility form-field-caption {
+  @apply text-xs text-surface-400-600;
+}
