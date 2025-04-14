@@ -1,9 +1,107 @@
 <script>
   import Controls from "$lib/components/Controls.svelte";
   import { vars } from "$lib/app.svelte";
+  import * as constants from "$lib/constants";
 </script>
 
+{#snippet colors()}
+  {#each constants.colorNames as colorName}
+    <optgroup label={colorName}>
+      {#each constants.colorShades as colorShade}
+        <option value={`var(--color-${colorName}-${colorShade})`}
+          >{`${colorName}-${colorShade}`}</option
+        >
+      {/each}
+    </optgroup>
+  {/each}
+{/snippet}
+
 <Controls title="Base">
+  <div class="space-y-1">
+    <h3 class="hd-6">colors</h3>
+    <p class="text-xs">
+      The base colors can only be set to an existing <code
+        class="base:code py-0">--color-*</code
+      > variable.
+    </p>
+  </div>
+
+  <label class="form-field">
+    <span class="label-text">background color - light</span>
+    <select
+      class="select"
+      bind:value={
+        () => vars.get("base-background-color"),
+        (v) => v !== undefined && vars.set("base-background-color", v)
+      }
+    >
+      {@render colors()}
+    </select>
+  </label>
+
+  <label class="form-field">
+    <span class="label-text">background color - dark</span>
+    <select
+      class="select"
+      bind:value={
+        () => vars.get("base-background-color-dark"),
+        (v) => v !== undefined && vars.set("base-background-color-dark", v)
+      }
+    >
+      {@render colors()}
+    </select>
+  </label>
+
+  <label class="form-field">
+    <span class="label-text">font color - light</span>
+    <select
+      class="select"
+      bind:value={
+        () => vars.get("base-font-color"),
+        (v) => v !== undefined && vars.set("base-font-color", v)
+      }
+    >
+      {@render colors()}
+    </select>
+  </label>
+
+  <label class="form-field">
+    <span class="label-text">font color - dark</span>
+    <select
+      class="select"
+      bind:value={
+        () => vars.get("base-font-color-dark"),
+        (v) => v !== undefined && vars.set("base-font-color-dark", v)
+      }
+    >
+      {@render colors()}
+    </select>
+  </label>
+
+  <div class="space-y-1">
+    <h3 class="hd-6">text settings</h3>
+    <p class="text-xs">
+      All configurations related to text and font and texts and... fonts.
+    </p>
+  </div>
+
+  <div class="form-field">
+    <label class="label-text" for="base-font-family">font family</label>
+    <input
+      bind:value={
+        () => vars.get("base-font-family"),
+        (v) => v !== undefined && vars.set("base-font-family", v)
+      }
+      class="input"
+      id="base-font-family"
+      defaultValue="inherit"
+    />
+    <p class="form-field-caption">
+      make sure your font is installed locally and you typed its name correctly
+      if you want it shown on the display.
+    </p>
+  </div>
+
   <div class="form-field">
     <label class="label-text" for="base-font-family">font family</label>
     <input
@@ -70,12 +168,12 @@
     </label>
   </div>
 
-  <div>
-    <h3 class="hd-6">font sizes</h3>
-    <p class="form-field-caption mb-4">
+  <div class="space-y-1">
+    <h4 class="text-sm font-bold">font sizes</h4>
+    <p class="text-xs">
       As of now, it is not possible to set a custom font size, the base font
-      size is set to <code class="base:code py-0">--text-base</code> by
-      default. If you want to change the base font size, change
+      size is set to <code class="base:code py-0">--text-base</code> by default.
+      If you want to change the base font size, change
       <code class="base:code py-0">--text-base</code> instead.
     </p>
   </div>

@@ -1,24 +1,19 @@
 import { SvelteMap } from "svelte/reactivity";
 import { defaultVars } from "./defaultVars";
 
-export const vars = new SvelteMap<string, string>();
-
-// set default vars onto map
-Object.entries(defaultVars).map((entry) =>
-  vars.set(entry[0], entry[1].toString())
+export const vars = new SvelteMap<string, string>(
+  Object.entries(defaultVars).map(([a, b]) => [a.toString(), b.toString()])
 );
 
-const _generatedCSSVars = $derived.by(() => {
-  let res = "";
-  for (let [key, val] of vars.entries()) {
-    res += `--${key}: ${val};\n`;
-  }
+class GeneratedCSSVars {
+  value = $derived.by(() => {
+    let res = "";
+    for (let [key, val] of vars.entries()) {
+      res += `--${key}: ${val};\n`;
+    }
 
-  return res;
-});
+    return res;
+  });
+}
 
-export const generatedCSSVars = {
-  get value() {
-    return _generatedCSSVars;
-  },
-};
+export const generatedCSSVars = new GeneratedCSSVars();
