@@ -103,23 +103,6 @@
   </div>
 
   <div class="form-field">
-    <label class="label-text" for="base-font-family">font family</label>
-    <input
-      bind:value={
-        () => vars.get("base-font-family"),
-        (v) => v !== undefined && vars.set("base-font-family", v)
-      }
-      class="input"
-      id="base-font-family"
-      defaultValue="inherit"
-    />
-    <p class="form-field-caption">
-      make sure your font is installed locally and you typed its name correctly
-      if you want it shown on the display.
-    </p>
-  </div>
-
-  <div class="form-field">
     <label class="label-text" for="base-letter-spacing">letter spacing</label>
     <input
       class="input"
@@ -142,6 +125,7 @@
           (v) => v !== undefined && vars.set("base-font-weight", v)
         }
       >
+        <option>inherit</option>
         <option>100</option>
         <option>200</option>
         <option>300</option>
@@ -162,6 +146,7 @@
           (v) => v !== undefined && vars.set("base-font-style", v)
         }
       >
+        <option>inherit</option>
         <option selected>normal</option>
         <option>italic</option>
       </select>

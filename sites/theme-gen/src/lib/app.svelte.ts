@@ -1,9 +1,8 @@
 import { SvelteMap } from "svelte/reactivity";
-import { defaultVars } from "./defaultVars";
+import { CSSToEntries } from "./utils/reader.svelte";
+import defaultVars from "@nasheomirro/stratum/themes/default?raw";
 
-export const vars = new SvelteMap<string, string>(
-  Object.entries(defaultVars).map(([a, b]) => [a.toString(), b.toString()])
-);
+export const vars = new SvelteMap<string, string>(CSSToEntries(defaultVars));
 
 class GeneratedCSSVars {
   value = $derived.by(() => {
