@@ -16,12 +16,12 @@
   {/each}
 {/snippet}
 
-<Controls title="--base">
+<Controls title="Base">
   <div class="space-y-1">
     <h3 class="hd-6">colors</h3>
     <p class="text-xs">
       The base colors can only be set to an existing <code
-        class="--base:code py-0">--color-*</code
+        class="base:code py-0">--color-*</code
       > variable.
     </p>
   </div>
@@ -157,9 +157,9 @@
     <h4 class="text-sm font-bold">font sizes</h4>
     <p class="text-xs">
       As of now, it is not possible to set a custom font size, the base font
-      size is set to <code class="--base:code py-0">--text-base</code> by default.
+      size is set to <code class="base:code py-0">--text-base</code> by default.
       If you want to change the base font size, change
-      <code class="--base:code py-0">--text-base</code> instead.
+      <code class="base:code py-0">--text-base</code> instead.
     </p>
   </div>
 </Controls>
