@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { vars } from "$lib/app.svelte";
-  import { colorNames, colorShades } from "$lib/constants";
   import chroma from "chroma-js";
+  import { app } from "$lib/app.svelte";
+  import { colorNames, colorShades } from "$lib/constants";
 
   import Controls from "$lib/components/Controls.svelte";
 
@@ -32,7 +32,10 @@
   <h3 class="hd-6">{colorName}</h3>
   <div class="flex flex-col gap-1">
     {#each colorShades as colorShade}
-      {@const color = vars.get(`--color-${colorName}-${colorShade}`) as string}
+      {@const color = app.vars.get(
+        `--color-${colorName}-${colorShade}`
+      ) as string}
+
       <div class="flex gap-2 items-center">
         <label
           class="flex items-center justify-center w-8"
@@ -42,23 +45,38 @@
           class="input"
           type="color"
           name="color-{colorName}-{colorShade}"
-          bind:value={
-            () => chroma(color).hex(),
-            (v) =>
-              v !== undefined &&
-              vars.set(`--color-${colorName}-${colorShade}`, chroma(v).hex())
-          }
+          value={(() => {
+            /* 
+              color inputs only accept hex values, it's okay if oklch --> hex is lossy,
+              if this input is used, hex --> oklch is loseless
+             */
+            return chroma(color).hex();
+          })()}
+          oninput={(e) => {
+            const v = e.currentTarget.value;
+            if (chroma.valid(v)) {
+              if (v !== color) {
+                app.vars.set(`--color-${colorName}-${colorShade}`, v);
+              }
+            } else {
+              e.currentTarget.value = color;
+            }
+          }}
         />
         <div class="grow">
           <input
             class="input"
             id="color-{colorName}-{colorShade}"
             name="color-{colorName}-{colorShade}"
-            value={chroma(color).hex()}
+            value={chroma(color).css("oklch")}
             onchange={(e) => {
               const v = e.currentTarget.value;
               if (chroma.valid(v)) {
-                vars.set(`--color-${colorName}-${colorShade}`, chroma(v).hex());
+                if (v !== color) {
+                  app.vars.set(`--color-${colorName}-${colorShade}`, v);
+                }
+              } else {
+                e.currentTarget.value = color;
               }
             }}
           />

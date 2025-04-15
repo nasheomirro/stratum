@@ -1,17 +1,16 @@
 import { SvelteMap } from "svelte/reactivity";
 import chroma from "chroma-js";
+
 import { stratumTheme } from "@nasheomirro/stratum-shared";
 import defaultCSSFile from "@nasheomirro/stratum/themes/default?raw";
 
 import { CSSToEntries } from "./utils/reader.svelte";
 
-export const vars = new SvelteMap<string, string>(CSSToEntries(defaultCSSFile));
-
-class GeneratedCSSVars {
-  value = $derived.by(() => {
+class AppState {
+  vars = new SvelteMap<string, string>(CSSToEntries(defaultCSSFile));
+  generated = $derived.by(() => {
     let res = "";
-
-    for (let [key, val] of vars.entries()) {
+    for (let [key, val] of this.vars.entries()) {
       // make sure that colors will always be in oklch
       if (stratumTheme.colors.includes(key) && chroma.valid(val)) {
         val = chroma(val).css("oklch");
@@ -24,4 +23,4 @@ class GeneratedCSSVars {
   });
 }
 
-export const generatedCSSVars = new GeneratedCSSVars();
+export const app = new AppState();

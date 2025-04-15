@@ -1,6 +1,6 @@
 <script>
   import Controls from "$lib/components/Controls.svelte";
-  import { vars } from "$lib/app.svelte";
+  import { app } from "$lib/app.svelte";
   import * as constants from "$lib/constants";
 </script>
 
@@ -31,8 +31,8 @@
     <select
       class="select"
       bind:value={
-        () => vars.get("--base-background-color"),
-        (v) => v !== undefined && vars.set("--base-background-color", v)
+        () => app.vars.get("--base-background-color"),
+        (v) => v !== undefined && app.vars.set("--base-background-color", v)
       }
     >
       {@render colors()}
@@ -44,8 +44,8 @@
     <select
       class="select"
       bind:value={
-        () => vars.get("--base-background-color-dark"),
-        (v) => v !== undefined && vars.set("--base-background-color-dark", v)
+        () => app.vars.get("--base-background-color-dark"),
+        (v) => v !== undefined && app.vars.set("--base-background-color-dark", v)
       }
     >
       {@render colors()}
@@ -57,8 +57,8 @@
     <select
       class="select"
       bind:value={
-        () => vars.get("--base-font-color"),
-        (v) => v !== undefined && vars.set("--base-font-color", v)
+        () => app.vars.get("--base-font-color"),
+        (v) => v !== undefined && app.vars.set("--base-font-color", v)
       }
     >
       {@render colors()}
@@ -70,8 +70,8 @@
     <select
       class="select"
       bind:value={
-        () => vars.get("--base-font-color-dark"),
-        (v) => v !== undefined && vars.set("--base-font-color-dark", v)
+        () => app.vars.get("--base-font-color-dark"),
+        (v) => v !== undefined && app.vars.set("--base-font-color-dark", v)
       }
     >
       {@render colors()}
@@ -89,8 +89,8 @@
     <label class="label-text" for="--base-font-family">font family</label>
     <input
       bind:value={
-        () => vars.get("--base-font-family"),
-        (v) => v !== undefined && vars.set("--base-font-family", v)
+        () => app.vars.get("--base-font-family"),
+        (v) => v !== undefined && app.vars.set("--base-font-family", v)
       }
       class="input"
       id="--base-font-family"
@@ -107,8 +107,8 @@
     <input
       class="input"
       bind:value={
-        () => vars.get("--base-letter-spacing"),
-        (v) => v !== undefined && vars.set("--base-letter-spacing", v)
+        () => app.vars.get("--base-letter-spacing"),
+        (v) => v !== undefined && app.vars.set("--base-letter-spacing", v)
       }
       id="--base-letter-spacing"
       defaultValue="inherit"
@@ -121,8 +121,8 @@
       <select
         class="select"
         bind:value={
-          () => vars.get("--base-font-weight"),
-          (v) => v !== undefined && vars.set("--base-font-weight", v)
+          () => app.vars.get("--base-font-weight"),
+          (v) => v !== undefined && app.vars.set("--base-font-weight", v)
         }
       >
         <option>inherit</option>
@@ -142,8 +142,8 @@
       <select
         class="select"
         bind:value={
-          () => vars.get("--base-font-style"),
-          (v) => v !== undefined && vars.set("--base-font-style", v)
+          () => app.vars.get("--base-font-style"),
+          (v) => v !== undefined && app.vars.set("--base-font-style", v)
         }
       >
         <option>inherit</option>
