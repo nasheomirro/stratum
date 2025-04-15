@@ -1,4 +1,12 @@
-import { stratumThemeKeys } from "@nasheomirro/stratum-shared/theme-keys";
+import { stratumTheme } from "@nasheomirro/stratum-shared";
+
+const allThemeKeys = Object.keys(stratumTheme).reduce(
+  (arr: string[], key) => [
+    ...arr,
+    ...stratumTheme[key as keyof typeof stratumTheme],
+  ],
+  []
+);
 
 export function CSSToEntries(css: string): [string, string][] {
   const entries: [string, string][] = [];
@@ -7,11 +15,8 @@ export function CSSToEntries(css: string): [string, string][] {
   for (let line of lines) {
     if (line.startsWith("--")) {
       const [key, val] = line.split(":");
-      if (stratumThemeKeys.includes(key as any)) {
-        entries.push([
-          key.replaceAll("--", "").trim(),
-          val.replaceAll(";", "").trim(),
-        ]);
+      if (allThemeKeys.includes(key as any)) {
+        entries.push([key.trim(), val.replaceAll(";", "").trim()]);
       }
     }
   }

@@ -16,12 +16,12 @@
   {/each}
 {/snippet}
 
-<Controls title="Base">
+<Controls title="--base">
   <div class="space-y-1">
     <h3 class="hd-6">colors</h3>
     <p class="text-xs">
       The base colors can only be set to an existing <code
-        class="base:code py-0">--color-*</code
+        class="--base:code py-0">--color-*</code
       > variable.
     </p>
   </div>
@@ -31,8 +31,8 @@
     <select
       class="select"
       bind:value={
-        () => vars.get("base-background-color"),
-        (v) => v !== undefined && vars.set("base-background-color", v)
+        () => vars.get("--base-background-color"),
+        (v) => v !== undefined && vars.set("--base-background-color", v)
       }
     >
       {@render colors()}
@@ -44,8 +44,8 @@
     <select
       class="select"
       bind:value={
-        () => vars.get("base-background-color-dark"),
-        (v) => v !== undefined && vars.set("base-background-color-dark", v)
+        () => vars.get("--base-background-color-dark"),
+        (v) => v !== undefined && vars.set("--base-background-color-dark", v)
       }
     >
       {@render colors()}
@@ -57,8 +57,8 @@
     <select
       class="select"
       bind:value={
-        () => vars.get("base-font-color"),
-        (v) => v !== undefined && vars.set("base-font-color", v)
+        () => vars.get("--base-font-color"),
+        (v) => v !== undefined && vars.set("--base-font-color", v)
       }
     >
       {@render colors()}
@@ -70,8 +70,8 @@
     <select
       class="select"
       bind:value={
-        () => vars.get("base-font-color-dark"),
-        (v) => v !== undefined && vars.set("base-font-color-dark", v)
+        () => vars.get("--base-font-color-dark"),
+        (v) => v !== undefined && vars.set("--base-font-color-dark", v)
       }
     >
       {@render colors()}
@@ -86,14 +86,14 @@
   </div>
 
   <div class="form-field">
-    <label class="label-text" for="base-font-family">font family</label>
+    <label class="label-text" for="--base-font-family">font family</label>
     <input
       bind:value={
-        () => vars.get("base-font-family"),
-        (v) => v !== undefined && vars.set("base-font-family", v)
+        () => vars.get("--base-font-family"),
+        (v) => v !== undefined && vars.set("--base-font-family", v)
       }
       class="input"
-      id="base-font-family"
+      id="--base-font-family"
       defaultValue="inherit"
     />
     <p class="form-field-caption">
@@ -103,14 +103,14 @@
   </div>
 
   <div class="form-field">
-    <label class="label-text" for="base-letter-spacing">letter spacing</label>
+    <label class="label-text" for="--base-letter-spacing">letter spacing</label>
     <input
       class="input"
       bind:value={
-        () => vars.get("base-letter-spacing"),
-        (v) => v !== undefined && vars.set("base-letter-spacing", v)
+        () => vars.get("--base-letter-spacing"),
+        (v) => v !== undefined && vars.set("--base-letter-spacing", v)
       }
-      id="base-letter-spacing"
+      id="--base-letter-spacing"
       defaultValue="inherit"
     />
   </div>
@@ -121,8 +121,8 @@
       <select
         class="select"
         bind:value={
-          () => vars.get("base-font-weight"),
-          (v) => v !== undefined && vars.set("base-font-weight", v)
+          () => vars.get("--base-font-weight"),
+          (v) => v !== undefined && vars.set("--base-font-weight", v)
         }
       >
         <option>inherit</option>
@@ -142,8 +142,8 @@
       <select
         class="select"
         bind:value={
-          () => vars.get("base-font-style"),
-          (v) => v !== undefined && vars.set("base-font-style", v)
+          () => vars.get("--base-font-style"),
+          (v) => v !== undefined && vars.set("--base-font-style", v)
         }
       >
         <option>inherit</option>
@@ -157,9 +157,9 @@
     <h4 class="text-sm font-bold">font sizes</h4>
     <p class="text-xs">
       As of now, it is not possible to set a custom font size, the base font
-      size is set to <code class="base:code py-0">--text-base</code> by default.
+      size is set to <code class="--base:code py-0">--text-base</code> by default.
       If you want to change the base font size, change
-      <code class="base:code py-0">--text-base</code> instead.
+      <code class="--base:code py-0">--text-base</code> instead.
     </p>
   </div>
 </Controls>
