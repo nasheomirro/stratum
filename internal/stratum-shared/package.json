@@ -8,8 +8,8 @@
     "build": "tsc"
   },
   "exports": {
-    "./theme-keys": {
-      "import": "./dist/themeKeys.js"
+    ".": {
+      "import": "./dist/index.js"
     }
   },
   "devDependencies": {
