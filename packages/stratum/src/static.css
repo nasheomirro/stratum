@@ -2,3 +2,4 @@
 @import "./base/theme.css";
 @import "./base/static.scss";
 @import "./utilities";
+@import "./variants.css";

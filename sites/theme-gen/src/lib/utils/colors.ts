@@ -1,0 +1,21 @@
+import { colorShades } from "$lib/constants";
+import chroma, { type Color } from "chroma-js";
+
+export function genScale(from: [string, string] | [string, string, string]) {
+  const colors = chroma.scale(from).mode("oklch").colors(colorShades.length);
+  return colors;
+}
+
+export function genScaleFromSeed(seed: Color) {
+  const l = seed.brighten(3).hex();
+  const m = seed.hex();
+  const d = seed.darken(3).hex();
+
+  return genScale([l, m, d]);
+}
+
+export function genRandomSeed() {
+  const lightness = Math.random() * 0.2 + 0.4; // Random between 0.4 to 0.6
+  const chromaColor = chroma.random().set("hsl.l", lightness);
+  return chromaColor;
+}

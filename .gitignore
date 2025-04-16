@@ -10,6 +10,9 @@ dist/
 **/plugin/generated
 
 # generated
+.vercel/
+.netlify/
+.wrangler/
 .astro/
 .svelte-kit/
 .next/
@@ -46,4 +49,5 @@ pnpm-debug.log*
 .idea/
 .temp/
 *.tgz
+Thumbs.db
 .vscode/launch.json
