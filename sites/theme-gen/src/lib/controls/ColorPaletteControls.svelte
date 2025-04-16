@@ -16,16 +16,15 @@
     const darkest = app.vars.get(`--color-${colorName}-950`);
 
     if (lightest && middle && darkest) {
-      const f = chroma
+      const colors = chroma
         .scale(config.tri ? [lightest, middle, darkest] : [lightest, darkest])
-        .mode("oklch");
+        .mode("oklch")
+        .colors(colorShades.length);
 
       for (let i = 0; i < colorShades.length; i++) {
+        const color = colors[i];
         const colorShade = colorShades[i];
-        app.vars.set(
-          `--color-${colorName}-${colorShade}`,
-          chroma(f(i / (colorShades.length - 1))).css("oklch")
-        );
+        app.vars.set(`--color-${colorName}-${colorShade}`, color);
       }
     }
   }
@@ -95,15 +94,16 @@
   </p>
 </div>
 
-{#if createMode !== "manual"}
-  <div class="flex justify-end">
+<div class="flex justify-between">
+  <button class="btn btn-sm filled-primary-500">random</button>
+  {#if createMode !== "manual"}
     <button
       class="btn btn-sm filled-primary-100-900"
       onclick={() => setAutoPalette({ tri: createMode === "tri-auto" })}
       >regenerate</button
     >
-  </div>
-{/if}
+  {/if}
+</div>
 
 <div class="flex flex-col gap-1">
   {#each colorShades as colorShade}
