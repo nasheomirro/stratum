@@ -163,8 +163,8 @@
     </p>
   </div>
 
-  <label class="form-field">
-    <span class="label-text">text-scaling</span>
+  <div class="form-field">
+    <label class="label-text" for="--base-text-scaling">text-scaling</label>
     <input
       class="input"
       bind:value={
@@ -174,5 +174,8 @@
       id="--base-text-scaling"
       defaultValue="inherit"
     />
-  </label>
+    <p class="form-field-caption">
+      text-scaling is multiplied to all <code class="base:code py-0">text-[size]</code> utilities.
+    </p>
+  </div>
 </Controls>

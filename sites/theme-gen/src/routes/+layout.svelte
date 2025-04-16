@@ -1,5 +1,7 @@
 <script lang="ts">
   import { app } from "$lib/app.svelte";
+  import DarkToggle from "$lib/components/DarkToggle.svelte";
+  
   import "../app.css";
 
   // import for now so that color variables are generated, remove when display is fully set
@@ -12,4 +14,5 @@
   });
 </script>
 
+<DarkToggle />
 {@render children()}

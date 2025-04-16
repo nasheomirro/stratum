@@ -15,9 +15,9 @@
 }
 
 @utility label-text {
-  @apply text-xs text-surface-400-600 font-bold;
+  @apply text-xs text-surface-600-400 font-bold;
 }
 
 @utility form-field-caption {
-  @apply text-xs text-surface-400-600;
+  @apply text-xs text-surface-500;
 }
