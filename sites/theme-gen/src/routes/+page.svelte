@@ -1,6 +1,6 @@
 <script>
-  import BaseControls from "$lib/controls/BaseControls.svelte";
-  import ColorControls from "$lib/controls/ColorControls.svelte";
+  import BaseControls from "$lib/controls/base/BaseControls.svelte";
+  import ColorControls from "$lib/controls/colors/ColorControls.svelte";
   import CodeDisplay from "$lib/display/CodeDisplay.svelte";
 
 </script>
