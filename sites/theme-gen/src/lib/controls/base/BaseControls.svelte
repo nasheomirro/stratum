@@ -45,7 +45,8 @@
       class="select"
       bind:value={
         () => app.vars.get("--base-background-color-dark"),
-        (v) => v !== undefined && app.vars.set("--base-background-color-dark", v)
+        (v) =>
+          v !== undefined && app.vars.set("--base-background-color-dark", v)
       }
     >
       {@render colors()}
@@ -156,10 +157,22 @@
   <div class="space-y-1">
     <h4 class="text-sm font-bold">font sizes</h4>
     <p class="text-xs">
-      As of now, it is not possible to set a custom font size, the base font
-      size is set to <code class="base:code py-0">--text-base</code> by default.
-      If you want to change the base font size, change
-      <code class="base:code py-0">--text-base</code> instead.
+      As of now, it is not possible to set individual custom font sizes, the
+      base font size is set to <code class="base:code py-0">--text-base</code> by
+      default.
     </p>
   </div>
+
+  <label class="form-field">
+    <span class="label-text">text-scaling</span>
+    <input
+      class="input"
+      bind:value={
+        () => app.vars.get("--base-text-scaling"),
+        (v) => v !== undefined && app.vars.set("--base-text-scaling", v)
+      }
+      id="--base-text-scaling"
+      defaultValue="inherit"
+    />
+  </label>
 </Controls>

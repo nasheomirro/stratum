@@ -2,6 +2,7 @@
 @layer base {
   [data-theme="default"] {
     /* Base Global Properties */
+    --base-text-scaling: 1;
     --base-font-color: var(--color-surface-950);
     --base-font-color-dark: var(--color-surface-50);
     --base-background-color: var(--color-surface-50);

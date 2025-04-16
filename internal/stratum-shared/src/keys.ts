@@ -1,5 +1,6 @@
 export const stratumTheme: { [K: string]: string[] } = {
   base: [
+    "--base-text-scaling",
     "--base-font-color",
     "--base-font-color-dark",
     "--base-background-color",
