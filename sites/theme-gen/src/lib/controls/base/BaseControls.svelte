@@ -1,13 +1,13 @@
 <script>
   import Controls from "$lib/components/Controls.svelte";
   import { app } from "$lib/app.svelte";
-  import * as constants from "$lib/constants";
+  import { colorNames, colorShades } from "@nasheomirro/stratum-shared";
 </script>
 
 {#snippet colors()}
-  {#each constants.colorNames as colorName}
+  {#each colorNames as colorName}
     <optgroup label={colorName}>
-      {#each constants.colorShades as colorShade}
+      {#each colorShades as colorShade}
         <option value={`var(--color-${colorName}-${colorShade})`}
           >{`${colorName}-${colorShade}`}</option
         >

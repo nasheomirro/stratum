@@ -1,7 +1,8 @@
 <script lang="ts">
   import chroma from "chroma-js";
+  import { colorShades } from "@nasheomirro/stratum-shared";
+
   import { app } from "$lib/app.svelte";
-  import { colorShades } from "$lib/constants";
   import { genScaleFromSeed, genRandomSeed, genScale } from "$lib/utils/colors";
 
   type Props = {
@@ -11,7 +12,14 @@
   const { colorName }: Props = $props();
   let mode: "manual" | "auto" | "tri-auto" | "mid-auto" = $state("manual");
 
-  function setFromGeneratedScale() {
+  function setColorValue(input: HTMLInputElement, key: string) {
+    const value = input.value;
+    if (chroma.valid(value)) {
+      app.vars.set(key, value);
+    }
+  }
+
+  function setToAutomatedScale() {
     if (mode === "manual") return;
 
     const l = app.vars.get(`--color-${colorName}-50`);
@@ -32,7 +40,7 @@
     }
   }
 
-  function setFromRandomScale() {
+  function setToRandomScale() {
     const colors = genScaleFromSeed(genRandomSeed());
 
     for (let i = 0; i < colorShades.length; i++) {
@@ -42,17 +50,10 @@
     }
   }
 
-  function setColorValue(input: HTMLInputElement, key: string) {
-    const value = input.value;
-    if (chroma.valid(value)) {
-      app.vars.set(key, value);
-    }
-  }
-
   function handleChange(e: Event & { currentTarget: HTMLInputElement }) {
     setColorValue(e.currentTarget, `--${e.currentTarget.name}`);
     if (mode !== "manual") {
-      setFromGeneratedScale();
+      setToAutomatedScale();
     }
   }
 </script>
@@ -122,13 +123,13 @@
 </div>
 
 <div class="flex justify-between">
-  <button class="btn btn-sm filled-primary-500" onclick={setFromRandomScale}
+  <button class="btn btn-sm filled-primary-500" onclick={setToRandomScale}
     >random</button
   >
   {#if mode !== "manual"}
     <button
       class="btn btn-sm filled-primary-100-900"
-      onclick={setFromGeneratedScale}>regenerate</button
+      onclick={setToAutomatedScale}>regenerate</button
     >
   {/if}
 </div>

@@ -1,6 +1,5 @@
 <script lang="ts">
-  import { colorNames } from "$lib/constants";
-
+  import { colorNames } from "@nasheomirro/stratum-shared";
   import Controls from "$lib/components/Controls.svelte";
   import ColorPaletteControls from "./ColorPaletteControls.svelte";
 
