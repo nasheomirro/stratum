@@ -12,12 +12,27 @@
   const { colorName }: Props = $props();
   let mode: "manual" | "auto" | "tri-auto" | "mid-auto" = $state("manual");
 
-  function setColorValue(input: HTMLInputElement, key: string) {
-    const value = input.value;
+  function setColorValue(key: string, value: string) {
     if (chroma.valid(value)) {
       app.vars.set(key, value);
     }
   }
+
+  /** 
+   * Hey buddy, this is a "always-generated" value, it uses var(--color-*).
+   */
+  function setColorContrastValue(key: string, value: string) {
+    const color = app.vars.get(key);
+    const l = app.vars.get(`--color-${colorName}-50`);
+    const d = app.vars.get(`--color-${colorName}-950`);
+
+    if (color && l && d) {
+      const best =
+        chroma.contrast(color, l) > chroma.contrast(color, d) ? l : d;
+      app.vars.set(`--color-contrast-${colorName}-${key.split("-")[-1]}`, best);
+    }
+  }
+
 
   function setToAutomatedScale() {
     if (mode === "manual") return;
@@ -50,8 +65,17 @@
     }
   }
 
+  function handleClick(e: MouseEvent & { currentTarget: HTMLButtonElement }) {
+    const action = e.currentTarget.getAttribute("data-action");
+    if (action) {
+      if (action === "regenerate") setToAutomatedScale();
+      else if (action === "random") setToRandomScale();
+    }
+  }
+
   function handleChange(e: Event & { currentTarget: HTMLInputElement }) {
-    setColorValue(e.currentTarget, `--${e.currentTarget.name}`);
+    setColorValue(e.currentTarget.value, `--${e.currentTarget.name}`);
+    setColorContrastValue(e.currentTarget.value, `--${e.currentTarget.name}`);
     if (mode !== "manual") {
       setToAutomatedScale();
     }
@@ -123,13 +147,16 @@
 </div>
 
 <div class="flex justify-between">
-  <button class="btn btn-sm filled-primary-500" onclick={setToRandomScale}
-    >random</button
+  <button
+    class="btn btn-sm filled-primary-500"
+    onclick={handleClick}
+    data-action="random">random</button
   >
   {#if mode !== "manual"}
     <button
       class="btn btn-sm filled-primary-100-900"
-      onclick={setToAutomatedScale}>regenerate</button
+      onclick={handleClick}
+      data-action="regenerate">regenerate</button
     >
   {/if}
 </div>

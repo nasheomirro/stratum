@@ -30,4 +30,14 @@
   {#key colorName}
     <ColorPaletteControls {colorName} />
   {/key}
+
+  <div class="space-y-1">
+    <h3 class="h6 font-bold">contrast colors</h3>
+    <p class="text-xs">
+      contrast colors for each shade is automatically created. Note that contrast
+      colors are either the `50` shade or `950` shade, the app chooses which
+      contrasts best with the given shade but doesn't garauntee that it will be up
+      to WCAG standards.
+    </p>
+  </div>
 </Controls>

@@ -1,5 +1,5 @@
-import { colorShades } from "$lib/constants";
 import chroma, { type Color } from "chroma-js";
+import { colorShades } from "@nasheomirro/stratum-shared";
 
 export function genScale(from: [string, string] | [string, string, string]) {
   const colors = chroma.scale(from).mode("oklch").colors(colorShades.length);
