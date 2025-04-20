@@ -80,6 +80,7 @@
     const colorShade = e.currentTarget.getAttribute("data-shade") as string;
     if (chroma.valid(e.currentTarget.value)) {
       setColorValue(e.currentTarget.value, colorShade);
+      setColorContrastValue(e.currentTarget.value, colorShade);
     }
     if (mode !== "manual") {
       setToAutomatedScale();

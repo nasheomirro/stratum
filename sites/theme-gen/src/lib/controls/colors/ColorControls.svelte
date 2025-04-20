@@ -5,8 +5,6 @@
   import { app } from "$lib/app.svelte";
 
   let colorName = $state<(typeof colorNames)[number]>("primary");
-  
-  console.log(app.theme);
 </script>
 
 <Controls title="Colors">
