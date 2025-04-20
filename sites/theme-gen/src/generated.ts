@@ -1,4 +1,4 @@
-export const bgColors = [
+[
   [
     "bg-primary-50",
     "bg-primary-100",
@@ -92,7 +92,7 @@ export const bgColors = [
   ],
 ];
 
-export const textColors = [
+[
   [
     "text-contrast-primary-50",
     "text-contrast-primary-100",
@@ -186,7 +186,7 @@ export const textColors = [
   ],
 ];
 
-export const bgColorPairings = [
+[
   [
     "bg-primary-50-950",
     "bg-primary-100-900",
@@ -273,7 +273,7 @@ export const bgColorPairings = [
   ],
 ];
 
-export const textColorPairings = [
+[
   [
     "text-contrast-primary-50-950",
     "text-contrast-primary-100-900",

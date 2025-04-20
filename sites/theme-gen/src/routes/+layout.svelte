@@ -4,9 +4,6 @@
   
   import "../app.css";
 
-  // import for now so that color variables are generated, remove when display is fully set
-  import "$lib/display/colorClasses";
-
   let { children } = $props();
 
   $effect(() => {

@@ -9,6 +9,7 @@
 @import "@nasheomirro/stratum/presets/forms";
 
 @custom-variant dark (&:where(.dark, .dark *));
+@source "./generated.ts";
 
 @utility form-field {
   @apply flex flex-col space-y-1;
