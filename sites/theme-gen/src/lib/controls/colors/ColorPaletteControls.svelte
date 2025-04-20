@@ -17,26 +17,23 @@
   }: Props = $props();
   let mode: "manual" | "auto" | "tri-auto" | "mid-auto" = $state("manual");
 
-  function setColorValue(value: string, colorShade: string) {
-    if (chroma.valid(value)) {
-      colorSet[`--color-${colorName}-${colorShade}`] = value;
-    }
+  function setColorValue(value: string, colorShade: string | number) {
+    colorSet[`--color-${colorName}-${colorShade}`] = value;
   }
 
   /**
    * Hey buddy, this is a "always-generated" value, it uses var(--color-*).
    */
-  // function setColorContrastValue(key: string, value: string) {
-  //   const color = app.vars.get(key);
-  //   const l = app.vars.get(`--color-${colorName}-50`);
-  //   const d = app.vars.get(`--color-${colorName}-950`);
+  function setColorContrastValue(value: string, colorShade: string | number) {
+    const l = colorSet[`--color-${colorName}-50`];
+    const d = colorSet[`--color-${colorName}-950`];
 
-  //   if (color && l && d) {
-  //     const best =
-  //       chroma.contrast(color, l) > chroma.contrast(color, d) ? l : d;
-  //     app.vars.set(`--color-contrast-${colorName}-${key.split("-")[-1]}`, best);
-  //   }
-  // }
+    const best =
+      chroma.contrast(value, l) > chroma.contrast(value, d)
+        ? `var(--color-${colorName}-50)`
+        : `var(--color-${colorName}-950)`;
+    contrastSet[`--color-contrast-${colorName}-${colorShade}`] = best;
+  }
 
   function setToAutomatedScale() {
     if (mode === "manual") return;
@@ -54,7 +51,8 @@
       for (let i = 0; i < colorShades.length; i++) {
         const color = colors[i];
         const colorShade = colorShades[i];
-        colorSet[`--color-${colorName}-${colorShade}`] = color;
+        setColorValue(color, colorShade);
+        setColorContrastValue(color, colorShade);
       }
     }
   }
@@ -65,7 +63,8 @@
     for (let i = 0; i < colorShades.length; i++) {
       const color = colors[i];
       const colorShade = colorShades[i];
-      colorSet[`--color-${colorName}-${colorShade}`] = color;
+      setColorValue(color, colorShade);
+      setColorContrastValue(color, colorShade);
     }
   }
 
@@ -79,7 +78,9 @@
 
   function handleChange(e: Event & { currentTarget: HTMLInputElement }) {
     const colorShade = e.currentTarget.getAttribute("data-shade") as string;
-    setColorValue(e.currentTarget.value, colorShade);
+    if (chroma.valid(e.currentTarget.value)) {
+      setColorValue(e.currentTarget.value, colorShade);
+    }
     if (mode !== "manual") {
       setToAutomatedScale();
     }
