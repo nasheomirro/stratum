@@ -4,15 +4,21 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "dev": "tsc -w",
-    "build": "tsc"
+    "clean": "rimraf dist/",
+    "copy": "copyfiles -f src/**/*.txt dist/",
+    "build": "npm run clean && tsc && npm run copy"
   },
   "exports": {
     ".": {
       "import": "./dist/index.js"
+    },
+    "./theme-boilerplate": {
+      "import": "./dist/boilerplate.txt"
     }
   },
   "devDependencies": {
+    "copyfiles": "^2.4.1",
+    "rimraf": "^6.0.1",
     "typescript": "catalog:"
   },
   "keywords": [],

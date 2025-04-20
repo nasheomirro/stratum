@@ -6,11 +6,11 @@ export const colorNames = [
   "warning",
   "error",
   "surface",
-];
+] as const;
 
 export const colorShades = [
   50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950,
-];
+] as const;
 
 export const colorPairings = [
   [50, 950],
@@ -23,4 +23,4 @@ export const colorPairings = [
   [800, 200],
   [900, 100],
   [950, 50],
-];
+] as const;
