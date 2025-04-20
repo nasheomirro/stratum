@@ -1,3 +1,10 @@
+/**
+ * The theme keys in an object format.
+ * ALL CREATED, PUBLICLY-FACING VARIABLES MUST BE RECORDED HERE
+ */
+
+export type Theme = typeof emptyTheme;
+
 export const emptyTheme = {
   base: {
     "--base-text-scaling": "",
@@ -114,7 +121,6 @@ export const emptyTheme = {
       "--color-error-900": "",
       "--color-error-950": "",
     },
-
     surface: {
       "--color-surface-50": "",
       "--color-surface-100": "",
@@ -129,4 +135,97 @@ export const emptyTheme = {
       "--color-surface-950": "",
     },
   },
+  generated: {
+    primary: {
+      "--color-contrast-primary-50": "",
+      "--color-contrast-primary-100": "",
+      "--color-contrast-primary-200": "",
+      "--color-contrast-primary-300": "",
+      "--color-contrast-primary-400": "",
+      "--color-contrast-primary-500": "",
+      "--color-contrast-primary-600": "",
+      "--color-contrast-primary-700": "",
+      "--color-contrast-primary-800": "",
+      "--color-contrast-primary-900": "",
+      "--color-contrast-primary-950": "",
+    },
+    secondary: {
+      "--color-contrast-secondary-50": "",
+      "--color-contrast-secondary-100": "",
+      "--color-contrast-secondary-200": "",
+      "--color-contrast-secondary-300": "",
+      "--color-contrast-secondary-400": "",
+      "--color-contrast-secondary-500": "",
+      "--color-contrast-secondary-600": "",
+      "--color-contrast-secondary-700": "",
+      "--color-contrast-secondary-800": "",
+      "--color-contrast-secondary-900": "",
+      "--color-contrast-secondary-950": "",
+    },
+    tertiary: {
+      "--color-contrast-tertiary-50": "",
+      "--color-contrast-tertiary-100": "",
+      "--color-contrast-tertiary-200": "",
+      "--color-contrast-tertiary-300": "",
+      "--color-contrast-tertiary-400": "",
+      "--color-contrast-tertiary-500": "",
+      "--color-contrast-tertiary-600": "",
+      "--color-contrast-tertiary-700": "",
+      "--color-contrast-tertiary-800": "",
+      "--color-contrast-tertiary-900": "",
+      "--color-contrast-tertiary-950": "",
+    },
+    success: {
+      "--color-contrast-success-50": "",
+      "--color-contrast-success-100": "",
+      "--color-contrast-success-200": "",
+      "--color-contrast-success-300": "",
+      "--color-contrast-success-400": "",
+      "--color-contrast-success-500": "",
+      "--color-contrast-success-600": "",
+      "--color-contrast-success-700": "",
+      "--color-contrast-success-800": "",
+      "--color-contrast-success-900": "",
+      "--color-contrast-success-950": "",
+    },
+    warning: {
+      "--color-contrast-warning-50": "",
+      "--color-contrast-warning-100": "",
+      "--color-contrast-warning-200": "",
+      "--color-contrast-warning-300": "",
+      "--color-contrast-warning-400": "",
+      "--color-contrast-warning-500": "",
+      "--color-contrast-warning-600": "",
+      "--color-contrast-warning-700": "",
+      "--color-contrast-warning-800": "",
+      "--color-contrast-warning-900": "",
+      "--color-contrast-warning-950": "",
+    },
+    error: {
+      "--color-contrast-error-50": "",
+      "--color-contrast-error-100": "",
+      "--color-contrast-error-200": "",
+      "--color-contrast-error-300": "",
+      "--color-contrast-error-400": "",
+      "--color-contrast-error-500": "",
+      "--color-contrast-error-600": "",
+      "--color-contrast-error-700": "",
+      "--color-contrast-error-800": "",
+      "--color-contrast-error-900": "",
+      "--color-contrast-error-950": "",
+    },
+    surface: {
+      "--color-contrast-surface-50": "",
+      "--color-contrast-surface-100": "",
+      "--color-contrast-surface-200": "",
+      "--color-contrast-surface-300": "",
+      "--color-contrast-surface-400": "",
+      "--color-contrast-surface-500": "",
+      "--color-contrast-surface-600": "",
+      "--color-contrast-surface-700": "",
+      "--color-contrast-surface-800": "",
+      "--color-contrast-surface-900": "",
+      "--color-contrast-surface-950": "",
+    },
+  }
 };
