@@ -67,7 +67,7 @@
       </p>
     </div>
 
-    <h4 class="font-bold">Anchor Settings</h4>
+    <h4 class="hd-static font-bold">Anchor Settings</h4>
 
     <label class="form-field">
       <span class="label-text">font color - light</span>
@@ -157,7 +157,7 @@
       </label>
     </div>
 
-    <h4 class="font-bold">Heading Settings</h4>
+    <h4 class="hd-static font-bold">Heading Settings</h4>
 
     <label class="form-field">
       <span class="label-text">font color - light</span>

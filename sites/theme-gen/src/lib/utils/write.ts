@@ -40,15 +40,17 @@ export function ThemeObjectToCSS(theme: StratumTheme, config: AppConfig) {
     });
   }
 
-  res.replaceAll("[slot]:base", base);
-  res.replaceAll("[slot]:presets", presets);
-  res.replaceAll("[slot]:color", colors);
-  res.replaceAll("[slot]:color-contrasts", contrasts);
+  res = res
+    .replace("[slot]:base", base)
+    .replace("[slot]:presets", presets)
+    .replace("[slot]:color", colors)
+    .replace("[slot]:color-contrasts", contrasts);
 
   return {
     generated: res,
     /** contains just the variables */
-    raw: base + (presets.startsWith("    /*") ? "" : presets) + colors + contrasts,
+    raw:
+      base + (presets.startsWith("    /*") ? "" : presets) + colors + contrasts,
   };
 }
 
