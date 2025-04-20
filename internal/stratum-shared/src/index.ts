@@ -1,2 +1,2 @@
-export { emptyTheme } from "./keys";
+export { emptyTheme, StratumTheme } from "./keys";
 export { colorNames, colorPairings, colorShades } from "./constants";

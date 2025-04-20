@@ -3,7 +3,7 @@
  * ALL CREATED, PUBLICLY-FACING VARIABLES MUST BE RECORDED HERE
  */
 
-export type Theme = typeof emptyTheme;
+export type StratumTheme = typeof emptyTheme;
 
 export const emptyTheme = {
   base: {
