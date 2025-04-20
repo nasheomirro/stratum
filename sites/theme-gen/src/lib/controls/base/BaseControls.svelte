@@ -1,21 +1,9 @@
 <script>
   import Controls from "$lib/components/Controls.svelte";
   import { app } from "$lib/app.svelte";
-  import { colorNames, colorShades } from "@nasheomirro/stratum-shared";
-  import { base } from "$app/paths";
+  
+  import ColorOptions from "$lib/components/ColorOptions.svelte";
 </script>
-
-{#snippet colors()}
-  {#each colorNames as colorName}
-    <optgroup label={colorName}>
-      {#each colorShades as colorShade}
-        <option value={`var(--color-${colorName}-${colorShade})`}
-          >{`${colorName}-${colorShade}`}</option
-        >
-      {/each}
-    </optgroup>
-  {/each}
-{/snippet}
 
 <Controls title="Base">
   <div class="space-y-1">
@@ -33,7 +21,7 @@
       class="select"
       bind:value={app.theme.base["--base-background-color"]}
     >
-      {@render colors()}
+      <ColorOptions />
     </select>
   </label>
 
@@ -43,14 +31,14 @@
       class="select"
       bind:value={app.theme.base["--base-background-color-dark"]}
     >
-      {@render colors()}
+      <ColorOptions />
     </select>
   </label>
 
   <label class="form-field">
     <span class="label-text">font color - light</span>
     <select class="select" bind:value={app.theme.base["--base-font-color"]}>
-      {@render colors()}
+      <ColorOptions />
     </select>
   </label>
 
@@ -60,7 +48,7 @@
       class="select"
       bind:value={app.theme.base["--base-font-color-dark"]}
     >
-      {@render colors()}
+      <ColorOptions />
     </select>
   </label>
 

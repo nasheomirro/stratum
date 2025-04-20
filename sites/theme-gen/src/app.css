@@ -11,6 +11,10 @@
 @custom-variant dark (&:where(.dark, .dark *));
 @source "./generated.ts";
 
+@utility form-field-row {
+  @apply flex space-x-2;
+}
+
 @utility form-field {
   @apply flex flex-col space-y-1;
 }

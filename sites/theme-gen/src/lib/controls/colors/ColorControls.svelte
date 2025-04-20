@@ -37,7 +37,7 @@
   {/key}
 
   <div class="space-y-1">
-    <h3 class="h6 font-bold">contrast colors</h3>
+    <h3 class="hd-6 font-bold">contrast colors</h3>
     <p class="text-xs">
       contrast colors for each shade is automatically created. Note that
       contrast colors are either the `50` shade or `950` shade, the app chooses

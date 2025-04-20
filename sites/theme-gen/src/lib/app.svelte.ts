@@ -10,7 +10,8 @@ class AppState {
   theme = $state<StratumTheme>(CSSToThemeObject(defaultCSSFile));
   config = $state<AppConfig>({
     presets: {
-      shared: false,
+      forms: false,
+      pip: false,
       typography: false,
     },
   });

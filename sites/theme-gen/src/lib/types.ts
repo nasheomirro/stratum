@@ -1,6 +1,7 @@
 export type AppConfig = {
   presets: {
-    shared: false;
+    pip: false;
+    forms: false;
     typography: false;
   };
 };

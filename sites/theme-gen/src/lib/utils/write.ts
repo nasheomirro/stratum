@@ -29,7 +29,7 @@ export function ThemeObjectToCSS(theme: StratumTheme, config: AppConfig) {
     ...theme.colors.contrasts.surface,
   });
 
-  if (config.presets.shared) {
+  if (config.presets.forms || config.presets.pip || config.presets.typography) {
     presets = ObjectToCSSStr(theme.presets.shared);
   }
 
@@ -48,7 +48,7 @@ export function ThemeObjectToCSS(theme: StratumTheme, config: AppConfig) {
   return {
     generated: res,
     /** contains just the variables */
-    raw: base + (presets.startsWith("--") ? presets : "") + colors + contrasts,
+    raw: base + (presets.startsWith("    /*") ? "" : presets) + colors + contrasts,
   };
 }
 
