@@ -1,25 +1,61 @@
-import { stratumTheme } from "@nasheomirro/stratum-shared";
+import { emptyTheme, type StratumTheme } from "@nasheomirro/stratum-shared";
 
-const allThemeKeys = Object.keys(stratumTheme).reduce(
-  (arr: string[], key) => [
-    ...arr,
-    ...stratumTheme[key as keyof typeof stratumTheme],
-  ],
-  []
-);
+const themeKeyMap = createThemeKeyMap(emptyTheme);
 
-export function CSSToEntries(css: string): [string, string][] {
-  const entries: [string, string][] = [];
-  const lines = css.split("\n").map((line) => line.trim());
+export function CSSToThemeObject(css: string) {
+  const theme = structuredClone(emptyTheme);
+  const lines = css
+    .split("\n")
+    .map((line) => line.trim())
+    .filter((line) => line.startsWith("--"))
+    .map((line) => line.split(":"))
+    .map(([key, val]) => [key.trim(), val.replace(";", "").trim()] as const);
 
-  for (let line of lines) {
-    if (line.startsWith("--")) {
-      const [key, val] = line.split(":");
-      if (allThemeKeys.includes(key as any)) {
-        entries.push([key.trim(), val.replaceAll(";", "").trim()]);
-      }
+  lines.forEach(([key, val]) => {
+    if (Object.hasOwn(themeKeyMap, key)) {
+      assignThemeKeyFromStack(theme, themeKeyMap[key], key, val);
+    }
+  });
+
+  return theme as StratumTheme;
+}
+
+function assignThemeKeyFromStack(
+  theme: StratumTheme,
+  stack: string[],
+  propertyName: string,
+  val: string
+) {
+  let _theme = theme as any;
+  const finalKeyName = stack.pop();
+  for (let i = 0; i < stack.length; i++) {
+    const key = stack[i];
+    if (!typeof Object.hasOwn(_theme, key)) {
+      return;
+    }
+
+    _theme = _theme[key];
+  }
+
+  if (finalKeyName) {
+    _theme[finalKeyName][propertyName] = val;
+  }
+}
+
+function createThemeKeyMap(
+  obj: any,
+  stack: string[] = [],
+  root: { [key: string]: string[] } = {}
+) {
+  const keys = Object.keys(obj);
+  for (let key of keys) {
+    const val = obj[key];
+    if (typeof val === "object") {
+      createThemeKeyMap(obj[key], [...stack, key], root);
+    } else {
+      root[key] = [...stack];
     }
   }
 
-  return entries;
+  return root;
 }

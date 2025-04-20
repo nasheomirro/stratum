@@ -1,45 +1,49 @@
 <script lang="ts">
   import chroma from "chroma-js";
-  import { colorShades } from "@nasheomirro/stratum-shared";
-
-  import { app } from "$lib/app.svelte";
+  import { colorNames, colorShades } from "@nasheomirro/stratum-shared";
   import { genScaleFromSeed, genRandomSeed, genScale } from "$lib/utils/colors";
 
   type Props = {
-    colorName: string;
+    colorName: (typeof colorNames)[number];
+    // it's not perfect but it works for now, typescript won't play well with svelte generics
+    colorSet: { [K: string]: string };
+    contrastSet: { [K: string]: string };
   };
 
-  const { colorName }: Props = $props();
+  const {
+    colorName,
+    colorSet = $bindable(),
+    contrastSet = $bindable(),
+  }: Props = $props();
   let mode: "manual" | "auto" | "tri-auto" | "mid-auto" = $state("manual");
 
-  function setColorValue(key: string, value: string) {
+  function setColorValue(value: string, colorShade: string) {
     if (chroma.valid(value)) {
-      app.vars.set(key, value);
+      colorSet[`--color-${colorName}-${colorShade}`] = value;
     }
   }
 
-  /** 
+  /**
    * Hey buddy, this is a "always-generated" value, it uses var(--color-*).
    */
-  function setColorContrastValue(key: string, value: string) {
-    const color = app.vars.get(key);
-    const l = app.vars.get(`--color-${colorName}-50`);
-    const d = app.vars.get(`--color-${colorName}-950`);
+  // function setColorContrastValue(key: string, value: string) {
+  //   const color = app.vars.get(key);
+  //   const l = app.vars.get(`--color-${colorName}-50`);
+  //   const d = app.vars.get(`--color-${colorName}-950`);
 
-    if (color && l && d) {
-      const best =
-        chroma.contrast(color, l) > chroma.contrast(color, d) ? l : d;
-      app.vars.set(`--color-contrast-${colorName}-${key.split("-")[-1]}`, best);
-    }
-  }
-
+  //   if (color && l && d) {
+  //     const best =
+  //       chroma.contrast(color, l) > chroma.contrast(color, d) ? l : d;
+  //     app.vars.set(`--color-contrast-${colorName}-${key.split("-")[-1]}`, best);
+  //   }
+  // }
 
   function setToAutomatedScale() {
     if (mode === "manual") return;
 
-    const l = app.vars.get(`--color-${colorName}-50`);
-    const m = app.vars.get(`--color-${colorName}-500`);
-    const d = app.vars.get(`--color-${colorName}-950`);
+    const l = colorSet[`--color-${colorName}-50`];
+    const m = colorSet[`--color-${colorName}-500`];
+    const d = colorSet[`--color-${colorName}-950`];
 
     if (l && m && d) {
       const colors =
@@ -50,7 +54,7 @@
       for (let i = 0; i < colorShades.length; i++) {
         const color = colors[i];
         const colorShade = colorShades[i];
-        app.vars.set(`--color-${colorName}-${colorShade}`, color);
+        colorSet[`--color-${colorName}-${colorShade}`] = color;
       }
     }
   }
@@ -61,7 +65,7 @@
     for (let i = 0; i < colorShades.length; i++) {
       const color = colors[i];
       const colorShade = colorShades[i];
-      app.vars.set(`--color-${colorName}-${colorShade}`, color);
+      colorSet[`--color-${colorName}-${colorShade}`] = color;
     }
   }
 
@@ -74,8 +78,8 @@
   }
 
   function handleChange(e: Event & { currentTarget: HTMLInputElement }) {
-    setColorValue(e.currentTarget.value, `--${e.currentTarget.name}`);
-    setColorContrastValue(e.currentTarget.value, `--${e.currentTarget.name}`);
+    const colorShade = e.currentTarget.getAttribute("data-shade") as string;
+    setColorValue(e.currentTarget.value, colorShade);
     if (mode !== "manual") {
       setToAutomatedScale();
     }
@@ -163,9 +167,7 @@
 
 <div class="flex flex-col gap-1">
   {#each colorShades as colorShade}
-    {@const color = app.vars.get(
-      `--color-${colorName}-${colorShade}`
-    ) as string}
+    {@const color = colorSet[`--color-${colorName}-${colorShade}`]}
     {@const isDisabled =
       mode === "auto"
         ? colorShade > 50 && colorShade < 950
@@ -183,7 +185,7 @@
       <input
         class="input"
         type="color"
-        name="color-{colorName}-{colorShade}"
+        data-shade={colorShade}
         disabled={isDisabled}
         value={chroma(color).hex()}
         oninput={handleChange}
@@ -192,7 +194,7 @@
         <input
           class="input"
           id="color-{colorName}-{colorShade}"
-          name="color-{colorName}-{colorShade}"
+          data-shade={colorShade}
           disabled={isDisabled}
           value={chroma(color).css("oklch")}
           onchange={handleChange}

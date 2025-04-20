@@ -2,6 +2,7 @@
   import Controls from "$lib/components/Controls.svelte";
   import { app } from "$lib/app.svelte";
   import { colorNames, colorShades } from "@nasheomirro/stratum-shared";
+  import { base } from "$app/paths";
 </script>
 
 {#snippet colors()}
@@ -30,10 +31,7 @@
     <span class="label-text">background color - light</span>
     <select
       class="select"
-      bind:value={
-        () => app.vars.get("--base-background-color"),
-        (v) => v !== undefined && app.vars.set("--base-background-color", v)
-      }
+      bind:value={app.theme.base["--base-background-color"]}
     >
       {@render colors()}
     </select>
@@ -43,11 +41,7 @@
     <span class="label-text">background color - dark</span>
     <select
       class="select"
-      bind:value={
-        () => app.vars.get("--base-background-color-dark"),
-        (v) =>
-          v !== undefined && app.vars.set("--base-background-color-dark", v)
-      }
+      bind:value={app.theme.base["--base-background-color-dark"]}
     >
       {@render colors()}
     </select>
@@ -55,13 +49,7 @@
 
   <label class="form-field">
     <span class="label-text">font color - light</span>
-    <select
-      class="select"
-      bind:value={
-        () => app.vars.get("--base-font-color"),
-        (v) => v !== undefined && app.vars.set("--base-font-color", v)
-      }
-    >
+    <select class="select" bind:value={app.theme.base["--base-font-color"]}>
       {@render colors()}
     </select>
   </label>
@@ -70,10 +58,7 @@
     <span class="label-text">font color - dark</span>
     <select
       class="select"
-      bind:value={
-        () => app.vars.get("--base-font-color-dark"),
-        (v) => v !== undefined && app.vars.set("--base-font-color-dark", v)
-      }
+      bind:value={app.theme.base["--base-font-color-dark"]}
     >
       {@render colors()}
     </select>
@@ -89,10 +74,7 @@
   <div class="form-field">
     <label class="label-text" for="--base-font-family">font family</label>
     <input
-      bind:value={
-        () => app.vars.get("--base-font-family"),
-        (v) => v !== undefined && app.vars.set("--base-font-family", v)
-      }
+      bind:value={app.theme.base["--base-font-family"]}
       class="input"
       id="--base-font-family"
       defaultValue="inherit"
@@ -107,10 +89,7 @@
     <label class="label-text" for="--base-letter-spacing">letter spacing</label>
     <input
       class="input"
-      bind:value={
-        () => app.vars.get("--base-letter-spacing"),
-        (v) => v !== undefined && app.vars.set("--base-letter-spacing", v)
-      }
+      bind:value={app.theme.base["--base-letter-spacing"]}
       id="--base-letter-spacing"
       defaultValue="inherit"
     />
@@ -119,13 +98,7 @@
   <div class="grid grid-cols-2 gap-4">
     <label class="form-field">
       <span class="label-text">font weight</span>
-      <select
-        class="select"
-        bind:value={
-          () => app.vars.get("--base-font-weight"),
-          (v) => v !== undefined && app.vars.set("--base-font-weight", v)
-        }
-      >
+      <select class="select" bind:value={app.theme.base["--base-font-weight"]}>
         <option>inherit</option>
         <option>100</option>
         <option>200</option>
@@ -140,13 +113,7 @@
     </label>
     <label class="form-field">
       <span class="label-text">font style</span>
-      <select
-        class="select"
-        bind:value={
-          () => app.vars.get("--base-font-style"),
-          (v) => v !== undefined && app.vars.set("--base-font-style", v)
-        }
-      >
+      <select class="select" bind:value={app.theme.base["--base-font-style"]}>
         <option>inherit</option>
         <option selected>normal</option>
         <option>italic</option>
@@ -167,15 +134,14 @@
     <label class="label-text" for="--base-text-scaling">text-scaling</label>
     <input
       class="input"
-      bind:value={
-        () => app.vars.get("--base-text-scaling"),
-        (v) => v !== undefined && app.vars.set("--base-text-scaling", v)
-      }
+      bind:value={app.theme.base["--base-text-scaling"]}
       id="--base-text-scaling"
       defaultValue="inherit"
     />
     <p class="form-field-caption">
-      text-scaling is multiplied to all <code class="base:code py-0">text-[size]</code> utilities.
+      text-scaling is multiplied to all <code class="base:code py-0"
+        >text-[size]</code
+      > utilities.
     </p>
   </div>
 </Controls>

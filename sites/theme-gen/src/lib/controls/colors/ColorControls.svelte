@@ -2,8 +2,11 @@
   import { colorNames } from "@nasheomirro/stratum-shared";
   import Controls from "$lib/components/Controls.svelte";
   import ColorPaletteControls from "./ColorPaletteControls.svelte";
+  import { app } from "$lib/app.svelte";
 
-  let colorName = $state("primary");
+  let colorName = $state<(typeof colorNames)[number]>("primary");
+  
+  console.log(app.theme);
 </script>
 
 <Controls title="Colors">
@@ -28,16 +31,20 @@
   </div>
 
   {#key colorName}
-    <ColorPaletteControls {colorName} />
+    <ColorPaletteControls
+      {colorName}
+      bind:colorSet={app.theme.colors.main[colorName]}
+      bind:contrastSet={app.theme.colors.contrasts[colorName]}
+    />
   {/key}
 
   <div class="space-y-1">
     <h3 class="h6 font-bold">contrast colors</h3>
     <p class="text-xs">
-      contrast colors for each shade is automatically created. Note that contrast
-      colors are either the `50` shade or `950` shade, the app chooses which
-      contrasts best with the given shade but doesn't garauntee that it will be up
-      to WCAG standards.
+      contrast colors for each shade is automatically created. Note that
+      contrast colors are either the `50` shade or `950` shade, the app chooses
+      which contrasts best with the given shade but doesn't garauntee that it
+      will be up to WCAG standards.
     </p>
   </div>
 </Controls>
