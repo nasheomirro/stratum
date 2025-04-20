@@ -1,16 +1,16 @@
 /* [v0.1.0] */
 @theme {
     /* Base Global Properties */
-    [slot]:base
+[slot]:base
   
     /* Presets */
-    [slot]:presets
+[slot]:presets
   
     /* Color Sets */
-    [slot]:color
+[slot]:color
 
     /* Color Contrasts */
-    [slot]:color-contrasts
+[slot]:color-contrasts
   }
   
   @theme inline {
