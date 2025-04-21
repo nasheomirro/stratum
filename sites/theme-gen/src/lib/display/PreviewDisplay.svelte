@@ -1,6 +1,8 @@
 <script lang="ts">
   import { colorNames, colorShades } from "@nasheomirro/stratum-shared";
   import { bgColors, textColors } from "./colors";
+  import { app } from "$lib/app.svelte";
+  import PresetSection from "./PresetSection.svelte";
 </script>
 
 <div class="pt-10 pb-30 px-4 lg:px-10 space-y-16">
@@ -79,7 +81,7 @@
 
   <div class="border-t border-t-surface-300-700"></div>
 
-  <div class="space-y-6">
+  <PresetSection presetName="pip" disabled={!app.config.presets.pip}>
     <div class="space-y-2">
       <h3 class="hd-2">Pip</h3>
       <p>
@@ -125,11 +127,14 @@
       <div class="badge badge-lg filled-secondary-300-700">large</div>
       <div class="badge-icon badge-icon-lg filled-secondary-300-700">🐲</div>
     </div>
-  </div>
+  </PresetSection>
 
   <div class="border-t border-t-surface-300-700"></div>
 
-  <div class="space-y-6">
+  <PresetSection
+    presetName="typography"
+    disabled={!app.config.presets.typography}
+  >
     <div class="space-y-2">
       <h3 class="hd-2">Typography</h3>
       <p>
@@ -163,11 +168,11 @@
       <pre
         class="code-block sm:col-span-2 md:col-span-1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde ex minus voluptatibus illo exercitationem ad nobis quisquam! Doloribus fugit alias quidem? Facilis eligendi sunt earum illo, tempora laborum libero odit.</pre>
     </div>
-  </div>
+  </PresetSection>
 
   <div class="border-t border-t-surface-300-700"></div>
 
-  <div class="space-y-6">
+  <PresetSection presetName="forms" disabled={!app.config.presets.forms}>
     <div class="space-y-2">
       <h3 class="hd-2">Forms</h3>
       <p>
@@ -192,5 +197,5 @@
       <option>Option 3</option>
       <option>Option 4</option>
     </select>
-  </div>
+  </PresetSection>
 </div>
