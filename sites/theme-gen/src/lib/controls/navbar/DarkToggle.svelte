@@ -24,7 +24,7 @@
 
 <svelte:window onkeydown={handleKeyDown} />
 
-<button onclick={() => (isDark = !isDark)}>
+<button class="btn-icon hover:filled-surface-200-800" onclick={() => (isDark = !isDark)}>
   {#if isDark}
     <Light />
   {:else}

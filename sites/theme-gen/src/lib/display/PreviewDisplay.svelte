@@ -5,7 +5,7 @@
   import PresetSection from "./PresetSection.svelte";
 </script>
 
-<div class="pt-10 pb-30 px-4 lg:px-10 space-y-16">
+<div class="pt-10 pb-30 px-4 lg:px-10 space-y-16 relative z-0">
   <div class="space-y-6">
     <div class="space-y-2">
       <h2 class="hd-2">Base</h2>

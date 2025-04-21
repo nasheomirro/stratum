@@ -1,5 +1,6 @@
 <script lang="ts">
   import DarkToggle from "./DarkToggle.svelte";
+  import DisplayToggles from "./DisplayToggles.svelte";
   import { navbarState } from "./navbar.svelte";
 
   let navbar: HTMLDivElement;
@@ -20,8 +21,9 @@
 
 <div
   bind:this={navbar}
-  class="p-4 flex items-center border-b border-b-surface-200-800 sticky top-0 bg-surface-50-950 z-10"
+  class="p-4 flex items-center justify-between border-b border-b-surface-200-800 sticky top-0 bg-surface-50-950 z-10"
   id="navbar"
 >
   <DarkToggle />
+  <DisplayToggles />
 </div>
