@@ -1,0 +1,1 @@
+export const navbarState = $state({ height: 0 });

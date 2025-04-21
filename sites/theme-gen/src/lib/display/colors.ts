@@ -1,5 +1,3 @@
-export { colorNames, colorPairings, colorShades } from "@nasheomirro/stratum-shared";
-
 export const bgColors = [
   [
     "bg-primary-50",

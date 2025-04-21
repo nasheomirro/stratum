@@ -10,7 +10,6 @@ export default defineConfig({
       formats: ["es"],
       entry: {
         index: "src/index.css",
-        static: "src/static.css",
         ...Object.fromEntries(
           (await glob("./src/themes/*.{css,scss}")).map((path) => {
             const directory = basename(dirname(path));

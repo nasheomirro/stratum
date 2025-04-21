@@ -3,8 +3,8 @@ import Layout from "@layouts/Layout.astro";
 import Section from "@components/Section.astro";
 
 import {
-  colorSets,
-  colorPairs,
+  colorNames,
+  colorPairings,
   colorShades,
   bgColors,
   textColors,
@@ -25,7 +25,7 @@ import {
     <h2 class="hd-2">Color Sets</h2>
     <div class="grid grid-cols-7">
       {
-        colorSets.map((set, i) => (
+        colorNames.map((set, i) => (
           <div>
             <p class="text-sm text-center break-words h-9">{set}</p>
             <div>
@@ -47,14 +47,14 @@ import {
     <h2 class="hd-2">Color Pairings</h2>
     <div class="grid grid-cols-7">
       {
-        colorSets.map((set, i) => (
+        colorNames.map((set, i) => (
           <div>
             <p class="text-sm text-center break-words h-9">{set}</p>
             <div>
               {bgColorPairings[i].map((bgClass, j) => (
                 <div class={`flex items-center justify-center h-9 ${bgClass}`}>
                   <span class={`${textColorPairings[i][j]} text-xs`}>
-                    {colorPairs[j][0]}-{colorPairs[j][1]}
+                    {colorPairings[j][0]}-{colorPairings[j][1]}
                   </span>
                 </div>
               ))}

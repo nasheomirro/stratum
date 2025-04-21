@@ -6,10 +6,12 @@
     "dev": "astro dev"
   },
   "dependencies": {
+    "@nasheomirro/stratum-shared": "workspace:*",
     "@nasheomirro/stratum": "workspace:*",
     "@tailwindcss/vite": "^4.0.17",
     "@tailwindcss/forms": "^0.5.10",
     "astro": "^5.5.5",
-    "tailwindcss": "^4.0.17"
+    "typescript": "catalog:",
+    "tailwindcss": "catalog:"
   }
 }

@@ -12,10 +12,6 @@
       "style": "./dist/index.css",
       "default": "./dist/index.css"
     },
-    "./static": {
-      "style": "./dist/static.css",
-      "default": "./dist/static.css"
-    },
     "./presets/*": {
       "style": "./dist/presets/*.css",
       "default": "./dist/presets/*.css"
@@ -33,7 +29,7 @@
   "license": "ISC",
   "packageManager": "pnpm@10.6.5",
   "peerDependencies": {
-    "tailwindcss": "^4.0.0"
+    "tailwindcss": "catalog:"
   },
   "devDependencies": {
     "@types/node": "^22.13.14",
