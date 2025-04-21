@@ -5,6 +5,17 @@ import boilerplateStr from "@nasheomirro/stratum-shared/theme-boilerplate?raw";
 export function ThemeObjectToCSS(theme: StratumTheme, config: AppConfig) {
   let res = boilerplateStr;
 
+  res = res.replace(
+    "$$presets$$",
+    [
+      config.presets.forms && "forms",
+      config.presets.pip && "pip",
+      config.presets.typography && "typography",
+    ]
+      .filter((v) => v)
+      .join(",")
+  );
+
   let base = ObjectToCSSStr(theme.base);
 
   let presets = "    /* No Presets Selected */\n";

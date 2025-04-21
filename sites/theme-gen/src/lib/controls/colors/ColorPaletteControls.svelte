@@ -18,7 +18,7 @@
   let mode: "manual" | "auto" | "tri-auto" | "mid-auto" = $state("manual");
 
   function setColorValue(value: string, colorShade: string | number) {
-    colorSet[`--color-${colorName}-${colorShade}`] = value;
+    colorSet[`--color-${colorName}-${colorShade}`] = chroma(value).css("oklch");
   }
 
   /**
@@ -77,10 +77,16 @@
   }
 
   function handleChange(e: Event & { currentTarget: HTMLInputElement }) {
-    const colorShade = e.currentTarget.getAttribute("data-shade") as string;
-    if (chroma.valid(e.currentTarget.value)) {
-      setColorValue(e.currentTarget.value, colorShade);
-      setColorContrastValue(e.currentTarget.value, colorShade);
+    const input = e.currentTarget;
+    const colorShade = input.getAttribute("data-shade") as string;
+    if (chroma.valid(input.value)) {
+      setColorValue(input.value, colorShade);
+      setColorContrastValue(input.value, colorShade);
+    } else {
+      // if invalid, go back to original
+      if (input.type !== "color") {
+        input.value = colorSet[`--color-${colorName}-${colorShade}`];
+      }
     }
     if (mode !== "manual") {
       setToAutomatedScale();

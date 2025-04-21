@@ -1,6 +1,6 @@
 <script lang="ts">
   import { app } from "$lib/app.svelte";
-  import { appConfigFromTheme, CSSToThemeObject } from "$lib/utils/read";
+  import { CSSToAppConfig, CSSToThemeObject } from "$lib/utils/read";
   import Upload from "~icons/material-symbols/upload";
 
   let btnText = $state("copy");
@@ -28,7 +28,7 @@
       reader.onload = (e: ProgressEvent<FileReader>) => {
         const fileContent = e.target?.result as string;
         const theme = CSSToThemeObject(fileContent, $state.snapshot(app.theme));
-        const config = appConfigFromTheme(theme);
+        const config = CSSToAppConfig(fileContent);
 
         app.theme = theme;
         app.config = config;

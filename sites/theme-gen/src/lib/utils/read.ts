@@ -21,14 +21,37 @@ export function CSSToThemeObject(css: string, fromTheme = emptyTheme) {
   return theme as StratumTheme;
 }
 
-export function appConfigFromTheme(theme: StratumTheme): AppConfig {
-  // maybe better way to detect this, oh well.
+export function CSSToAppConfig(css: string): AppConfig {
+  const header = css
+    .split("\n")
+    .shift()
+    ?.replace(/[/*]/g, "")
+    .trim()
+    .split(" ");
+
+  if (header) {
+    const [version, presets] = header;
+    if (presets) {
+      const _presets = presets
+        .replace(/[[]]/g, "")
+        .split(",")
+        .map((i) => i.trim());
+
+      return {
+        presets: {
+          pip: _presets.includes("pip"),
+          forms: _presets.includes("forms"),
+          typography: _presets.includes("typography"),
+        },
+      };
+    }
+  }
+
   return {
     presets: {
-      pip: theme.presets.shared["--radius-preset-base"] !== undefined,
-      forms: theme.presets.shared["--radius-preset-base"] !== undefined,
-      typography:
-        theme.presets.typography.heading["--font-preset-heading"] !== undefined,
+      forms: false,
+      pip: false,
+      typography: false,
     },
   };
 }
