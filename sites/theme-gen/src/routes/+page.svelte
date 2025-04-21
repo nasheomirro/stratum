@@ -13,11 +13,9 @@
 >
   <div
     class="border-r border-r-surface-200-800 px-4 py-10 md:sticky md:max-h-screen md:top-0 md:overflow-y-auto"
+    style="top: {navbarState.height}px; max-height: calc(100vh - {navbarState.height}px);"
   >
-    <div
-      class="flex flex-col gap-10"
-      style="padding-top: {navbarState.height}px"
-    >
+    <div class="flex flex-col gap-10">
       <BaseControls />
       <ColorControls />
       <PresetControls />
