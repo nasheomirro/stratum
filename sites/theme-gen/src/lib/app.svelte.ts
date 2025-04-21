@@ -1,4 +1,3 @@
-import { SvelteMap } from "svelte/reactivity";
 import { type StratumTheme } from "@nasheomirro/stratum-shared";
 import defaultCSSFile from "@nasheomirro/stratum/themes/default?raw";
 

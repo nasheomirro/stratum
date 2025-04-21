@@ -1,7 +1,5 @@
 <script lang="ts">
   import { app } from "$lib/app.svelte";
-  import DarkToggle from "$lib/components/DarkToggle.svelte";
-
   import "../app.css";
 
   let { children } = $props();
@@ -11,5 +9,4 @@
   });
 </script>
 
-<DarkToggle />
 {@render children()}
