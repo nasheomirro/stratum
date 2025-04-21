@@ -12,8 +12,8 @@
   class="grid md:grid-cols-[1fr_1fr] lg:grid-cols-[1fr_2fr] xl:grid-cols-[1fr_3fr] min-h-screen"
 >
   <div
-    class="border-r border-r-surface-200-800 px-4 py-10 md:sticky md:max-h-screen md:top-0 md:overflow-y-auto"
-    style="top: {navbarState.height}px; max-height: calc(100vh - {navbarState.height}px);"
+    class="border-r border-r-surface-200-800 px-4 py-10 md:sticky md:max-h-(--max-h) md:top-0 md:overflow-y-auto"
+    style="top: {navbarState.height}px; --max-h: calc(100vh - {navbarState.height}px);"
   >
     <div class="flex flex-col gap-10">
       <BaseControls />
