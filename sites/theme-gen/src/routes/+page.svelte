@@ -14,9 +14,11 @@
   class="grid md:grid-cols-[1fr_1fr] lg:grid-cols-[1fr_2fr] xl:grid-cols-[1fr_3fr] min-h-screen"
 >
   <div
-    class="row-start-1 col-start-1
-    md:row-start-auto md:col-start-auto {app.display !== 'controls-preview' &&
-      'hidden'} md:block border-r border-r-surface-200-800 px-4 py-10 md:sticky md:max-h-(--max-h) md:top-0 md:overflow-y-auto"
+    class="
+    {app.display !== 'controls-preview' && 'hidden'} 
+    row-start-1 col-start-1 md:row-start-auto md:col-start-auto md:block bg-surface-50-950
+    border-r border-r-surface-200-800 px-4 py-10 md:sticky md:max-h-(--max-h) md:top-0 md:overflow-y-auto
+    "
     style="top: {navbarState.height}px; --max-h: calc(100vh - {navbarState.height}px);"
   >
     <div class="flex flex-col gap-10">
