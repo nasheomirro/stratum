@@ -10,7 +10,7 @@
 
 {#if hasInherit}
 <optgroup label="default">
-  <option value="inherit">Inherit</option>
+  <option value="inherit">inherit</option>
 </optgroup>
 {/if}
 {#each colorNames as colorName}
