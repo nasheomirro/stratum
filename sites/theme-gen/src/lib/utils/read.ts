@@ -1,9 +1,10 @@
+import type { AppConfig } from "$lib/types";
 import { emptyTheme, type StratumTheme } from "@nasheomirro/stratum-shared";
 
 const themeKeyMap = createThemeKeyMap(emptyTheme);
 
-export function CSSToThemeObject(css: string) {
-  const theme = structuredClone(emptyTheme);
+export function CSSToThemeObject(css: string, fromTheme = emptyTheme) {
+  const theme = structuredClone(fromTheme);
   const lines = css
     .split("\n")
     .map((line) => line.trim())
@@ -13,11 +14,23 @@ export function CSSToThemeObject(css: string) {
 
   lines.forEach(([key, val]) => {
     if (Object.hasOwn(themeKeyMap, key)) {
-      assignThemeKeyFromStack(theme, themeKeyMap[key], key, val);
+      assignThemeKeyFromStack(theme, [...themeKeyMap[key]], key, val);
     }
   });
 
   return theme as StratumTheme;
+}
+
+export function appConfigFromTheme(theme: StratumTheme): AppConfig {
+  // maybe better way to detect this, oh well.
+  return {
+    presets: {
+      pip: theme.presets.shared["--radius-preset-base"] !== undefined,
+      forms: theme.presets.shared["--radius-preset-base"] !== undefined,
+      typography:
+        theme.presets.typography.heading["--font-preset-heading"] !== undefined,
+    },
+  };
 }
 
 function assignThemeKeyFromStack(

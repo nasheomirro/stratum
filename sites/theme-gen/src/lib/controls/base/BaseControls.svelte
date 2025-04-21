@@ -1,6 +1,6 @@
 <script>
-  import Controls from "$lib/components/Controls.svelte";
   import { app } from "$lib/app.svelte";
+  import Controls from "$lib/components/Controls.svelte";
   
   import ColorOptions from "$lib/components/ColorOptions.svelte";
 </script>

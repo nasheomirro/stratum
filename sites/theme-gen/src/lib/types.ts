@@ -1,7 +1,7 @@
 export type AppConfig = {
   presets: {
-    pip: false;
-    forms: false;
-    typography: false;
+    pip: boolean;
+    forms: boolean;
+    typography: boolean;
   };
 };
