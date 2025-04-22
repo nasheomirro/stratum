@@ -1,6 +1,6 @@
 {
   "name": "@nasheomirro/stratum",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "an extremely light-weight wrapper for your tailwindCSS projects",
   "repository": {
     "type": "git",
