@@ -1,7 +1,11 @@
 {
   "name": "@nasheomirro/stratum",
-  "version": "0.1.0",
-  "description": "",
+  "version": "0.1.1",
+  "description": "an extremely light-weight wrapper for your tailwindCSS projects",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nasheomirro/stratum.git"
+  },
   "type": "module",
   "scripts": {
     "dev": "vite build --watch",
@@ -25,8 +29,7 @@
     "dist"
   ],
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "packageManager": "pnpm@10.6.5",
   "peerDependencies": {
     "tailwindcss": "catalog:"

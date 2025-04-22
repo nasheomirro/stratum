@@ -1,5 +1,11 @@
 # @nasheomirro/stratum
 
+## 0.1.1
+
+### Patch Changes
+
+- f021d60: updated package info and README
+
 ## 0.1.0
 
 ### Minor Changes
