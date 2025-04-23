@@ -1,3 +1,4 @@
+const draft = `
 /* [v1] [$$presets$$] */
 @theme {
     /* Base Global Properties */
@@ -170,3 +171,6 @@
     --color-contrast-surface-900-100: light-dark(var(--color-contrast-surface-900), var(--color-contrast-surface-100));
     --color-contrast-surface-950-50: light-dark(var(--color-contrast-surface-950), var(--color-contrast-surface-50));
 }
+`;
+
+export default draft;

@@ -1,12 +1,12 @@
 <script lang="ts">
-  import { app } from "$lib/app.svelte";
-  import { CSSToAppConfig, CSSToThemeObject } from "$lib/utils/read";
+  import { app, defaultThemeAndConfig } from "$lib/app.svelte";
+  import { CSSToStratumTheme } from "@nasheomirro/stratum-theme";
   import Upload from "~icons/material-symbols/upload";
 
   let btnText = $state("copy");
 
   function handleCopyClick() {
-    navigator.clipboard.writeText(app.generated.generated);
+    navigator.clipboard.writeText(app.generated.theme);
     btnText = "copied!";
 
     setTimeout(() => {
@@ -27,11 +27,10 @@
       // Set up a callback for when the file is successfully read
       reader.onload = (e: ProgressEvent<FileReader>) => {
         const fileContent = e.target?.result as string;
-        const theme = CSSToThemeObject(fileContent, $state.snapshot(app.theme));
-        const config = CSSToAppConfig(fileContent);
+        const { theme, presetConfig } = CSSToStratumTheme(fileContent, defaultThemeAndConfig.theme);
 
         app.theme = theme;
-        app.config = config;
+        app.presetConfig = presetConfig;
       };
 
       // Set up an error callback
@@ -48,28 +47,19 @@
 <div class="py-10 px-4 space-y-10 lg:p-10">
   <div class="space-y-4">
     <h2 class="hd-2">Generated Theme</h2>
-    <div
-      class="flex flex-wrap sm:flex-nowrap gap-4 items-center justify-between"
-    >
+    <div class="flex flex-wrap sm:flex-nowrap gap-4 items-center justify-between">
       <p>
-        Create a file and import this to your root <code class="code"
-          >app.css</code
-        > file.
+        Create a file and import this to your root <code class="code">app.css</code> file.
       </p>
 
-      <button
-        class="btn ml-auto filled-primary-200-800"
-        onclick={handleCopyClick}>{btnText}</button
-      >
+      <button class="btn ml-auto filled-primary-200-800" onclick={handleCopyClick}>{btnText}</button>
     </div>
-    <pre class="code-block max-h-92">{app.generated.generated}</pre>
+    <pre class="code-block max-h-92">{app.generated.theme}</pre>
   </div>
 
   <div class="space-y-4">
     <h2 class="hd-2">Import A Theme</h2>
-    <div
-      class="flex flex-wrap sm:flex-nowrap gap-4 items-center justify-between"
-    >
+    <div class="flex flex-wrap sm:flex-nowrap gap-4 items-center justify-between">
       <p>Import over an existing theme to modify it here.</p>
 
       <label>

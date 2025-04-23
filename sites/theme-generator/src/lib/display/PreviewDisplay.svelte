@@ -10,8 +10,7 @@
     <div class="space-y-2">
       <h2 class="hd-2">Base</h2>
       <p>
-        Base variables control the body's background color and text related
-        styles. It also controls the scaling for <code class="code"
+        Base variables control the body's background color and text related styles. It also controls the scaling for <code class="code"
           >text-[size]</code
         > utility classes.
       </p>
@@ -54,17 +53,12 @@
   <div class="space-y-6">
     <div class="space-y-2">
       <h2 class="hd-2">Colors</h2>
-      <p>
-        Colors are set as each cell's backgrounds with the contrast being set as
-        their texts.
-      </p>
+      <p>Colors are set as each cell's backgrounds with the contrast being set as their texts.</p>
     </div>
     <div class="grid grid-cols-7">
       {#each colorNames as colorName, i}
         <div>
-          <p
-            class="text-center break-words h-9 font-semibold text-surface-600-400 hidden sm:block md:hidden lg:block"
-          >
+          <p class="text-center break-words h-9 font-semibold text-surface-600-400 hidden sm:block md:hidden lg:block">
             {colorName}
           </p>
           {#each bgColors[i] as bg, j}
@@ -81,13 +75,10 @@
 
   <div class="border-t border-t-surface-300-700"></div>
 
-  <PresetSection presetName="pip" disabled={!app.config.presets.pip}>
+  <PresetSection presetName="pip" disabled={!app.presetConfig.pip}>
     <div class="space-y-2">
       <h3 class="hd-2">Pip</h3>
-      <p>
-        A quick way to add button and badge classes, anything that's small and
-        looks like a button.
-      </p>
+      <p>A quick way to add button and badge classes, anything that's small and looks like a button.</p>
     </div>
 
     <div class="flex gap-4 flex-wrap items-center">
@@ -131,18 +122,12 @@
 
   <div class="border-t border-t-surface-300-700"></div>
 
-  <PresetSection
-    presetName="typography"
-    disabled={!app.config.presets.typography}
-  >
+  <PresetSection presetName="typography" disabled={!app.presetConfig.typography}>
     <div class="space-y-2">
       <h3 class="hd-2">Typography</h3>
       <p>
-        contains classes that relates to typography. This includes inline <code
-          class="code">code</code
-        >
-        styles,<kbd class="kbd">key</kbd> styles, code blocks, block-quotes,
-        headings, and <a class="anchor" href="#top">anchors</a>.
+        contains classes that relates to typography. This includes inline <code class="code">code</code>
+        styles,<kbd class="kbd">key</kbd> styles, code blocks, block-quotes, headings, and <a class="anchor" href="#top">anchors</a>.
       </p>
     </div>
 
@@ -157,12 +142,10 @@
       </div>
 
       <blockquote class="blockquote">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit nobis ab
-        ut quidem, itaque explicabo sit eum alias nulla corporis accusamus.
-        Officia explicabo sit sed magnam at, animi deleniti repellat quam!
-        Doloremque perferendis porro nesciunt inventore aspernatur nobis, harum
-        minima sint tempore dolores aut id placeat odio sapiente maiores fugiat
-        modi velit quas nihil doloribus magni cumque ducimus? Consequatur, sunt!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit nobis ab ut quidem, itaque explicabo sit eum alias nulla corporis
+        accusamus. Officia explicabo sit sed magnam at, animi deleniti repellat quam! Doloremque perferendis porro nesciunt inventore
+        aspernatur nobis, harum minima sint tempore dolores aut id placeat odio sapiente maiores fugiat modi velit quas nihil doloribus
+        magni cumque ducimus? Consequatur, sunt!
       </blockquote>
 
       <pre
@@ -172,13 +155,11 @@
 
   <div class="border-t border-t-surface-300-700"></div>
 
-  <PresetSection presetName="forms" disabled={!app.config.presets.forms}>
+  <PresetSection presetName="forms" disabled={!app.presetConfig.forms}>
     <div class="space-y-2">
       <h3 class="hd-2">Forms</h3>
       <p>
-        A bunch of form classes, note that this expects the <code class="code"
-          >tailwind/forms</code
-        > plugin.
+        A bunch of form classes, note that this expects the <code class="code">tailwind/forms</code> plugin.
       </p>
     </div>
     <input class="input" placeholder="write on me!" />

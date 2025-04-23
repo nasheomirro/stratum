@@ -13,7 +13,7 @@
       "import": "./dist/index.js"
     },
     "./drafts/*": {
-      "import": "./dist/drafts/*.txt"
+      "import": "./dist/drafts/*.js"
     }
   },
   "devDependencies": {

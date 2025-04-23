@@ -1,232 +1,159 @@
-/**
- * The theme keys in an object format.
- * ALL CREATED, PUBLICLY-FACING VARIABLES MUST BE RECORDED HERE
- */
-export type StratumTheme = typeof emptyTheme;
+import { createEmptyColorSet } from "./utils";
 
+export type StratumTheme = typeof emptyTheme;
+export type PresetConfig = typeof emptyPresetConfig;
+export type PresetNames = (typeof presetNames)[number];
+export type ColorSets = (typeof colorSets)[number];
+export type ColorShades = (typeof colorShades)[number];
+export type SharedPresetVariables = keyof typeof emptySharedPresetVars;
+
+export const colorSets = ["primary", "secondary", "tertiary", "success", "warning", "error", "surface"] as const;
+export const colorShades = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950] as const;
+export const presetNames = ["pip", "typography", "forms"] as const;
+
+export const emptyPresetConfig: { [K in PresetNames]: boolean } = {
+  forms: false,
+  pip: false,
+  typography: false,
+};
+
+/** variables used by two or more presets */
+const emptySharedPresetVars = {
+  radiusBase: "",
+};
+
+/** A map of each preset's use of a shared variable */
+export const sharedPresetVarsMap: {
+  [k in PresetNames]: SharedPresetVariables[];
+} = {
+  typography: [],
+  forms: ["radiusBase"],
+  pip: ["radiusBase"],
+};
+
+/**
+ * An object representation of all configurable stratum variables.
+ * Note that this does not include any auto-generated variables (color pairings, contrast color pairings).
+ */
 export const emptyTheme = {
   base: {
-    "--base-text-scaling": "",
-    "--base-font-color": "",
-    "--base-font-color-dark": "",
-    "--base-background-color": "",
-    "--base-background-color-dark": "",
-    "--base-font-family": "",
-    "--base-font-size": "",
-    "--base-line-height": "",
-    "--base-font-weight": "",
-    "--base-font-style": "",
-    "--base-letter-spacing": "",
-  },
-  presets: {
-    shared: {
-      "--radius-preset-base": "",
-    },
-    typography: {
-      anchor: {
-        "--color-preset-anchor-light": "",
-        "--color-preset-anchor-dark": "",
-        "--font-preset-anchor": "",
-        "--font-weight-preset-anchor": "",
-        "--style-preset-anchor": "",
-        "--tracking-preset-anchor": "",
-      },
-      heading: {
-        "--color-preset-heading-light": "",
-        "--color-preset-heading-dark": "",
-        "--font-preset-heading": "",
-        "--font-weight-preset-heading": "",
-        "--style-preset-heading": "",
-        "--tracking-preset-heading": "",
-      },
-    },
+    fontColor: "",
+    fontColorDark: "",
+    backgroundColor: "",
+    backgroundColorDark: "",
+    fontFamily: "",
+    fontWeight: "",
+    fontSize: "",
+    lineHeight: "",
+    fontStyle: "",
+    textScaling: "",
+    letterSpacing: "",
   },
   colors: {
-    main: {
-      primary: {
-        "--color-primary-50": "",
-        "--color-primary-100": "",
-        "--color-primary-200": "",
-        "--color-primary-300": "",
-        "--color-primary-400": "",
-        "--color-primary-500": "",
-        "--color-primary-600": "",
-        "--color-primary-700": "",
-        "--color-primary-800": "",
-        "--color-primary-900": "",
-        "--color-primary-950": "",
-      },
-      secondary: {
-        "--color-secondary-50": "",
-        "--color-secondary-100": "",
-        "--color-secondary-200": "",
-        "--color-secondary-300": "",
-        "--color-secondary-400": "",
-        "--color-secondary-500": "",
-        "--color-secondary-600": "",
-        "--color-secondary-700": "",
-        "--color-secondary-800": "",
-        "--color-secondary-900": "",
-        "--color-secondary-950": "",
-      },
-      tertiary: {
-        "--color-tertiary-50": "",
-        "--color-tertiary-100": "",
-        "--color-tertiary-200": "",
-        "--color-tertiary-300": "",
-        "--color-tertiary-400": "",
-        "--color-tertiary-500": "",
-        "--color-tertiary-600": "",
-        "--color-tertiary-700": "",
-        "--color-tertiary-800": "",
-        "--color-tertiary-900": "",
-        "--color-tertiary-950": "",
-      },
-      success: {
-        "--color-success-50": "",
-        "--color-success-100": "",
-        "--color-success-200": "",
-        "--color-success-300": "",
-        "--color-success-400": "",
-        "--color-success-500": "",
-        "--color-success-600": "",
-        "--color-success-700": "",
-        "--color-success-800": "",
-        "--color-success-900": "",
-        "--color-success-950": "",
-      },
-      warning: {
-        "--color-warning-50": "",
-        "--color-warning-100": "",
-        "--color-warning-200": "",
-        "--color-warning-300": "",
-        "--color-warning-400": "",
-        "--color-warning-500": "",
-        "--color-warning-600": "",
-        "--color-warning-700": "",
-        "--color-warning-800": "",
-        "--color-warning-900": "",
-        "--color-warning-950": "",
-      },
-      error: {
-        "--color-error-50": "",
-        "--color-error-100": "",
-        "--color-error-200": "",
-        "--color-error-300": "",
-        "--color-error-400": "",
-        "--color-error-500": "",
-        "--color-error-600": "",
-        "--color-error-700": "",
-        "--color-error-800": "",
-        "--color-error-900": "",
-        "--color-error-950": "",
-      },
-      surface: {
-        "--color-surface-50": "",
-        "--color-surface-100": "",
-        "--color-surface-200": "",
-        "--color-surface-300": "",
-        "--color-surface-400": "",
-        "--color-surface-500": "",
-        "--color-surface-600": "",
-        "--color-surface-700": "",
-        "--color-surface-800": "",
-        "--color-surface-900": "",
-        "--color-surface-950": "",
-      },
+    primary: { ...createEmptyColorSet(), contrasts: createEmptyColorSet() },
+    secondary: { ...createEmptyColorSet(), contrasts: createEmptyColorSet() },
+    tertiary: { ...createEmptyColorSet(), contrasts: createEmptyColorSet() },
+    success: { ...createEmptyColorSet(), contrasts: createEmptyColorSet() },
+    warning: { ...createEmptyColorSet(), contrasts: createEmptyColorSet() },
+    error: { ...createEmptyColorSet(), contrasts: createEmptyColorSet() },
+    surface: { ...createEmptyColorSet(), contrasts: createEmptyColorSet() },
+  },
+  presets: {
+    shared: emptySharedPresetVars,
+    typography: {
+      anchorColor: "",
+      anchorColorDark: "",
+      anchorFontFamily: "",
+      anchorFontWeight: "",
+      anchorFontStyle: "",
+      anchorLetterSpacing: "",
+      headingColor: "",
+      headingColorDark: "",
+      headingFontFamily: "",
+      headingFontWeight: "",
+      headingFontStyle: "",
+      headingLetterSpacing: "",
     },
-    contrasts: {
-      primary: {
-        "--color-contrast-primary-50": "",
-        "--color-contrast-primary-100": "",
-        "--color-contrast-primary-200": "",
-        "--color-contrast-primary-300": "",
-        "--color-contrast-primary-400": "",
-        "--color-contrast-primary-500": "",
-        "--color-contrast-primary-600": "",
-        "--color-contrast-primary-700": "",
-        "--color-contrast-primary-800": "",
-        "--color-contrast-primary-900": "",
-        "--color-contrast-primary-950": "",
-      },
-      secondary: {
-        "--color-contrast-secondary-50": "",
-        "--color-contrast-secondary-100": "",
-        "--color-contrast-secondary-200": "",
-        "--color-contrast-secondary-300": "",
-        "--color-contrast-secondary-400": "",
-        "--color-contrast-secondary-500": "",
-        "--color-contrast-secondary-600": "",
-        "--color-contrast-secondary-700": "",
-        "--color-contrast-secondary-800": "",
-        "--color-contrast-secondary-900": "",
-        "--color-contrast-secondary-950": "",
-      },
-      tertiary: {
-        "--color-contrast-tertiary-50": "",
-        "--color-contrast-tertiary-100": "",
-        "--color-contrast-tertiary-200": "",
-        "--color-contrast-tertiary-300": "",
-        "--color-contrast-tertiary-400": "",
-        "--color-contrast-tertiary-500": "",
-        "--color-contrast-tertiary-600": "",
-        "--color-contrast-tertiary-700": "",
-        "--color-contrast-tertiary-800": "",
-        "--color-contrast-tertiary-900": "",
-        "--color-contrast-tertiary-950": "",
-      },
-      success: {
-        "--color-contrast-success-50": "",
-        "--color-contrast-success-100": "",
-        "--color-contrast-success-200": "",
-        "--color-contrast-success-300": "",
-        "--color-contrast-success-400": "",
-        "--color-contrast-success-500": "",
-        "--color-contrast-success-600": "",
-        "--color-contrast-success-700": "",
-        "--color-contrast-success-800": "",
-        "--color-contrast-success-900": "",
-        "--color-contrast-success-950": "",
-      },
-      warning: {
-        "--color-contrast-warning-50": "",
-        "--color-contrast-warning-100": "",
-        "--color-contrast-warning-200": "",
-        "--color-contrast-warning-300": "",
-        "--color-contrast-warning-400": "",
-        "--color-contrast-warning-500": "",
-        "--color-contrast-warning-600": "",
-        "--color-contrast-warning-700": "",
-        "--color-contrast-warning-800": "",
-        "--color-contrast-warning-900": "",
-        "--color-contrast-warning-950": "",
-      },
-      error: {
-        "--color-contrast-error-50": "",
-        "--color-contrast-error-100": "",
-        "--color-contrast-error-200": "",
-        "--color-contrast-error-300": "",
-        "--color-contrast-error-400": "",
-        "--color-contrast-error-500": "",
-        "--color-contrast-error-600": "",
-        "--color-contrast-error-700": "",
-        "--color-contrast-error-800": "",
-        "--color-contrast-error-900": "",
-        "--color-contrast-error-950": "",
-      },
-      surface: {
-        "--color-contrast-surface-50": "",
-        "--color-contrast-surface-100": "",
-        "--color-contrast-surface-200": "",
-        "--color-contrast-surface-300": "",
-        "--color-contrast-surface-400": "",
-        "--color-contrast-surface-500": "",
-        "--color-contrast-surface-600": "",
-        "--color-contrast-surface-700": "",
-        "--color-contrast-surface-800": "",
-        "--color-contrast-surface-900": "",
-        "--color-contrast-surface-950": "",
-      },
-    }
+    forms: {},
+    pip: {},
   },
 };
+
+const colorVarsToThemeMap = (() => {
+  const obj: any = {};
+  colorSets.forEach((set) => {
+    colorShades.forEach((shade) => {
+      obj[`--color-${set}-${shade}`] = ["colors", set, shade];
+      obj[`--color-contrast-${set}-${shade}`] = ["colors", set, "contrasts", shade];
+    });
+  });
+
+  type ColorVar = `--color-${ColorSets}-${ColorShades}`;
+  type ColorContrastVar = `--color-contrast-${ColorSets}-${ColorShades}`;
+
+  type GetColorSet<T extends ColorVar> = T extends `--color-${infer R}-${ColorShades}` ? R : never;
+  type GetColorContrastSet<T extends ColorContrastVar> = T extends `--color-contrast-${infer R}-${ColorShades}` ? R : never;
+  type GetColorShade<T extends ColorVar> = T extends `--color-${ColorSets}-${infer R}` ? R : never;
+  type GetColorContrastShade<T extends ColorContrastVar> = T extends `--color-contrast-${ColorSets}-${infer R}` ? R : never;
+
+  type ColorMap = {
+    [K in `--color-${ColorSets}-${ColorShades}`]: ["colors", GetColorSet<K>, GetColorShade<K>];
+  } & {
+    [K in `--color-contrast-${ColorSets}-${ColorShades}`]: ["colors", "contrast", GetColorContrastSet<K>, GetColorContrastShade<K>];
+  };
+
+  return obj as ColorMap;
+})();
+
+/** a mapping from css variable names to theme object paths */
+export const CSSToThemeMap = {
+  // base
+  "--base-text-scaling": ["base", "textScaling"],
+  "--base-font-color": ["base", "fontColor"],
+  "--base-font-color-dark": ["base", "fontColorDark"],
+  "--base-background-color": ["base", "backgroundColor"],
+  "--base-background-color-dark": ["base", "backgroundColorDark"],
+  "--base-font-family": ["base", "fontFamily"],
+  "--base-font-weight": ["base", "fontWeight"],
+  "--base-font-size": ["base", "fontSize"],
+  "--base-line-height": ["base", "lineHeight"],
+  "--base-font-style": ["base", "fontStyle"],
+  "--base-letter-spacing": ["base", "letterSpacing"],
+
+  // colors
+  ...colorVarsToThemeMap,
+
+  // presets -shared
+  "--radius-preset-base": ["presets", "shared", "radiusBase"],
+
+  // presets - typography
+  "--color-preset-anchor-light": ["presets", "typography", "anchorColor"],
+  "--color-preset-anchor-dark": ["presets", "typography", "anchorColorDark"],
+  "--font-preset-anchor": ["presets", "typography", "anchorFontFamily"],
+  "--font-weight-preset-anchor": ["presets", "typography", "anchorFontWeight"],
+  "--style-preset-anchor": ["presets", "typography", "anchorFontStyle"],
+  "--tracking-preset-anchor": ["presets", "typography", "anchorLetterSpacing"],
+  "--color-preset-heading-light": ["presets", "typography", "headingColor"],
+  "--color-preset-heading-dark": ["presets", "typography", "headingColorDark"],
+  "--font-preset-heading": ["presets", "typography", "headingFontFamily"],
+  "--font-weight-preset-heading": ["presets", "typography", "headingFontWeight"],
+  "--style-preset-heading": ["presets", "typography", "headingFontStyle"],
+  "--tracking-preset-heading": ["presets", "typography", "headingLetterSpacing"],
+};
+
+/** a mapping from theme object paths to css variables */
+export const ThemeToCSSMap = (() => {
+  const theme: any = structuredClone(emptyTheme);
+  Object.entries(CSSToThemeMap).forEach(([key, [...stack]]) => {
+    let obj = theme;
+    const leaf = stack.pop() as string;
+
+    for (let _key of stack) {
+      obj = obj[_key];
+    }
+
+    obj[leaf] = key;
+  });
+
+  return theme as StratumTheme;
+})();

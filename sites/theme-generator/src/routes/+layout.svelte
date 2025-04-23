@@ -1,5 +1,6 @@
 <script lang="ts">
   import { app } from "$lib/app.svelte";
+  import { ThemeToCSSMap } from "@nasheomirro/stratum-theme";
   import "../app.css";
 
   let { children } = $props();
