@@ -6,18 +6,10 @@ vite.config.ts.timestamp-*
 # build output
 out/
 dist/
-.vercel/
-**/plugin/generated
 
 # generated
-.vercel/
-.netlify/
 .wrangler/
-.astro/
 .svelte-kit/
-.next/
-next-env.d.ts
-sites/skeleton.dev/src/content/schemas/**/*.json
 
 # dependencies
 node_modules/

@@ -8,18 +8,16 @@
   }
 
   body {
-    color: var(--base-font-color);
-    background-color: var(--base-background-color);
+    color: light-dark(var(--base-font-color), var(--base-font-color-dark));
+    background-color: light-dark(
+      var(--base-background-color),
+      var(--base-background-color-dark)
+    );
     font-family: var(--base-font-family);
     font-size: var(--base-font-size);
     line-height: var(--base-line-height);
     font-style: var(--base-font-style);
     font-weight: var(--base-font-weight);
     letter-spacing: var(--base-letter-spacing);
-
-    @variant dark {
-      color: var(--base-font-color-dark);
-      background-color: var(--base-background-color-dark);
-    }
   }
 }
