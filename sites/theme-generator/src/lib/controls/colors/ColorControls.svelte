@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { colorNames } from "$lib/constants";
+  import { colorNames } from "$lib/utils/colors";
   import Controls from "$lib/components/Controls.svelte";
   import ColorPaletteControls from "./ColorPaletteControls.svelte";
   import { app } from "$lib/app.svelte";

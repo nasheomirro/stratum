@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { colorNames, colorShades } from "$lib/constants";
+  import { colorNames, colorShades } from "$lib/utils/colors";
 
   type Props = {
     hasInherit?: boolean;

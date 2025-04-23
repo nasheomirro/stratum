@@ -1,7 +1,6 @@
 <script lang="ts">
   import chroma from "chroma-js";
-  import { colorNames, colorShades } from "$lib/constants";
-  import { genScaleFromSeed, genRandomSeed, genScale } from "$lib/utils/colors";
+  import { genScaleFromSeed, genRandomSeed, genScale, colorNames, colorShades } from "$lib/utils/colors";
 
   type Props = {
     colorName: (typeof colorNames)[number];
