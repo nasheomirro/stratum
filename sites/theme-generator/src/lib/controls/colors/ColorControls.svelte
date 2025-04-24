@@ -1,22 +1,28 @@
 <script lang="ts">
   import { colorSets, type ColorSets } from "@nasheomirro/stratum-theme";
-  import Controls from "$lib/components/Controls.svelte";
-  import ColorPaletteControls from "./ColorPaletteControls.svelte";
+  import Icon from "~icons/material-symbols/palette";
+  
   import { app } from "$lib/app.svelte";
+  import ControlDropdown from "$lib/components/ControlDropdown.svelte";
+  import ColorPaletteControls from "./ColorPaletteControls.svelte";
 
   let activeColorSet = $state<ColorSets>("primary");
 </script>
 
-<Controls title="Colors">
+<ControlDropdown>
+  {#snippet head()}
+    <Icon /> Colors
+  {/snippet}
   <p class="text-xs">choose a color to edit from the colors below:</p>
   <div class="grid grid-cols-7 gap-2">
     {#each colorSets as colorSet}
       <div>
-        <label
-          class="block w-full h-10 rounded bg-{colorSet}-500 opacity-50 {activeColorSet === colorSet &&
-            '!opacity-100 outline outline-offset-1'}"
-        >
-          <input type="radio" class="hidden" name="color-name" bind:group={activeColorSet} value={colorSet} />
+        <label class="block w-full h-10 rounded focus-within:brightness-110">
+          <div
+            class="w-full h-full bg-{colorSet}-500 opacity-50 {activeColorSet === colorSet &&
+              '!opacity-100 outline outline-primary-500 outline-offset-1'}"
+          ></div>
+          <input type="radio" class="absolute opacity-0" name="color-name" bind:group={activeColorSet} value={colorSet} />
         </label>
       </div>
     {/each}
@@ -37,4 +43,4 @@
       chooses which contrasts best with the given shade but doesn't garauntee that it will be up to WCAG standards.
     </p>
   </div>
-</Controls>
+</ControlDropdown>

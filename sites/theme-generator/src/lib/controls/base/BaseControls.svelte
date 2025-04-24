@@ -1,10 +1,15 @@
 <script>
   import { app } from "$lib/app.svelte";
-  import Controls from "$lib/components/Controls.svelte";
+  import Icon from "~icons/material-symbols/view-column-outline-rounded";
+
   import ColorOptions from "$lib/components/ColorOptions.svelte";
+  import ControlDropdown from "$lib/components/ControlDropdown.svelte";
 </script>
 
-<Controls title="Base">
+<ControlDropdown>
+  {#snippet head()}
+  <Icon /> Base
+{/snippet}
   <div class="space-y-1">
     <h3 class="hd-6">colors</h3>
     <p class="text-xs">
@@ -100,4 +105,4 @@
       text-scaling is multiplied to all <code class="base:code py-0">text-[size]</code> utilities.
     </p>
   </div>
-</Controls>
+</ControlDropdown>

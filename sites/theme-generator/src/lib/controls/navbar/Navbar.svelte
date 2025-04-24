@@ -21,7 +21,7 @@
 
 <div
   bind:this={navbar}
-  class="p-4 flex items-center justify-between border-b border-b-surface-200-800 sticky top-0 bg-surface-50-950 z-10"
+  class="p-4 flex items-center justify-between border-b border-b-surface-200-800 sticky top-0 bg-surface-100-900 z-10"
   id="navbar"
 >
   <DarkToggle />

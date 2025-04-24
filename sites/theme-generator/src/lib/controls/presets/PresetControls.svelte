@@ -1,10 +1,15 @@
 <script lang="ts">
   import { app } from "$lib/app.svelte";
+  import Icon from "~icons/material-symbols/box-add";
+
   import ColorOptions from "$lib/components/ColorOptions.svelte";
-  import Controls from "$lib/components/Controls.svelte";
+  import ControlDropdown from "$lib/components/ControlDropdown.svelte";
 </script>
 
-<Controls title="Presets">
+<ControlDropdown>
+  {#snippet head()}
+    <Icon /> Presets
+  {/snippet}
   <p class="text-xs">some presets are customizable through theme variables, you can configure them by checking the boxes below:</p>
 
   <div class="space-y-2">
@@ -163,4 +168,4 @@
       </label>
     </div>
   {/if}
-</Controls>
+</ControlDropdown>

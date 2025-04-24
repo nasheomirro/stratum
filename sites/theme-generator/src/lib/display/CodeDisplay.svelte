@@ -54,7 +54,7 @@
 
       <button class="btn ml-auto filled-primary-200-800" onclick={handleCopyClick}>{btnText}</button>
     </div>
-    <pre class="code-block max-h-92">{app.generated.theme}</pre>
+    <pre class="code-block max-h-92 rounded-preset-base">{app.generated.theme}</pre>
   </div>
 
   <div class="space-y-4">
