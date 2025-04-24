@@ -1,7 +1,7 @@
 <script lang="ts">
   import chroma from "chroma-js";
-  import { genScaleFromSeed, genRandomSeed, genScale, colorNames, colorShades } from "$lib/utils/colors";
-  import type { ColorSets, ColorShades, StratumTheme } from "@nasheomirro/stratum-theme";
+  import { genScaleFromSeed, genRandomSeed, genScale } from "$lib/utils/colors";
+  import { colorShades, type ColorSets, type ColorShades, type StratumTheme } from "@nasheomirro/stratum-theme";
 
   type Props = {
     colorName: ColorSets;

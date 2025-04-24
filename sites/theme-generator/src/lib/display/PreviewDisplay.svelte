@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { colorNames, colorShades } from "$lib/utils/colors";
   import { bgColors, textColors } from "./colors";
   import { app } from "$lib/app.svelte";
   import PresetSection from "./PresetSection.svelte";
+  import { colorSets, colorShades } from "@nasheomirro/stratum-theme";
 </script>
 
 <div class="pt-10 pb-30 px-4 lg:px-10 space-y-16 relative z-0">
@@ -56,7 +56,7 @@
       <p>Colors are set as each cell's backgrounds with the contrast being set as their texts.</p>
     </div>
     <div class="grid grid-cols-7">
-      {#each colorNames as colorName, i}
+      {#each colorSets as colorName, i}
         <div>
           <p class="text-center break-words h-9 font-semibold text-surface-600-400 hidden sm:block md:hidden lg:block">
             {colorName}

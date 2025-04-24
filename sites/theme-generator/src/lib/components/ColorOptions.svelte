@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { colorNames, colorShades } from "$lib/utils/colors";
+  import { colorSets, colorShades } from "@nasheomirro/stratum-theme";
 
   type Props = {
     hasInherit?: boolean;
@@ -13,7 +13,7 @@
   <option value="inherit">inherit</option>
 </optgroup>
 {/if}
-{#each colorNames as colorName}
+{#each colorSets as colorName}
   <optgroup label={colorName}>
     {#each colorShades as colorShade}
       <option value={`var(--color-${colorName}-${colorShade})`}
