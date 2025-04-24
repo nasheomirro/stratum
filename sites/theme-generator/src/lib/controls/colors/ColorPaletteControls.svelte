@@ -2,11 +2,12 @@
   import chroma from "chroma-js";
   import { genScaleFromSeed, genRandomSeed, genScale } from "$lib/utils/colors";
   import { colorShades, type ColorSets, type ColorShades, type StratumTheme } from "@nasheomirro/stratum-theme";
+  import { app } from "$lib/app.svelte";
 
   type Props = {
     colorName: ColorSets;
     colorSet: StratumTheme["colors"]["primary"];
-    contrastSet: { [K: string]: string };
+    contrastSet: StratumTheme["colors"]["primary"]["contrasts"];
   };
 
   const { colorName, colorSet = $bindable(), contrastSet = $bindable() }: Props = $props();
@@ -20,11 +21,12 @@
    * Hey buddy, this is a "always-generated" value, it uses var(--color-*).
    */
   function setColorContrastValue(value: string, colorShade: ColorShades) {
-    const l = colorSet[50];
-    const d = colorSet[950];
+    const v = chroma(value);
+    const l = chroma(colorSet[50]);
+    const d = chroma(colorSet[950]);
 
-    const best = chroma.contrast(value, l) > chroma.contrast(value, d) ? `var(--color-${colorName}-50)` : `var(--color-${colorName}-950)`;
-    contrastSet[`--color-contrast-${colorName}-${colorShade}`] = best;
+    const best = chroma.contrast(v, l) > chroma.contrast(v, d) ? `var(--color-${colorName}-50)` : `var(--color-${colorName}-950)`;
+    contrastSet[colorShade] = best;
   }
 
   function setToAutomatedScale() {
@@ -121,9 +123,9 @@
 </div>
 
 <div class="flex justify-between">
-  <button class="btn btn-sm filled-primary-500" onclick={handleClick} data-action="random">random</button>
+  <button class="btn btn-sm filled-{app.activeColor}-200-800" onclick={handleClick} data-action="random">random</button>
   {#if mode !== "manual"}
-    <button class="btn btn-sm filled-primary-100-900" onclick={handleClick} data-action="regenerate">regenerate</button>
+    <button class="btn btn-sm filled-{app.activeColor}-100-900" onclick={handleClick} data-action="regenerate">regenerate</button>
   {/if}
 </div>
 

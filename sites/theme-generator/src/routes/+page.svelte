@@ -6,8 +6,8 @@
   import BaseControls from "$lib/controls/base/BaseControls.svelte";
   import ColorControls from "$lib/controls/colors/ColorControls.svelte";
   import PresetControls from "$lib/controls/presets/PresetControls.svelte";
-  import PreviewDisplay from "$lib/display/PreviewDisplay.svelte";
   import CodeDisplay from "$lib/display/CodeDisplay.svelte";
+  import PreviewPanel from "$lib/display/PreviewPanel.svelte";
 </script>
 
 <Navbar />
@@ -35,7 +35,7 @@
     {#if app.display === "code"}
       <CodeDisplay />
     {:else if app.display === "preview" || app.display === "controls-preview"}
-      <PreviewDisplay />
+      <PreviewPanel />
     {/if}
   </div>
 </div>

@@ -1,17 +1,16 @@
 <script lang="ts">
   import { colorSets, type ColorSets } from "@nasheomirro/stratum-theme";
-  import Icon from "~icons/material-symbols/palette";
-  
+  import PaletteIcon from "~icons/material-symbols/palette";
+  import PenIcon from "~icons/material-symbols/pen-size-5";
+
   import { app } from "$lib/app.svelte";
   import ControlDropdown from "$lib/components/ControlDropdown.svelte";
   import ColorPaletteControls from "./ColorPaletteControls.svelte";
-
-  let activeColorSet = $state<ColorSets>("primary");
 </script>
 
 <ControlDropdown>
   {#snippet head()}
-    <Icon /> Colors
+    <PaletteIcon /> Colors
   {/snippet}
   <p class="text-xs">choose a color to edit from the colors below:</p>
   <div class="grid grid-cols-7 gap-2">
@@ -19,22 +18,25 @@
       <div>
         <label class="block w-full h-10 rounded focus-within:brightness-110">
           <div
-            class="w-full h-full bg-{colorSet}-500 opacity-50 {activeColorSet === colorSet &&
-              '!opacity-100 outline outline-primary-500 outline-offset-1'}"
-          ></div>
-          <input type="radio" class="absolute opacity-0" name="color-name" bind:group={activeColorSet} value={colorSet} />
+            style="--outline-color: light-dark(var(--color-{colorSet}-100), var(--color-{colorSet}-900));"
+            class="flex items-center justify-center text-contrast-{colorSet}-500 w-full h-full rounded bg-{colorSet}-500 opacity-50
+            {app.activeColor === colorSet && '!opacity-100 outline-3 outline-(--outline-color)'}"
+          >
+            {#if app.activeColor === colorSet}
+              <PenIcon />
+            {/if}
+          </div>
+          <input type="radio" class="absolute opacity-0" name="color-name" bind:group={app.activeColor} value={colorSet} />
         </label>
       </div>
     {/each}
   </div>
 
-  {#key activeColorSet}
-    <ColorPaletteControls
-      colorName={activeColorSet}
-      bind:colorSet={app.theme.colors[activeColorSet]}
-      bind:contrastSet={app.theme.colors[activeColorSet].contrasts}
-    />
-  {/key}
+  <ColorPaletteControls
+    colorName={app.activeColor}
+    bind:colorSet={app.theme.colors[app.activeColor]}
+    bind:contrastSet={app.theme.colors[app.activeColor].contrasts}
+  />
 
   <div class="space-y-1">
     <h3 class="hd-6 font-bold">contrast colors</h3>
