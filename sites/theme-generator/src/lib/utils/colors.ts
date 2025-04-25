@@ -18,8 +18,14 @@ export function genScaleFromSeed(seed: Color) {
   return genScale([l, m, d]);
 }
 
-export function genRandomSeed() {
-  const lightness = Math.random() * 0.15 + 0.45; // Random between 0.45 to 0.6
-  const chromaColor = chroma.random().set("hsl.l", lightness);
+export function genRandomSeed(lightness: [number, number] = [0.45, 0.6], saturation?: [number, number]) {
+  const l = Math.random() * (lightness[1] - lightness[0]) + lightness[0]; // Random between the given range
+  let chromaColor = chroma.random().set("hsl.l", l);
+
+  if (saturation) {
+    const s = Math.random() * (saturation[1] - saturation[0]) + saturation[0]; // Random between the given range
+    chromaColor = chromaColor.set("hsl.s", s);
+  }
+
   return chromaColor;
 }
