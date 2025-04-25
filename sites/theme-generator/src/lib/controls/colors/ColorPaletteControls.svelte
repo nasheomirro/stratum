@@ -49,7 +49,7 @@
   }
 
   function setToRandomScale() {
-    const seed = genRandomSeed(colorName === "surface" ? [0.65, 0.75] : undefined, colorName === "surface" ? [0.4, 0.6] : undefined);
+    const seed = genRandomSeed(colorName === "surface" ? [0.65, 0.75] : undefined, colorName === "surface" ? [0.3, 0.6] : undefined);
     const colors = genScaleFromSeed(seed);
 
     for (let i = 0; i < colorShades.length; i++) {
