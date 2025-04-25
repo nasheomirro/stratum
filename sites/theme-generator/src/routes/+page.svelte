@@ -8,6 +8,7 @@
   import PresetControls from "$lib/controls/presets/PresetControls.svelte";
   import CodeDisplay from "$lib/display/CodeDisplay.svelte";
   import PreviewPanel from "$lib/display/PreviewPanel.svelte";
+  import TextControls from "$lib/controls/text/TextControls.svelte";
 </script>
 
 <Navbar />
@@ -21,8 +22,8 @@
     style="top: {navbarState.height}px; --max-h: calc(100vh - {navbarState.height}px);"
   >
     <div>
-      <BaseControls />
       <ColorControls />
+      <TextControls />
       <PresetControls />
     </div>
   </div>

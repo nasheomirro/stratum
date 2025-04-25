@@ -4,11 +4,12 @@
   type Props = {
     head: Snippet;
     children: Snippet;
+    initialDown?: boolean;
   };
 
-  const {head, children }: Props = $props();
+  const {head, children, initialDown = false }: Props = $props();
 
-  let isDown = $state(false);
+  let isDown = $state(initialDown);
 
   let inner: HTMLElement;
   let outer: HTMLElement;
@@ -40,7 +41,7 @@
   </button>
 
   <div bind:this={outer} class="h-0 overflow-hidden transition-[height] ease-in-out">
-    <div bind:this={inner} inert={!isDown} class="border-b p-4 space-y-4">
+    <div bind:this={inner} inert={!isDown} class="border-b p-4 xl:p-6 space-y-4">
         {@render children()}
     </div>
   </div>

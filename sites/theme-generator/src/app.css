@@ -20,9 +20,9 @@
 }
 
 @utility label-text {
-  @apply text-xs text-surface-600-400 font-bold;
+  @apply text-sm text-surface-800-200 font-semibold;
 }
 
 @utility form-field-caption {
-  @apply text-xs text-surface-500;
+  @apply text-sm text-surface-900-100;
 }
