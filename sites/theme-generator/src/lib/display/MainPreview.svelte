@@ -94,7 +94,10 @@
       <div class="filled-surface-100-900 border border-surface-100-900 items-center shadow rounded-lg overflow-hidden">
         <img src={sampleImg} alt="" class="object-cover w-full" />
         <div class="p-6">
-          <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eius autem et mollitia velit accusamus ipsum, quos eum molestiae voluptates!</p>
+          <p class="mb-4">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eius autem et mollitia velit accusamus ipsum, quos eum molestiae
+            voluptates!
+          </p>
           <div class="ml-auto w-fit">
             <button class="btn filled-{app.activeColor}-100-900"><BookIcon /> Read more</button>
           </div>
@@ -135,5 +138,19 @@
         <div class="h-2 rounded-xl bg-surface-300-700 w-1/4 ml-auto"></div>
       </div>
     </div>
+  </div>
+
+  <div class="flex gap-1 lg:gap-2">
+    <div class="h-1 w-full bg-{app.activeColor}-950"></div>
+    <div class="h-1 w-full bg-{app.activeColor}-900"></div>
+    <div class="h-1 w-full bg-{app.activeColor}-800"></div>
+    <div class="h-1 w-full bg-{app.activeColor}-700"></div>
+    <div class="h-1 w-full bg-{app.activeColor}-600"></div>
+    <div class="h-1 w-full bg-{app.activeColor}-500"></div>
+    <div class="h-1 w-full bg-{app.activeColor}-400"></div>
+    <div class="h-1 w-full bg-{app.activeColor}-300"></div>
+    <div class="h-1 w-full bg-{app.activeColor}-200"></div>
+    <div class="h-1 w-full bg-{app.activeColor}-100"></div>
+    <div class="h-1 w-full bg-{app.activeColor}-50"></div>
   </div>
 </div>
