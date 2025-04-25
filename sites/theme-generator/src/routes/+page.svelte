@@ -3,7 +3,6 @@
   import { navbarState } from "$lib/controls/navbar/navbar.svelte";
 
   import Navbar from "$lib/controls/navbar/Navbar.svelte";
-  import BaseControls from "$lib/controls/base/BaseControls.svelte";
   import ColorControls from "$lib/controls/colors/ColorControls.svelte";
   import PresetControls from "$lib/controls/presets/PresetControls.svelte";
   import CodeDisplay from "$lib/display/CodeDisplay.svelte";

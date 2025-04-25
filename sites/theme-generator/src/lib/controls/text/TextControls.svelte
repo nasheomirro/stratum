@@ -1,5 +1,6 @@
 <script>
   import { app } from "$lib/app.svelte";
+  import ColorVarInput from "$lib/components/ColorVarInput.svelte";
   import ControlDropdown from "$lib/components/ControlDropdown.svelte";
   import Icon from "~icons/material-symbols/custom-typography";
 </script>
@@ -8,9 +9,19 @@
   {#snippet head()}
     <Icon /> Texts
   {/snippet}
-  <div class="space-y-7">
+  <div class="space-y-6">
+    <label class="form-field">
+      <span class="label-text">font color - light</span>
+      <ColorVarInput bind:value={app.theme.base.fontColor} />
+    </label>
+
+    <label class="form-field">
+      <span class="label-text">font color - dark</span>
+      <ColorVarInput bind:value={app.theme.base.fontColorDark} />
+    </label>
+
     <div class="form-field">
-      <label class="label-text" for="--base-text-scaling">text-scaling</label>
+      <label class="label-text" for="--base-text-scaling">text scaling</label>
       <input class="input" bind:value={app.theme.base.textScaling} id="--base-text-scaling" defaultValue="inherit" />
       <p class="form-field-caption">
         Currently, text sizes aren't configurable individually. But text-scaling is multiplied to all <code class="base:code py-0"
@@ -23,7 +34,7 @@
       <label class="label-text" for="--base-font-family">font family</label>
       <input bind:value={app.theme.base.fontFamily} class="input" id="--base-font-family" defaultValue="inherit" />
       <p class="form-field-caption">
-        make sure your font is installed locally and you typed its name correctly if you want it shown on the display.
+        make sure your font is installed locally and you typed its name correctly, if correct it will show on the display.
       </p>
     </div>
 
