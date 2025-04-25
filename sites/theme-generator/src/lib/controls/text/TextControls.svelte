@@ -9,6 +9,17 @@
   {#snippet head()}
     <Icon /> Texts
   {/snippet}
+
+  <div class="form-field">
+    <label class="label-text" for="--base-text-scaling">text scaling</label>
+    <input class="input" bind:value={app.theme.base.textScaling} id="--base-text-scaling" defaultValue="inherit" />
+    <p class="form-field-caption">
+      Currently, text sizes aren't configurable individually. But text-scaling is multiplied to all <code class="base:code py-0"
+        >text-[size]</code
+      > utilities.
+    </p>
+  </div>
+
   <div class="space-y-6">
     <label class="form-field">
       <span class="label-text">font color - light</span>
@@ -19,16 +30,6 @@
       <span class="label-text">font color - dark</span>
       <ColorVarInput bind:value={app.theme.base.fontColorDark} />
     </label>
-
-    <div class="form-field">
-      <label class="label-text" for="--base-text-scaling">text scaling</label>
-      <input class="input" bind:value={app.theme.base.textScaling} id="--base-text-scaling" defaultValue="inherit" />
-      <p class="form-field-caption">
-        Currently, text sizes aren't configurable individually. But text-scaling is multiplied to all <code class="base:code py-0"
-          >text-[size]</code
-        > utilities.
-      </p>
-    </div>
 
     <div class="form-field">
       <label class="label-text" for="--base-font-family">font family</label>
