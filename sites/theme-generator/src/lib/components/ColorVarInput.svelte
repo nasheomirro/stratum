@@ -3,9 +3,11 @@
 
   type Props = {
     value: string;
+    /** this goes to the color set select element */
+    id?: string;
   };
 
-  let { value = $bindable() }: Props = $props();
+  let { value = $bindable(), id }: Props = $props();
   const setsRegExp = new RegExp(colorSets.join("|"));
 
   const currentSet = $derived(value.match(setsRegExp)?.[0] || "primary");
@@ -13,7 +15,7 @@
 </script>
 
 <div class="grid gap-1 grid-cols-[2.5fr_1fr]">
-  <select class="select" bind:value={() => currentSet, (v) => (value = value.replace(setsRegExp, v))}>
+  <select class="select" id={id} bind:value={() => currentSet, (v) => (value = value.replace(setsRegExp, v))}>
     {#each colorSets as colorSet}
       <option>{colorSet}</option>
     {/each}

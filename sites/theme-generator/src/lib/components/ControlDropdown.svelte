@@ -41,7 +41,7 @@
   </button>
 
   <div bind:this={outer} class="h-0 overflow-hidden transition-[height] ease-in-out">
-    <div bind:this={inner} inert={!isDown} class="border-b p-4 xl:p-6 space-y-4">
+    <div bind:this={inner} inert={!isDown} class="border-b p-4 xl:p-6 space-y-6">
         {@render children()}
     </div>
   </div>

@@ -8,6 +8,7 @@
   import CodeDisplay from "$lib/display/CodeDisplay.svelte";
   import PreviewPanel from "$lib/display/PreviewPanel.svelte";
   import TextControls from "$lib/controls/text/TextControls.svelte";
+  import BackgroundControls from "$lib/controls/background/BackgroundControls.svelte";
 </script>
 
 <Navbar />
@@ -23,6 +24,7 @@
     <div>
       <ColorControls />
       <TextControls />
+      <BackgroundControls />
       <PresetControls />
     </div>
   </div>
