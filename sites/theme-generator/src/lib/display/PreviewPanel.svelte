@@ -2,6 +2,7 @@
   import ColorPreview from "./ColorPreview.svelte";
   import MainPreview from "./MainPreview.svelte";
   import TextPreview from "./TextPreview.svelte";
+  import FormsPreview from "./presets/FormsPreview.svelte";
 
   import PipPreview from "./presets/PipPreview.svelte";
   import TypographyPreview from "./presets/TypographyPreview.svelte";
@@ -21,4 +22,6 @@
   <PipPreview />
   {@render divider()}
   <TypographyPreview />
+  {@render divider()}
+  <FormsPreview />
 </div>
