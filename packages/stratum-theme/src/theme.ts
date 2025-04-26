@@ -111,7 +111,7 @@ const colorVarsToThemeMap = (() => {
   type ColorMap = {
     [K in `--color-${ColorSets}-${ColorShades}`]: ["colors", GetColorSet<K>, GetColorShade<K>];
   } & {
-    [K in `--color-contrast-${ColorSets}-${ColorShades}`]: ["colors", "contrast", GetColorContrastSet<K>, GetColorContrastShade<K>];
+    [K in `--color-contrast-${ColorSets}-${ColorShades}`]: ["colors", GetColorContrastSet<K>, "contrast", GetColorContrastShade<K>];
   };
 
   return obj as ColorMap;

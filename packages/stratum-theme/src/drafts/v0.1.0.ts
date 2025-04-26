@@ -2,16 +2,16 @@ const draft = `
 /* [v1] [$$presets$$] */
 @theme {
     /* Base Global Properties */
-[slot]:base
+    [slot]:base
   
     /* Presets */
-[slot]:presets
+    [slot]:presets
   
     /* Color Sets */
-[slot]:color
+    [slot]:color
 
     /* Color Contrasts */
-[slot]:color-contrasts
+    [slot]:color-contrasts
 }
   
 @theme inline {

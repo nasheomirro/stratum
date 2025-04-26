@@ -23,11 +23,13 @@ export function StratumThemeToCSS(theme: StratumTheme, presetConfig: PresetConfi
   let colors = "";
   for (let key of Object.keys(theme.colors) as ColorSets[]) {
     colors += ObjectToCSSStr(theme.colors[key], ThemeToCSSMap.colors[key]);
+    colors += "\n";
   }
 
   let contrasts = "";
   for (let key of Object.keys(theme.colors) as ColorSets[]) {
-    colors += ObjectToCSSStr(theme.colors[key].contrasts, ThemeToCSSMap.colors[key].contrasts);
+    contrasts += ObjectToCSSStr(theme.colors[key].contrasts, ThemeToCSSMap.colors[key].contrasts);
+    contrasts += "\n";
   }
 
   let done: SharedPresetVariables[] = [];
@@ -63,10 +65,10 @@ export function StratumThemeToCSS(theme: StratumTheme, presetConfig: PresetConfi
   }
 
   res = res
-    .replace("[slot]:base", base)
-    .replace("[slot]:presets", presets)
-    .replace("[slot]:color", colors)
-    .replace("[slot]:color-contrasts", contrasts);
+    .replace("[slot]:base", base.trim())
+    .replace("[slot]:presets", presets.trim())
+    .replace("[slot]:color", colors.trim())
+    .replace("[slot]:color-contrasts", contrasts.trim());
 
   return {
     theme: res,

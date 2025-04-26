@@ -7,7 +7,7 @@
     initialDown?: boolean;
   };
 
-  const {head, children, initialDown = false }: Props = $props();
+  const { head, children, initialDown = false }: Props = $props();
 
   let isDown = $state(initialDown);
 
@@ -20,7 +20,7 @@
     const observer = new ResizeObserver((entries) => {
       for (let entry of entries) {
         const inner = entry.target;
-        calculatedHeight = `${inner.scrollHeight}px`;
+        calculatedHeight = `${inner.scrollHeight + 1}px`; // also account for the border width
       }
     });
 
@@ -32,7 +32,7 @@
   });
 </script>
 
-<div>
+<div class="group">
   <button
     onclick={() => (isDown = !isDown)}
     class="base:btn-full rounded-none text-left w-full text-2xl font-bold border-b border-surface-100-900 p-5 hover:filled-surface-200-800"
@@ -41,8 +41,8 @@
   </button>
 
   <div bind:this={outer} class="h-0 overflow-hidden transition-[height] ease-in-out">
-    <div bind:this={inner} inert={!isDown} class="border-b p-4 xl:p-6 space-y-6">
-        {@render children()}
+    <div bind:this={inner} inert={!isDown} class="border-b group-last-of-type:border-b-0 p-4 xl:p-6 space-y-6 border-surface-100-900">
+      {@render children()}
     </div>
   </div>
 </div>

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { colorSets, type ColorSets } from "@nasheomirro/stratum-theme";
+  import { colorSets } from "@nasheomirro/stratum-theme";
   import PaletteIcon from "~icons/material-symbols/palette";
   import PenIcon from "~icons/material-symbols/pen-size-5";
 
@@ -12,7 +12,7 @@
   {#snippet head()}
     <PaletteIcon /> Colors
   {/snippet}
-  <p class="text-xs">choose a color to edit from the colors below:</p>
+  <p>choose a color to edit from the colors below:</p>
   <div class="grid grid-cols-7 gap-2">
     {#each colorSets as colorSet}
       <div>
@@ -40,7 +40,7 @@
 
   <div class="space-y-1">
     <h3 class="hd-6 font-bold">contrast colors</h3>
-    <p class="text-xs">
+    <p class="text-sm">
       contrast colors for each shade is automatically created. Note that contrast colors are either the `50` shade or `950` shade, the app
       chooses which contrasts best with the given shade but doesn't garauntee that it will be up to WCAG standards.
     </p>
