@@ -1,6 +1,6 @@
 {
   "name": "@nasheomirro/stratum-theme",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "holds stratum's theme format and converter",
   "type": "module",
   "scripts": {

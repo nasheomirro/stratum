@@ -1,5 +1,11 @@
 # @nasheomirro/stratum
 
+## 0.1.2
+
+### Patch Changes
+
+- 60f1332: small refactors
+
 ## 0.1.1
 
 ### Patch Changes
