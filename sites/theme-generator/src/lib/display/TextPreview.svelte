@@ -1,7 +1,3 @@
-<script>
-  import { app } from "$lib/app.svelte";
-</script>
-
 <div class="space-y-8">
   <div class="space-y-2">
     <h2 class="hd-2">Text</h2>

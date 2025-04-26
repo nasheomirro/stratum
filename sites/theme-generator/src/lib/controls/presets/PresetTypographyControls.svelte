@@ -12,7 +12,7 @@
   {/snippet}
   <div class="space-y-4">
     <p>You have opted to use this preset, you can import it to your project by adding this to your main.css file:</p>
-    <pre class="code-block">@import "@nasheomirro/stratum/presets/forms";</pre>
+    <pre class="code-block">@import "@nasheomirro/stratum/presets/typography";</pre>
   </div>
 
   <div class="border-b border-surface-100-900"></div>
