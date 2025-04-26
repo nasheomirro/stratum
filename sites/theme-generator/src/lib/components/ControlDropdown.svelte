@@ -5,9 +5,10 @@
     head: Snippet;
     children: Snippet;
     initialDown?: boolean;
+    preset?: boolean;
   };
 
-  const { head, children, initialDown = false }: Props = $props();
+  const { head, children, initialDown = false, preset = false }: Props = $props();
 
   let isDown = $state(initialDown);
 
@@ -32,10 +33,12 @@
   });
 </script>
 
-<div class="group">
+<div class="group relative z-10 bg-surface-50-950">
   <button
     onclick={() => (isDown = !isDown)}
-    class="base:btn-full rounded-none text-left w-full text-2xl font-bold border-b border-surface-100-900 p-5 hover:filled-surface-200-800"
+    class="base:btn-full rounded-none text-left w-full {preset
+      ? 'text-xl'
+      : 'text-2xl'} font-bold border-b border-surface-100-900 p-5 hover:filled-surface-200-800"
   >
     {@render head()}
   </button>

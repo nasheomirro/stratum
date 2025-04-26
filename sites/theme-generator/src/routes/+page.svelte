@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { app } from "$lib/app.svelte";
   import { navbarState } from "$lib/controls/navbar/navbar.svelte";
 
@@ -9,6 +9,12 @@
   import PreviewPanel from "$lib/display/PreviewPanel.svelte";
   import TextControls from "$lib/controls/text/TextControls.svelte";
   import BackgroundControls from "$lib/controls/background/BackgroundControls.svelte";
+  import PresetPipControls from "$lib/controls/presets/PresetPipControls.svelte";
+  import { fade, fly } from "svelte/transition";
+  import { flip } from "svelte/animate";
+  import { type PresetNames } from "@nasheomirro/stratum-theme";
+  import PresetFormsControls from "$lib/controls/presets/PresetFormsControls.svelte";
+  import PresetTypographyControls from "$lib/controls/presets/PresetTypographyControls.svelte";
 </script>
 
 <Navbar />
@@ -26,9 +32,26 @@
       <TextControls />
       <BackgroundControls />
       <PresetControls />
+      {#if Object.values(app.presetConfig).some((v) => v)}
+        <div transition:fly={{ y: -20 }} class="z-0">
+          <div class="h-20 bg-surface-100-900/50"></div>
+          <div>
+            {#each (Object.keys(app.presetConfig) as PresetNames[]).filter((key) => app.presetConfig[key]) as key (key)}
+              <div animate:flip={{ duration: 200 }} transition:fly={{ x: -20 }}>
+                {#if key === "pip"}
+                  <PresetPipControls />
+                {:else if key === "forms"}
+                  <PresetFormsControls />
+                {:else if key === "typography"}
+                  <PresetTypographyControls />
+                {/if}
+              </div>
+            {/each}
+          </div>
+        </div>
+      {/if}
     </div>
   </div>
-
 
   <div
     class="row-start-1 col-start-1 md:row-start-auto md:col-start-auto {app.display === 'controls-preview' &&
