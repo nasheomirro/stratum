@@ -6,7 +6,7 @@
 
 <ControlDropdown preset>
   {#snippet head()}
-      <Icon /> preset/forms
+      <Icon /> presets/forms
   {/snippet}
   <div class="space-y-4">
     <p>You have opted to use this preset, you can import it to your project by adding this to your main.css file:</p>

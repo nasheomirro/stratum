@@ -4,10 +4,11 @@
   import BackIcon from "~icons/material-symbols/arrow-back-rounded";
   import UpArrowIcon from "~icons/material-symbols/arrow-upward";
   import DownArrowIcon from "~icons/material-symbols/arrow-downward";
+  import PresetPreview from "./PresetPreview.svelte";
 </script>
 
-<div class="space-y-8">
-  <div class="space-y-2">
+<PresetPreview name="pip" bind:show={app.presetConfig.pip}>
+  <div class="space-y-2 mb-8">
     <h2 class="hd-2">presets/pip</h2>
     <p>A quick way to add button and badge classes, anything that's small and looks like a button.</p>
   </div>
@@ -46,7 +47,7 @@
         </div>
       </div>
 
-      <div class="border border-surface-100-900 rounded-xl p-4 space-y-4">
+      <div class="border border-surface-100-900 rounded-xl p-4 space-y-4 shadow">
         <div class="flex gap-2 items-center">
           <div class="base:badge-icon badge-icon-lg rounded-full filled-{app.activeColor}-500">
             <PersonIcon />
@@ -69,7 +70,7 @@
       </div>
     </div>
     <div class="space-y-7">
-      <div class="border-surface-100-900 rounded-lg p-4 border flex items-center justify-between text-sm">
+      <div class="border-surface-100-900 rounded-lg p-4 border shadow flex items-center justify-between text-sm">
         <div class="relative flex gap-2 items-center w-fit cursor-pointer">
           <span>Home</span>
         </div>
@@ -82,7 +83,7 @@
         <div class="relative flex gap-2 items-center w-fit cursor-pointer">Pull Requests</div>
       </div>
 
-      <div class="border-surface-100-900 rounded-lg p-4 border space-y-2">
+      <div class="border-surface-100-900 rounded-lg p-4 border space-y-2 shadow">
         <button class="btn-full w-full hover:filled-surface-200-800">Introduction</button>
         <button class="btn-full w-full hover:filled-surface-200-800">Installation</button>
         <button class="btn-full w-full hover:filled-surface-200-800 font-bold">Using the theme generator</button>
@@ -124,7 +125,7 @@
           <div class="badge-icon bg-{app.activeColor}-400-600 text-surface-50">📦</div>
         </div>
       </div>
-      <div class="space-y-4 p-4 border-surface-100-900 border rounded-xl">
+      <div class="space-y-4 p-4 border-surface-100-900 border rounded-xl shadow">
         <div class="hd-2">EULA</div>
         <p class="text-justify">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt distinctio architecto velit amet nemo. Aperiam cum ex, suscipit
@@ -135,4 +136,4 @@
       </div>
     </div>
   </div>
-</div>
+</PresetPreview>

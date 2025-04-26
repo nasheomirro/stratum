@@ -1,10 +1,10 @@
 <script lang="ts">
-  import { app } from "$lib/app.svelte";
   import ColorPreview from "./ColorPreview.svelte";
   import MainPreview from "./MainPreview.svelte";
   import TextPreview from "./TextPreview.svelte";
 
   import PipPreview from "./presets/PipPreview.svelte";
+  import TypographyPreview from "./presets/TypographyPreview.svelte";
 </script>
 
 {#snippet divider()}
@@ -17,8 +17,8 @@
   <TextPreview />
   {@render divider()}
   <ColorPreview />
-  {#if app.presetConfig.pip}
-    {@render divider()}
-    <PipPreview />
-  {/if}
+  {@render divider()}
+  <PipPreview />
+  {@render divider()}
+  <TypographyPreview />
 </div>
