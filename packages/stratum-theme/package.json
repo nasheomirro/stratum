@@ -1,0 +1,28 @@
+{
+  "name": "@nasheomirro/stratum-theme",
+  "version": "0.0.0",
+  "description": "holds stratum's theme format and converter",
+  "type": "module",
+  "scripts": {
+    "clean": "rimraf dist/",
+    "copy:drafts": "copyfiles -f src/drafts/*.txt dist/drafts/",
+    "build": "npm run clean && tsc && npm run copy:drafts"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js"
+    },
+    "./drafts/*": {
+      "import": "./dist/drafts/*.js"
+    }
+  },
+  "devDependencies": {
+    "copyfiles": "^2.4.1",
+    "rimraf": "^5.0.10",
+    "typescript": "catalog:"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "packageManager": "pnpm@10.6.5"
+}
