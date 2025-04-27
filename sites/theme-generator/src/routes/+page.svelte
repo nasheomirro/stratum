@@ -5,16 +5,16 @@
   import Navbar from "$lib/controls/navbar/Navbar.svelte";
   import ColorControls from "$lib/controls/colors/ColorControls.svelte";
   import PresetControls from "$lib/controls/presets/PresetControls.svelte";
-  import CodeDisplay from "$lib/display/CodeDisplay.svelte";
   import PreviewPanel from "$lib/display/PreviewPanel.svelte";
   import TextControls from "$lib/controls/text/TextControls.svelte";
   import BackgroundControls from "$lib/controls/background/BackgroundControls.svelte";
   import PresetPipControls from "$lib/controls/presets/PresetPipControls.svelte";
-  import { fade, fly } from "svelte/transition";
+  import { fly } from "svelte/transition";
   import { flip } from "svelte/animate";
   import { type PresetNames } from "@nasheomirro/stratum-theme";
   import PresetFormsControls from "$lib/controls/presets/PresetFormsControls.svelte";
   import PresetTypographyControls from "$lib/controls/presets/PresetTypographyControls.svelte";
+  import CodePanel from "$lib/display/CodePanel.svelte";
 </script>
 
 <Navbar />
@@ -58,7 +58,7 @@
       'hidden'} md:block w-full overflow-x-auto"
   >
     {#if app.display === "code"}
-      <CodeDisplay />
+      <CodePanel />
     {:else if app.display === "preview" || app.display === "controls-preview"}
       <PreviewPanel />
     {/if}
